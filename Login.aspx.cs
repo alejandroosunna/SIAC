@@ -33,6 +33,7 @@ public partial class Login : System.Web.UI.Page
         else
         {
             //lblAlerta.Text = "Credenciales Incorrectas";
+            Response.Write(@"<script language = 'javascript'>alert('Credenciales incorrectas') </script>");
         }
     }
 }

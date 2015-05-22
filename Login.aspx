@@ -41,7 +41,7 @@
               <asp:TextBox id ="txtContraseña" runat ="server" Text ="Password" CssClass="form-control"></asp:TextBox>
               <%--<input type="password" placeholder="Password" class="form-control">--%>
             </div>
-              <asp:Button ID ="btnSignin" runat="server" Text="Sign In" CssClass="btn btn-success"></asp:Button>
+              <asp:Button ID ="btnLogin" runat="server" Text="Sign In" CssClass="btn btn-success" OnClick="btnLogin_Click"></asp:Button>
             <%--<button type="submit" class="btn btn-success">Sign in</button>--%>
           </form>
         </div><!--/.navbar-collapse -->
