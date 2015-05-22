@@ -32,7 +32,7 @@ public partial class Login : System.Web.UI.Page
         }
         else
         {
-            lblAlerta.Text = "Credenciales Incorrectas";
+            //lblAlerta.Text = "Credenciales Incorrectas";
         }
     }
 }
