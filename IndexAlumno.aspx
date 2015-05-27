@@ -46,7 +46,7 @@
                     <ul class="nav navbar-nav">
                          <p class="navbar-text">Usuario: <asp:Label ID="lblNombreUsuario" runat="server" Text=""></asp:Label></p> 
                          <p class="navbar-text">Numero de control: <asp:Label ID="lblnumControl" runat="server" Text=""></asp:Label></p> 
-                        <li data-target="#myCarousel" data-slide-to="0" >
+                        <li data-target="#myCarousel" data-slide-to="0">
                             <a href="#">Enblanco</a>
                         </li>
                         <li data-target="#myCarousel" data-slide-to="1">
@@ -55,7 +55,7 @@
                         <li data-target="#myCarousel" data-slide-to="2">
                             <a href="#">Citas</a>
                         </li>
-                        <li style="margin-left:400px;"><asp:HyperLink ID="lblCerrarSesion" runat="server" Text="Cerrar Sesion" NavigateUrl="~/IndexAlumno.aspx?IdLogin=true"></asp:HyperLink></li>
+                        <li style="margin-left:200px;"><asp:HyperLink ID="lblCerrarSesion" runat="server" Text="Cerrar Sesion" NavigateUrl="~/IndexAlumno.aspx?IdLogin=true"></asp:HyperLink></li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
