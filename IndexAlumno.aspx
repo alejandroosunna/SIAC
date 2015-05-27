@@ -46,7 +46,7 @@
                     <ul class="nav navbar-nav">
                          <p class="navbar-text">Usuario: <asp:Label ID="lblNombreUsuario" runat="server" Text=""></asp:Label></p> 
                          <p class="navbar-text">Numero de control: <asp:Label ID="lblnumControl" runat="server" Text=""></asp:Label></p> 
-                        <li data-target="#myCarousel" data-slide-to="0">
+                        <%--<li data-target="#myCarousel" data-slide-to="0">
                             <a href="#">Enblanco</a>
                         </li>
                         <li data-target="#myCarousel" data-slide-to="1">
@@ -54,7 +54,7 @@
                         </li>
                         <li data-target="#myCarousel" data-slide-to="2">
                             <a href="#">Citas</a>
-                        </li>
+                        </li>--%>
                         <li style="margin-left:200px;"><asp:HyperLink ID="lblCerrarSesion" runat="server" Text="Cerrar Sesion" NavigateUrl="~/IndexAlumno.aspx?IdLogin=true"></asp:HyperLink></li>
                     </ul>
                 </div>
@@ -75,7 +75,7 @@
                 <div class="carousel-inner">
                     <div class="item active">
                         <!-- Set the first background image using inline CSS below. -->
-                        <div class="fill" style="background-color: red;">                     
+                        <div class="fill" style="background-color:#FF8500;">                     
                         </div>
                         <div class="carousel-caption">
 
@@ -91,7 +91,7 @@
 
                     <div class="item">
                         <!-- Set the second background image using inline CSS below. -->
-                        <div class="fill" style="background-color: blue;"></div>
+                        <div class="fill" style="background-color:#FF6700;"></div>
                         <div class="carousel-caption">
                             <h2>Horarios</h2>
                         </div>
@@ -99,7 +99,7 @@
 
                     <div class="item">
                         <!-- Set the third background image using inline CSS below. -->
-                        <div class="fill" style="background-color: green;"></div>
+                        <div class="fill" style="background-color:#FF3D00;"></div>
                         <div class="carousel-caption">
                             <h2>Citas</h2>
                         </div>
