@@ -12,28 +12,28 @@ public partial class Login : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        //if (Session["IdLoginAlumno"] != null)
-        //{
-        //    Response.Redirect("~\\IndexAlumno.aspx");
-        //}
-        //else if(Session["IdLoginAdministrador"] != null)
-        //{
-        //    Response.Redirect("~\\IndexAdministrador.aspx");
-        //}
+        if (Session["IdLoginAlumno"] != null)
+        {
+            Response.Redirect("~\\IndexAlumno.aspx");
+        }
+        else if (Session["IdLoginAdministrador"] != null)
+        {
+            Response.Redirect("~\\IndexAdministrador.aspx");
+        }
     }
     protected void btnLogin_Click(object sender, EventArgs e)
     {
-        //clsAlumno Alumno = (new clsAlumnoHandler()).CheckLogin(Convert.ToInt32(txtNumControl.Text), txtContraseña.Text);
+        clsAlumno Alumno = (new clsAlumnoHandler()).CheckLogin(Convert.ToInt32(txtNumControl.Text), txtContraseña.Text);
 
-        //if (Alumno.IdAlumno != 0)
-        //{
-        //    Session["IdLoginAlumno"] = Alumno.IdAlumno;
+        if (Alumno.IdAlumno != 0)
+        {
+            Session["IdLoginAlumno"] = Alumno.IdAlumno;
             Response.Redirect("~\\IndexAlumno.aspx");
-        //}
-        //else
-        //{
-        //    //lblAlerta.Text = "Credenciales Incorrectas";
-        //    Response.Write(@"<script language = 'javascript'>alert('Credenciales incorrectas') </script>");
-        //}
+        }
+        else
+        {
+            //lblAlerta.Text = "Credenciales Incorrectas";
+            Response.Write(@"<script language = 'javascript'>alert('Credenciales incorrectas') </script>");
+        }
     }
 }

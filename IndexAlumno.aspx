@@ -45,7 +45,7 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                          <p class="navbar-text">Usuario: <asp:Label ID="lblNombreUsuario" runat="server" Text=""></asp:Label></p> 
-                         <p class="navbar-text">Numero de control: <asp:Label ID="numControl" runat="server" Text=""></asp:Label></p> 
+                         <p class="navbar-text">Numero de control: <asp:Label ID="lblnumControl" runat="server" Text=""></asp:Label></p> 
                         <li data-target="#myCarousel" data-slide-to="0" >
                             <a href="#">Enblanco</a>
                         </li>

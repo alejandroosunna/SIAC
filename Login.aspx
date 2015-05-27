@@ -34,11 +34,11 @@
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" role="form" runat="server">
             <div class="form-group">
-              <asp:TextBox id ="txtNumControl" runat ="server" Text ="Numero de Control" CssClass="form-control"></asp:TextBox>
+              <asp:TextBox id ="txtNumControl" runat ="server" placeholder="Numero de Control" CssClass="form-control"></asp:TextBox>
             <%--  <input type="text" placeholder="Numero de Control" class="form-control">--%>
             </div>
             <div class="form-group">
-              <asp:TextBox id ="txtContraseña" runat ="server" Text ="Password" CssClass="form-control"></asp:TextBox>
+              <asp:TextBox id ="txtContraseña" runat ="server" placeholder="Password" type="password" CssClass="form-control"></asp:TextBox>
               <%--<input type="password" placeholder="Password" class="form-control">--%>
             </div>
               <asp:Button ID ="btnLogin" runat="server" Text="Sign In" CssClass="btn btn-success" OnClick="btnLogin_Click"></asp:Button>
