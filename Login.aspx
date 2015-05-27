@@ -12,7 +12,7 @@
 
         <link rel="stylesheet" href="Themes/css/bootstrap.css">
         <link rel="stylesheet" href="Themes/css/main.css">
-        <link rel="stylesheet" href="Fonts\font-awesome-4.3.0\css\font-awesome">
+        <link rel="stylesheet" href="Fonts/font-awesome-4.3.0/css/font-awesome">
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
@@ -60,14 +60,14 @@
   <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
         <div class="item active" >
-          <img  src="http://placehold.it/1900x500"alt="1900x500&amp;text-Slide One" data-holder-rendered="true">
+          <img  src="http://placehold.it/1900x500" alt="1900x500&amp; text-Slide One" data-holder-rendered="true">
           <div class="carousel-caption">
             Este es el Primer Slide
           </div>
         </div>
 
         <div class="item" posicion =center>
-          <img  src="http://placehold.it/1900x500"alt="1900x500&amp;text-Slide Two" data-holder-rendered="true">
+          <img  src="Img/imagen.png" alt="1900x500&amp; text-Slide One" data-holder-rendered="true">
           <div class="carousel-caption">
             <h1>Este es el Segundo Slide</h1>
             Asi se ve un subcomentario
@@ -75,7 +75,7 @@
         </div>
 
         <div class="item">
-          <img  src="http://placehold.it/1900x500"alt="1900x500&amp;text-Slide Three" data-holder-rendered="true">
+          <img  src="http://www.placehold.it/1900x500/ff3d00/fff.png&text=About%20us..."alt="1900x500&amp;text-Slide Three" data-holder-rendered="true">
           <div class="carousel-caption">
             ...
           </div>
@@ -120,7 +120,7 @@
         <p>&copy; Company 2015</p>
       </footer>
     </div> <!-- /container -->        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery.js"><\/script>')</script>
 
         <script src="JS/vendor/bootstrap.min.js"></script>
 
