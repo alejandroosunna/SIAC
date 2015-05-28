@@ -85,7 +85,6 @@
                                 Aqui puedes poner una biblia si quieres si no no me importa haz lo que se quieras alv  Aqui puedes poner una biblia si quieres si no no me importa haz lo que se quieras alv  Aqui puedes poner una biblia si quieres si no no me importa haz lo que se quieras alvqui puedes poner una biblia si quieres si no no me importa haz lo que se quieras alv  Aqui puedes poner una biblia si quieres si no no me importa haz lo que se quieras alv  Aqui puedes poner una biblia si quieres si no no me importa haz lo que se quieras alvqui puedes poner una biblia si quieres si no no me importa haz
                               </div>
                             </div>
-                        
                         </div>
                     </div>
 
