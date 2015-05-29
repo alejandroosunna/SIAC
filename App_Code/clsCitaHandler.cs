@@ -93,7 +93,7 @@ public class clsCitaHandler
         return Citas;
     }
 
-    public void AddNewCita(clsHorarioCita HoraCita)
+    public void AddNewCita(clsCita Cita)
     {
         String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
@@ -103,14 +103,47 @@ public class clsCitaHandler
             Connection.Open();
             String Query = "insert into tbCitas (IdAdministrador, Hora, Dia, Disponible) values (@IdAdministrador, @Hora, @Dia, @Disponible);";
             SqlParameter[] Data = new SqlParameter[4];
-            Data[0] = new SqlParameter("@IdAdministrador", HoraCita.IdAdministrador);
+            Data[0] = new SqlParameter("@IdAdministrador", Cita.IdAdministrador);
             Data[0].DbType = DbType.Int32;
-            Data[1] = new SqlParameter("@Hora", HoraCita.Hora);
+            Data[1] = new SqlParameter("@Hora", Cita.Hora);
             Data[1].DbType = DbType.String;
-            Data[2] = new SqlParameter("@Dia", HoraCita.Dia);
+            Data[2] = new SqlParameter("@Dia", Cita.Dia);
             Data[2].DbType = DbType.Date;
-            Data[3] = new SqlParameter("@Disponible", HoraCita.Disponible);
+            Data[3] = new SqlParameter("@Disponible", Cita.Disponible);
             Data[3].DbType = DbType.Int32;
+            SqlCommand Command = new SqlCommand(Query, Connection);
+            Command.Parameters.AddRange(Data);
+            Command.ExecuteReader();
+        }
+        catch (Exception ex)
+        {
+            (new clsErrortxt()).LogError(ex.Message);
+        }
+        finally
+        {
+            Connection.Close();
+            Connection = null;
+        }
+    }
+
+    public void UpdateCita(clsCita Cita)
+    {
+        String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
+        SqlConnection Connection = new SqlConnection(ConnectionString);
+
+        try
+        {
+            Connection.Open();
+            String Query = "update tbCitas set IdUsuario = @IdUsuario, FechaAgendada = @FechaAgendada, Disponible = @Disponible, Comentario = @Comentario;";
+            SqlParameter[] Data = new SqlParameter[4];
+            Data[0] = new SqlParameter("@IdUsuario", Cita.IdUsuario);
+            Data[0].DbType = DbType.Int32;
+            Data[1] = new SqlParameter("@FechaAgendada", Cita.FechaAgendada);
+            Data[1].DbType = DbType.DateTime;
+            Data[2] = new SqlParameter("@Disponible", Cita.Disponible);
+            Data[2].DbType = DbType.Int32;
+            Data[3] = new SqlParameter("@Comentario", Cita.Comentario);
+            Data[3].DbType = DbType.String;
             SqlCommand Command = new SqlCommand(Query, Connection);
             Command.Parameters.AddRange(Data);
             Command.ExecuteReader();

@@ -14,7 +14,7 @@ public class clsCita
     public int IdUsuario { get; set; }
     public int IdAdministrador { get; set; }
     public string Hora { get; set; }
-    DateTime Dia { get; set; }
+    public DateTime Dia { get; set; }
     public DateTime FechaAgendada { get; set; }
     public int Disponible { get; set; }
     public string Comentario { get; set; }
