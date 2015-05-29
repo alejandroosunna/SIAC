@@ -154,7 +154,8 @@
 
 	<section id="Horarios" class="pfblock">
 		<div class="container">
-			<div class="row">
+			
+            <div class="row">
 
 				<div class="col-sm-6 col-sm-offset-3">
 
@@ -170,92 +171,49 @@
 			</div><!-- .row -->
             
             
-            <div class="row">
-                
-                <div class="col-xs-12 col-sm-4 col-md-4 col-sm-offset-4" style="margin-top:-5%">
-                    
-                    <div class="grid wow shake">
-                        <figure class="effect-bubba">
-                            <img src="assets/images/item-1.jpg" alt="img01"/>
-                            <figcaption>
-                                <h2>Crazy <span>Shark</span></h2>
-                                <p>Lily likes to play with crayons and pencils</p>
-                            </figcaption>			
-                        </figure>
-                    </div>
-                    
-                </div>
+            <div class="row" >
+   
+                <div class="col-sm-7 col-sm-offset-1"  style="margin-top:-50px">
 
-                <div class="col-xs-12 col-sm-4 col-md-4 col-sm-offset-4">
-            
-                    <div class="grid wow zoomIn">
-                        <figure class="effect-bubba">
-                            <img src="assets/images/item-2.jpg" alt="img01"/>
-                            <figcaption>
-                                <h2>Funny <span>Tortoise</span></h2>
-                                <p>Lily likes to play with crayons and pencils</p>
-                            </figcaption>			
-                        </figure>
-                    </div>
-                    
-                </div>
-                
-               <%-- <div class="col-xs-12 col-sm-4 col-md-4">
-            
-                    <div class="grid wow zoomIn">
-                        <figure class="effect-bubba">
-                            <img src="assets/images/item-3.jpg" alt="img01"/>
-                            <figcaption>
-                                <h2>The <span>Hat</span></h2>
-                                <p>Lily likes to play with crayons and pencils</p>
-                            </figcaption>			
-                        </figure>
-                    </div>
-                    
-                </div>
-                
-                <div class="col-xs-12 col-sm-4 col-md-4">
-            
-                    <div class="grid wow zoomIn">
-                        <figure class="effect-bubba">
-                            <img src="assets/images/item-4.jpg" alt="img01"/>
-                            <figcaption>
-                                <h2>Bang <span>Bang</span></h2>
-                                <p>Lily likes to play with crayons and pencils</p>
-                            </figcaption>			
-                        </figure>
-                    </div>
-                    
-                </div>
-                
-                <div class="col-xs-12 col-sm-4 col-md-4">
-            
-                    <div class="grid wow zoomIn">
-                        <figure class="effect-bubba">
-                            <img src="assets/images/item-5.jpg" alt="img01"/>
-                            <figcaption>
-                                <h2>Crypton <span>Dude</span></h2>
-                                <p>Lily likes to play with crayons and pencils</p>
-                            </figcaption>			
-                        </figure>
-                    </div>
-                    
-                </div>
-                
-                <div class="col-xs-12 col-sm-4 col-md-4">
-            
-                    <div class="grid wow zoomIn">
-                        <figure class="effect-bubba">
-                            <img src="assets/images/item-6.jpg" alt="img01"/>
-                            <figcaption>
-                                <h2>Don't <span>Poke</span></h2>
-                                <p>Lily likes to play with crayons and pencils</p>
-                            </figcaption>			
-                        </figure>
-                    </div>
-                    
-                </div>--%>
-                
+					<div class="iconbox wow zoomInUp"data-wow-duration="1s" style="background-color:#949494;">
+						<div class="iconbox-icon" style="margin-top:-20px">
+							<span class="fa fa-file-text-o wow shake"></span>
+						</div>
+						<div class="iconbox-text" style="margin-top:-20px">
+							<h3 class="iconbox-title">Materias</h3>
+                            <p>MAterias siaosdgpagdosagpa´dsfoasdkgpas<br>
+                           afodajspfasdofkasodfáskdofkaspdfaoó
+                           </p>
+							<div class="iconbox-desc">
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+                 
+               <div class="col-sm-7 col-sm-offset-4">
+
+					<div class="iconbox wow zoomInDown  " data-wow-duration="1.3s"style="background-color:#C4C3C3;">
+						<div class="iconbox-icon" style="margin-top:-20px">
+							<span class="fa fa-table wow shake"></span>
+						</div>
+						<div class="iconbox-text" style="margin-top:-20px">
+							<h3 class="iconbox-tittle">Seleccion</h3>
+                            <p>Poes aqui ira una tablita que mostrara todo los<br />
+                                atributos seleccionados por el usuario
+                            </p>
+							<div class="iconbox-desc">
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+              
+           
             </div>
 
 
@@ -265,62 +223,7 @@
 
 	<!-- Horarios end -->
     
-   <%-- <!-- Skills start -->
-    
-    <section class="pfblock pfblock-gray" id="skills">
-		
-			<div class="container">
-			
-				<div class="row skills">
-					
-					<div class="row">
-
-                        <div class="col-sm-6 col-sm-offset-3">
-
-                            <div class="pfblock-header wow fadeInUp">
-                                <h2 class="pfblock-title">My Skills</h2>
-                                <div class="pfblock-line"></div>
-                                <div class="pfblock-subtitle">
-                                    No one lights a lamp in order to hide it behind the door: the purpose of light is to create more light, to open people’s eyes, to reveal the marvels around.
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div><!-- .row -->
-					
-					<div class="col-sm-6 col-md-3 text-center">
-						<span data-percent="80" class="chart easyPieChart" style="width: 140px; height: 140px; line-height: 140px;">
-                            <span class="percent">80</span>
-                        </span>
-						<h3 class="text-center">Programming</h3>
-					</div>
-					<div class="col-sm-6 col-md-3 text-center">
-						<span data-percent="90" class="chart easyPieChart" style="width: 140px; height: 140px; line-height: 140px;">
-                            <span class="percent">90</span>
-                        </span>
-						<h3 class="text-center">Design</h3>
-					</div>
-					<div class="col-sm-6 col-md-3 text-center">
-						<span data-percent="85" class="chart easyPieChart" style="width: 140px; height: 140px; line-height: 140px;">
-                            <span class="percent">85</span>
-                        </span>
-						<h3 class="text-center">Marketing</h3>
-					</div>
-					<div class="col-sm-6 col-md-3 text-center">
-						<span data-percent="95" class="chart easyPieChart" style="width: 140px; height: 140px; line-height: 140px;">
-                            <span class="percent">95</span>
-                        </span>
-						<h3 class="text-center">UI / UX</h3>
-					</div>
-					
-				</div><!--End row -->
-			
-			</div>
-		
-    </section>
-    
-    <!-- Skills end -->--%>
+   
 
 	<!-- CallToAction start -->
 
@@ -468,11 +371,11 @@
 					</ul>
 
 					<p class="heart">
-                        Made with <span class="fa fa-heart fa-2x animated tada"></span> in Nottingham
-                    </p>
-                    <p class="copyright">
-                        © 2015 John Doe | Images: <a href="https://unsplash.com/">Unsplash</a> & <a href="http://zoomwalls.com/">Zoomwalls</a>
-					</p>
+                        <span class="fa fa-thumbs-o-up fa-3x animated tada"style="color:#e81d1d;"></span> 
+                    </p>                <%--Modificado--%>
+                    <p class="copyright"">
+                        © 2015  <a href="ith.mx"style="color:#e81d1d;">ITH</a>
+					</p>            <%--Modificado--%>
 
 				</div>
 
