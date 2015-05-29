@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 /// <summary>
 /// Descripción breve de clsCitas
 /// </summary>
-public class clsCita
+public class clsCita : ObjetoBase
 {
     public int IdCita { get; set; }
     public int IdUsuario { get; set; }
@@ -33,13 +33,13 @@ public class clsCita
 
     public void LoadEventFromDataReader(SqlDataReader DataReader)
     {
-        IdCita = (int)DataReader["IdCita"];
-        IdUsuario = (int)DataReader["IdUsuario"];
-        IdAdministrador = (int)DataReader["IdAdministrador"];
-        Hora = (string)DataReader["Hora"];
-        Dia = (DateTime)DataReader["Dia"];
-        FechaAgendada = (DateTime)DataReader["FechaAgendada"];
-        Comentario = (string)DataReader["Comentario"];
-        Disponible = (int)DataReader["Disponible"];
+        IdCita = (int)CheckDbNull(DataReader["IdCita"], TipoDeObjeto.TipoInteger);
+        IdUsuario = (int)CheckDbNull(DataReader["IdUsuario"], TipoDeObjeto.TipoInteger);
+        IdAdministrador = (int)CheckDbNull(DataReader["IdAdministrador"], TipoDeObjeto.TipoInteger);
+        Hora = (string)CheckDbNull(DataReader["Hora"], TipoDeObjeto.TipoString);
+        Dia = (DateTime)CheckDbNull(DataReader["Dia"], TipoDeObjeto.TipoDateTime);
+        FechaAgendada = (DateTime)CheckDbNull(DataReader["FechaAgendada"], TipoDeObjeto.TipoDateTime);
+        Comentario = (string)CheckDbNull(DataReader["Comentario"], TipoDeObjeto.TipoString);
+        Disponible = (int)CheckDbNull(DataReader["Disponible"], TipoDeObjeto.TipoInteger);
     }
 }

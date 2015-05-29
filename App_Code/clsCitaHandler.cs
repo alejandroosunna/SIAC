@@ -9,7 +9,7 @@ using System.Configuration;
 /// <summary>
 /// Descripción breve de clsCitaHandler
 /// </summary>
-public class clsCitaHandler
+public class clsCitaHandler : ObjetoBase
 {
 	public clsCitaHandler()
 	{
@@ -41,7 +41,7 @@ public class clsCitaHandler
         }
         catch (Exception ex)
         {
-            (new clsErrortxt()).LogError(ex.Message);
+            LogError(ex.Message);
         }
         finally
         {
@@ -82,7 +82,7 @@ public class clsCitaHandler
         }
         catch (Exception ex)
         {
-            (new clsErrortxt()).LogError(ex.Message);
+            LogError(ex.Message);
         }
         finally
         {
@@ -117,7 +117,7 @@ public class clsCitaHandler
         }
         catch (Exception ex)
         {
-            (new clsErrortxt()).LogError(ex.Message);
+            LogError(ex.Message);
         }
         finally
         {
@@ -150,7 +150,7 @@ public class clsCitaHandler
         }
         catch (Exception ex)
         {
-            (new clsErrortxt()).LogError(ex.Message);
+            LogError(ex.Message);
         }
         finally
         {

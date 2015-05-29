@@ -9,7 +9,7 @@ using System.Configuration;
 /// <summary>
 /// Descripción breve de clsAdministradorHandler
 /// </summary>
-public class clsAdministradorHandler
+public class clsAdministradorHandler : ObjetoBase
 {
 	public clsAdministradorHandler()
 	{
@@ -43,7 +43,7 @@ public class clsAdministradorHandler
         }
         catch (Exception ex)
         {
-            (new clsErrortxt()).LogError(ex.Message);
+            LogError(ex.Message);
         }
         finally
         {
@@ -76,7 +76,7 @@ public class clsAdministradorHandler
         }
         catch (Exception ex)
         {
-            (new clsErrortxt()).LogError(ex.Message);
+            LogError(ex.Message);
         }
         finally
         {

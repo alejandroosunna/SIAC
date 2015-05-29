@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 /// <summary>
 /// Descripción breve de clsAlumnos
 /// </summary>
-public class clsUsuario
+public class clsUsuario : ObjetoBase
 {
     public int IdUsuario { get; set; }
 	public int IdAdministrador {get; set;}
@@ -22,21 +22,21 @@ public class clsUsuario
 	{
         IdUsuario = 0;
         IdAdministrador = 0;
-        Nombre = "";
-        ApellidoPaterno = "";
-        ApellidoMaterno = "";
+        Nombre = " ";
+        ApellidoPaterno = " ";
+        ApellidoMaterno = " ";
         NumControl = 0;
-        Contraseña = "";
+        Contraseña = " ";
 	}
 
     public void LoadEventFromDataReader(SqlDataReader DataReader)
     {
-        IdUsuario = (int)DataReader["IdUsuario"];
-        IdAdministrador = (int)DataReader["IdAdministrador"];
-        Nombre = (string)DataReader["Nombre"];
-        ApellidoPaterno = (string)DataReader["ApellidoPaterno"];
-        ApellidoMaterno = (string)DataReader["ApellidoMaterno"];
-        NumControl = (int)DataReader["NumControl"];
-        Contraseña = (string)DataReader["Contraseña"];
+        IdUsuario = (int)CheckDbNull(DataReader["IdUsuario"], TipoDeObjeto.TipoInteger);
+        IdAdministrador = (int)CheckDbNull(DataReader["IdAdministrador"], TipoDeObjeto.TipoInteger);
+        Nombre = (string)CheckDbNull(DataReader["Nombre"], TipoDeObjeto.TipoString);
+        ApellidoPaterno = (string)CheckDbNull(DataReader["ApellidoPaterno"], TipoDeObjeto.TipoString);
+        ApellidoMaterno = (string)CheckDbNull(DataReader["ApellidoMaterno"], TipoDeObjeto.TipoString);
+        NumControl = (int)CheckDbNull(DataReader["NumControl"], TipoDeObjeto.TipoInteger);
+        Contraseña = (string)CheckDbNull(DataReader["Contraseña"], TipoDeObjeto.TipoString);
     }
 }

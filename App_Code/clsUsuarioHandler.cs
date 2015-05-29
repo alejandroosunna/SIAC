@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 /// <summary>
 /// Descripción breve de clsUsuarioHandler
 /// </summary>
-public class clsUsuarioHandler
+public class clsUsuarioHandler : ObjetoBase
 {
     public clsUsuarioHandler()
     {
@@ -44,7 +44,7 @@ public class clsUsuarioHandler
         }
         catch (Exception ex)
         {
-            (new clsErrortxt()).LogError(ex.Message);
+            LogError(ex.Message);
         }
         finally
         {
@@ -77,7 +77,7 @@ public class clsUsuarioHandler
         }
         catch (Exception ex)
         {
-            (new clsErrortxt()).LogError(ex.Message);
+            LogError(ex.Message);
         }
         finally
         {
@@ -117,7 +117,7 @@ public class clsUsuarioHandler
         }
         catch (Exception ex)
         {
-            (new clsErrortxt()).LogError(ex.Message);
+            LogError(ex.Message);
         }
         finally
         {
