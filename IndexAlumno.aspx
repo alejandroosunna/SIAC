@@ -1,136 +1,512 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="IndexAlumno.aspx.cs" Inherits="IndexAlumno" %>
-
 <!DOCTYPE html>
-<html lang="en">
 
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Perfil de usuario</title>
-     <!-- Bootstrap Core CSS -->
-    <link href="Themes/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+    
+	<title>SIAC</title>
 
-    <link href="Themes/css/full-slider.css" rel="stylesheet">
-
+	<!-- CSS -->
+	<link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+	<link href="assets/css/font-awesome.min.css" rel="stylesheet" media="screen"/>
+	<link href="assets/css/simple-line-icons.css" rel="stylesheet" media="screen"/>
+	<link href="assets/css/animate.css" rel="stylesheet"/>
+    
+	<!-- Custom styles CSS -->
+	<link href="assets/css/style.css" rel="stylesheet" media="screen"/>
+    
+    <script src="assets/js/modernizr.custom.js"></script>     
 </head>
-
 <body>
+    <form id="form1" runat="server">
+   
+	<!-- Preloader -->
 
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#" >Perfil</a>
+	<div id="preloader">
+		<div id="status"></div>
+	</div>
 
-                        <div class="media" style="margin-top:10%">
-                          <div class="media-left">
-                            <a href="#">
-                              <img class="media-object" src="Themes/icoper.png" alt="usuario"  WIDTH="30" HEIGHT="30" >
-                            </a>
-                         </div>
-                     </div>
+	<!-- Home start -->
+
+	<section id="home" class="pfblock-image screen-height">
+        <div class="home-overlay"></div>
+		<div class="intro">
+			<div class="start">Sistema de apartado de citas</div>
+			<h1>SIAC</h1>
+			<div class="start">Rapido, practico, sencillo...</div>
+		</div>
+
+        <a href="#Resumen">
+		<div class="scroll-down">
+            <span >
+                <i class="fa fa-angle-down fa-2x"></i>
+            </span>
+		</div>
+        </a>
+
+	</section>
+
+	<!-- Home end -->
+
+	<!-- Navigation start -->
+
+	<header class="header">
+
+		<nav class="navbar navbar-custom" role="navigation">
+
+			<div class="container">
+
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#custom-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Usuario</a>
+				</div>
+
+				<div class="collapse navbar-collapse" id="custom-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#home">Inicio</a></li>
+						<li><a href="#Resumen">Resumen</a></li>
+                        <li><a href="#Horarios">Horarios</a></li>
+						<li><a href="#Citas">Citas</a></li>
+						<li><a href="#Contacto">Contacto</a></li>
+					</ul>
+				</div>
+
+			</div><!-- .container -->
+
+		</nav>
+
+	</header>
+
+	<!-- Navigation end -->
+
+    <!-- Resumen -->
+
+	<section id="Resumen" class="pfblock pfblock-gray">
+	    <div class="container">
+			<div class="row">
+
+				<div class="col-sm-6 col-sm-offset-3">
+                    
+					<div class="pfblock-header wow fadeInUp">
+						<h2 class="pfblock-title">Usuario</h2>
+						<div class="pfblock-line"></div>
+						<div class="pfblock-subtitle">
+                            
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="row" >
+
+		
+
+				<div class="col-sm-6">
+
+					<div class="iconbox wow slideInRight">
+						<div class="iconbox-icon">
+							<span class="fa fa-user"></span>
+						</div>
+						<div class="iconbox-text">
+							<h3 class="iconbox-title">Datos del usuario</h3>
+							<div class="iconbox-desc">
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+                <div class="col-sm-6" >
+
+					<div class="iconbox wow slideInLeft" >
+						<div class="iconbox-icon">
+							<span class="fa fa-calendar"></span>
+						</div>
+						<div class="iconbox-text">
+							<h3 class="iconbox-title">Pendientes</h3>
+							<div class="iconbox-desc">
+								
+							</div>
+						</div>
+					</div>
+
+				</div>
+		</div>
+	    </div>
+		
+	</section>
+
+	<!-- Resumen end -->
+    
+	<!-- Horarios start -->
+
+	<section id="Horarios" class="pfblock">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-sm-6 col-sm-offset-3">
+
+					<div class="pfblock-header wow fadeInUp">
+						<h2 class="pfblock-title">Horarios</h2>
+						<div class="pfblock-line"></div>
+						<div class="pfblock-subtitle">
+						</div>
+					</div>
+
+				</div>
+
+			</div><!-- .row -->
+            
+            
+            <div class="row">
+                
+                <div class="col-xs-12 col-sm-4 col-md-4 col-sm-offset-4" style="margin-top:-5%">
+                    
+                    <div class="grid wow shake">
+                        <figure class="effect-bubba">
+                            <img src="assets/images/item-1.jpg" alt="img01"/>
+                            <figcaption>
+                                <h2>Crazy <span>Shark</span></h2>
+                                <p>Lily likes to play with crayons and pencils</p>
+                            </figcaption>			
+                        </figure>
+                    </div>
                     
                 </div>
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                         <p class="navbar-text">Usuario: <asp:Label ID="lblNombreUsuario" runat="server" Text=""></asp:Label></p> 
-                         <p class="navbar-text">Numero de control: <asp:Label ID="lblnumControl" runat="server" Text=""></asp:Label></p> 
-                        <%--<li data-target="#myCarousel" data-slide-to="0">
-                            <a href="#">Enblanco</a>
-                        </li>
-                        <li data-target="#myCarousel" data-slide-to="1">
-                            <a href="#">Horarios</a>
-                        </li>
-                        <li data-target="#myCarousel" data-slide-to="2">
-                            <a href="#">Citas</a>
-                        </li>--%>
-                        <li style="margin-left:200px;"><asp:HyperLink ID="lblCerrarSesion" runat="server" Text="Cerrar Sesion" NavigateUrl="~/IndexAlumno.aspx?IdLogin=true"></asp:HyperLink></li>
-                    </ul>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-sm-offset-4">
+            
+                    <div class="grid wow zoomIn">
+                        <figure class="effect-bubba">
+                            <img src="assets/images/item-2.jpg" alt="img01"/>
+                            <figcaption>
+                                <h2>Funny <span>Tortoise</span></h2>
+                                <p>Lily likes to play with crayons and pencils</p>
+                            </figcaption>			
+                        </figure>
+                    </div>
+                    
                 </div>
-                <!-- /.navbar-collapse -->
+                
+               <%-- <div class="col-xs-12 col-sm-4 col-md-4">
+            
+                    <div class="grid wow zoomIn">
+                        <figure class="effect-bubba">
+                            <img src="assets/images/item-3.jpg" alt="img01"/>
+                            <figcaption>
+                                <h2>The <span>Hat</span></h2>
+                                <p>Lily likes to play with crayons and pencils</p>
+                            </figcaption>			
+                        </figure>
+                    </div>
+                    
+                </div>
+                
+                <div class="col-xs-12 col-sm-4 col-md-4">
+            
+                    <div class="grid wow zoomIn">
+                        <figure class="effect-bubba">
+                            <img src="assets/images/item-4.jpg" alt="img01"/>
+                            <figcaption>
+                                <h2>Bang <span>Bang</span></h2>
+                                <p>Lily likes to play with crayons and pencils</p>
+                            </figcaption>			
+                        </figure>
+                    </div>
+                    
+                </div>
+                
+                <div class="col-xs-12 col-sm-4 col-md-4">
+            
+                    <div class="grid wow zoomIn">
+                        <figure class="effect-bubba">
+                            <img src="assets/images/item-5.jpg" alt="img01"/>
+                            <figcaption>
+                                <h2>Crypton <span>Dude</span></h2>
+                                <p>Lily likes to play with crayons and pencils</p>
+                            </figcaption>			
+                        </figure>
+                    </div>
+                    
+                </div>
+                
+                <div class="col-xs-12 col-sm-4 col-md-4">
+            
+                    <div class="grid wow zoomIn">
+                        <figure class="effect-bubba">
+                            <img src="assets/images/item-6.jpg" alt="img01"/>
+                            <figcaption>
+                                <h2>Don't <span>Poke</span></h2>
+                                <p>Lily likes to play with crayons and pencils</p>
+                            </figcaption>			
+                        </figure>
+                    </div>
+                    
+                </div>--%>
+                
             </div>
-            <!-- /.container -->
-        </nav>
-     <!-- Full Page Image Background Carousel Header -->
-            <header id="myCarousel" class="carousel slide">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                </ol>
 
-                <!-- Wrapper for Slides -->
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <!-- Set the first background image using inline CSS below. -->
-                        <div class="fill" style="background-color:#FF8500;">                     
-                        </div>
-                        <div class="carousel-caption">
 
-                            <div class="panel panel-default" style="display:inline-block; background-color:#000; margin-bottom:200px;margin-top:50px;">
-                                <div class="panel-heading">Panel heading without title</div>
-                              <div class="panel-body" >
-                                Aqui puedes poner una biblia si quieres si no no me importa haz lo que se quieras alv  Aqui puedes poner una biblia si quieres si no no me importa haz lo que se quieras alv  Aqui puedes poner una biblia si quieres si no no me importa haz lo que se quieras alvqui puedes poner una biblia si quieres si no no me importa haz lo que se quieras alv  Aqui puedes poner una biblia si quieres si no no me importa haz lo que se quieras alv  Aqui puedes poner una biblia si quieres si no no me importa haz lo que se quieras alvqui puedes poner una biblia si quieres si no no me importa haz
-                              </div>
+		</div><!-- .contaier -->
+
+	</section>
+
+	<!-- Horarios end -->
+    
+   <%-- <!-- Skills start -->
+    
+    <section class="pfblock pfblock-gray" id="skills">
+		
+			<div class="container">
+			
+				<div class="row skills">
+					
+					<div class="row">
+
+                        <div class="col-sm-6 col-sm-offset-3">
+
+                            <div class="pfblock-header wow fadeInUp">
+                                <h2 class="pfblock-title">My Skills</h2>
+                                <div class="pfblock-line"></div>
+                                <div class="pfblock-subtitle">
+                                    No one lights a lamp in order to hide it behind the door: the purpose of light is to create more light, to open people’s eyes, to reveal the marvels around.
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="item">
-                        <!-- Set the second background image using inline CSS below. -->
-                        <div class="fill" style="background-color:#FF6700;"></div>
-                        <div class="carousel-caption">
-                            <h2>Horarios</h2>
                         </div>
-                    </div>
 
-                    <div class="item">
-                        <!-- Set the third background image using inline CSS below. -->
-                        <div class="fill" style="background-color:#FF3D00;"></div>
-                        <div class="carousel-caption">
-                            <h2>Citas</h2>
-                        </div>
-                    </div>
+                    </div><!-- .row -->
+					
+					<div class="col-sm-6 col-md-3 text-center">
+						<span data-percent="80" class="chart easyPieChart" style="width: 140px; height: 140px; line-height: 140px;">
+                            <span class="percent">80</span>
+                        </span>
+						<h3 class="text-center">Programming</h3>
+					</div>
+					<div class="col-sm-6 col-md-3 text-center">
+						<span data-percent="90" class="chart easyPieChart" style="width: 140px; height: 140px; line-height: 140px;">
+                            <span class="percent">90</span>
+                        </span>
+						<h3 class="text-center">Design</h3>
+					</div>
+					<div class="col-sm-6 col-md-3 text-center">
+						<span data-percent="85" class="chart easyPieChart" style="width: 140px; height: 140px; line-height: 140px;">
+                            <span class="percent">85</span>
+                        </span>
+						<h3 class="text-center">Marketing</h3>
+					</div>
+					<div class="col-sm-6 col-md-3 text-center">
+						<span data-percent="95" class="chart easyPieChart" style="width: 140px; height: 140px; line-height: 140px;">
+                            <span class="percent">95</span>
+                        </span>
+						<h3 class="text-center">UI / UX</h3>
+					</div>
+					
+				</div><!--End row -->
+			
+			</div>
+		
+    </section>
+    
+    <!-- Skills end -->--%>
+
+	<!-- CallToAction start -->
+
+	<%--<section class="calltoaction">
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-md-12 col-lg-12">
+					<h2 class="wow slideInRight" data-wow-delay=".1s">ARE YOU READY TO START?</h2>
+					<div class="calltoaction-decription wow slideInRight" data-wow-delay=".2s">
+						I'm available for freelance projects.
+					</div>
+				</div>
+
+				<div class="col-md-12 col-lg-12 calltoaction-btn wow slideInRight" data-wow-delay=".3s">
+					<a href="#contact" class="btn btn-lg">Hire Me</a>
+				</div>
+
+			</div><!-- .row -->
+		</div><!-- .container -->
+	</section>--%>
+
+	<!-- CallToAction end -->
+
+	<!-- Citas start -->
+
+	<section id="Citas" class="pfblock pfblock-gray">
+
+		<div class="container">
+            
+            <div class="row">
+
+				<div class="col-sm-6 col-sm-offset-3">
+
+					<div class="pfblock-header wow fadeInUp">
+						<h2 class="pfblock-title">Citas</h2>
+						<div class="pfblock-line"></div>
+						<div class="pfblock-subtitle">
+
+						</div>
+					</div>
+
+				</div>
+
+			</div><!-- .row -->
+
+            <div class="row">
+
+			<div id="cbp-qtrotator" class="cbp-qtrotator">
+                <div class="cbp-qtcontent">
+                    <img src="assets/images/client-1.jpg" alt="client-1" />
+                    <blockquote>
+                      <p>Work with John was a pleasure. He understood exactly what I wanted and created an awesome site for my company.</p>
+                      <footer>Pino Caruso</footer>
+                    </blockquote>
+                </div>
+                <div class="cbp-qtcontent">
+                    <img src="assets/images/client-2.jpg" alt="client-2" />
+                    <blockquote>
+                      <p>I'm really happy with the results. Get 100% satisfaction is difficult but Alex got it without problems.</p>
+                      <footer>Jane Doe</footer>
+                    </blockquote>
                 </div>
 
-                <!-- Controls -->
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                    <span class="icon-prev"></span>
-                </a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                    <span class="icon-next"></span>
-                </a>
+            </div>		
 
-            </header>
+            </div><!-- .row -->
 
+					
+		</div><!-- .row -->
+	</section>
 
-  
-  <!-- jQuery -->
-    <script src="JS/vendor/jquery-1.11.2.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="JS/vendor/bootstrap.min.js"></script>
-
-    <!-- Script to Activate the Carousel -->
-    <script>
-        $('.carousel').carousel({
-            interval: false //changes the speed
-        })
-    </script>
+	<!-- Citas end -->
 
 
+	<!-- Contacto start -->
+
+	<section id="Contacto" class="pfblock">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-sm-6 col-sm-offset-3">
+
+					<div class="pfblock-header">
+						<h2 class="pfblock-title">Contactanos</h2>
+						<div class="pfblock-line"></div>
+						<div class="pfblock-subtitle">
+                            Preguntanos lo que quieras..<br />
+                            Nosotros respondemos ;D
+						</div>
+					</div>
+
+				</div>
+
+			</div><!-- .row -->
+
+			<div class="row">
+
+				<div class="col-sm-6 col-sm-offset-3">
+
+					<form id="contact-form" role="form">
+						<div class="ajax-hidden">
+							<div class="form-group wow fadeInUp">
+								<label class="sr-only" for="c_name">Name</label>
+								<input type="text" id="c_name" class="form-control" name="c_name" placeholder="Name">
+							</div>
+
+							<div class="form-group wow fadeInUp" data-wow-delay=".1s">
+								<label class="sr-only" for="c_email">Email</label>
+								<input type="email" id="c_email" class="form-control" name="c_email" placeholder="E-mail">
+							</div>
+
+							<div class="form-group wow fadeInUp" data-wow-delay=".2s">
+								<textarea class="form-control" id="c_message" name="c_message" rows="7" placeholder="Message"></textarea>
+							</div>
+
+							<button type="submit" class="btn btn-lg btn-block wow fadeInUp" data-wow-delay=".3s">Send Message</button>
+						</div>
+						<div class="ajax-response"></div>
+					</form>
+
+				</div>
+
+			</div><!-- .row -->
+		</div><!-- .container -->
+	</section>
+
+	<!-- Contacto end -->
+
+	<!-- Footer start -->
+
+	<footer id="footer">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-sm-12">
+
+					<ul class="social-links">
+						<li><a href="index.html#" class="wow fadeInUp"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="index.html#" class="wow fadeInUp" data-wow-delay=".1s"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="index.html#" class="wow fadeInUp" data-wow-delay=".2s"><i class="fa fa-google-plus"></i></a></li>
+						<li><a href="index.html#" class="wow fadeInUp" data-wow-delay=".4s"><i class="fa fa-pinterest"></i></a></li>
+						<li><a href="index.html#" class="wow fadeInUp" data-wow-delay=".5s"><i class="fa fa-envelope"></i></a></li>
+					</ul>
+
+					<p class="heart">
+                        Made with <span class="fa fa-heart fa-2x animated tada"></span> in Nottingham
+                    </p>
+                    <p class="copyright">
+                        © 2015 John Doe | Images: <a href="https://unsplash.com/">Unsplash</a> & <a href="http://zoomwalls.com/">Zoomwalls</a>
+					</p>
+
+				</div>
+
+			</div><!-- .row -->
+		</div><!-- .container -->
+	</footer>
+
+	<!-- Footer end -->
+
+	<!-- Scroll to top -->
+
+	<div class="scroll-up">
+		<a href="#home"><i class="fa fa-angle-up"></i></a>
+	</div>
+    
+    <!-- Scroll to top end-->
+
+	<!-- Javascript files -->
+
+	<script src="assets/js/jquery-1.11.1.min.js"></script>
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/js/jquery.parallax-1.1.3.js"></script>
+	<script src="assets/js/imagesloaded.pkgd.js"></script>
+	<script src="assets/js/jquery.sticky.js"></script>
+	<script src="assets/js/smoothscroll.js"></script>
+	<script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/jquery.easypiechart.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.cbpQTRotator.js"></script>
+	<script src="assets/js/custom.js"></script>
+
+    
+
+   
+    </form>
 </body>
-
 </html>

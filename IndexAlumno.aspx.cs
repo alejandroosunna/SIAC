@@ -20,8 +20,8 @@ public partial class IndexAlumno : System.Web.UI.Page
             else
             {
                 clsAlumno Alumno = (new clsAlumnoHandler()).GetAlumno(Convert.ToInt32(Session["IdLoginAlumno"]));
-                lblNombreUsuario.Text = Alumno.Nombre;
-                lblnumControl.Text = Alumno.NumControl.ToString();
+             /*   lblNombreUsuario.Text = Alumno.Nombre;
+                lblnumControl.Text = Alumno.NumControl.ToString();*/
             }
         }
         else
