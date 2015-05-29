@@ -2,24 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Data;
 using System.Data.SqlClient;
 
 /// <summary>
-/// Descripción breve de clsAlumnos
+/// Descripción breve de clsAdministrador
 /// </summary>
-public class clsAlumno
+public class clsAdministrador
 {
-    public int IdAlumno { get; set; }
+    public int IdAdministrador { get; set; }
     public string Nombre { get; set; }
     public string ApellidoPaterno { get; set; }
     public string ApellidoMaterno { get; set; }
     public int NumControl { get; set; }
     public string Contraseña { get; set; }
 
-	public clsAlumno()
+	public clsAdministrador()
 	{
-        IdAlumno = 0;
+        IdAdministrador = 0;
         Nombre = "";
         ApellidoPaterno = "";
         ApellidoMaterno = "";
@@ -29,7 +28,7 @@ public class clsAlumno
 
     public void LoadEventFromDataReader(SqlDataReader DataReader)
     {
-        IdAlumno = (int)DataReader["IdLogin"];
+        IdAdministrador = (int)DataReader["IdAdministrador"];
         Nombre = (string)DataReader["Nombre"];
         ApellidoPaterno = (string)DataReader["ApellidoPaterno"];
         ApellidoMaterno = (string)DataReader["ApellidoMaterno"];

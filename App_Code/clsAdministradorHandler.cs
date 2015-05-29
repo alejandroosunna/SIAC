@@ -2,32 +2,31 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 /// <summary>
-/// Descripción breve de clsAlumnoHandler
+/// Descripción breve de clsAdministradorHandler
 /// </summary>
-public class clsAlumnoHandler
+public class clsAdministradorHandler
 {
-    public clsAlumnoHandler()
-    {
-        //
-        // TODO: Agregar aquí la lógica del constructor
-        //
-    }
+	public clsAdministradorHandler()
+	{
+		//
+		// TODO: Agregar aquí la lógica del constructor
+		//
+	}
 
-
-    public clsAlumno CheckLogin(int NumControl, string Contraseña) 
+    public clsAdministrador CheckLogin(int NumControl, string Contraseña)
     {
-        clsAlumno Alumno = new clsAlumno();
+        clsAdministrador Administrador = new clsAdministrador();
         String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
         try
         {
             Connection.Open();
-            String Query = "select * from tbLogins where NumControl = @NumControl and Contraseña = @Contraseña;";
+            String Query = "select * from tbAdministradores where NumControl = @NumControl and Contraseña = @Contraseña;";
             SqlParameter[] Data = new SqlParameter[2];
             Data[0] = new SqlParameter("@NumControl", NumControl);
             Data[0].DbType = DbType.Int32;
@@ -39,7 +38,7 @@ public class clsAlumnoHandler
 
             if (DataReader.Read())
             {
-                Alumno.LoadEventFromDataReader(DataReader);
+                Administrador.LoadEventFromDataReader(DataReader);
             }
         }
         catch (Exception ex)
@@ -52,19 +51,19 @@ public class clsAlumnoHandler
             Connection = null;
         }
 
-        return Alumno;
+        return Administrador;
     }
 
-    public clsAlumno GetAlumno(int IdAlumno)
+    public clsAdministrador GetAdministrador(int IdAdministrador)
     {
-        clsAlumno Alumno = new clsAlumno();
+        clsAdministrador Administrador = new clsAdministrador();
         String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
         try
         {
             Connection.Open();
-            String Query = "select * from tbLogins where IdLogin = @IdLogin;";
-            SqlParameter Data = new SqlParameter("@IdLogin", IdAlumno);
+            String Query = "select * from tbAdministradores where IdAdministrador = @IdAdministrador;";
+            SqlParameter Data = new SqlParameter("@IdAdministrador", IdAdministrador);
             Data.DbType = DbType.Int32;
             SqlCommand Command = new SqlCommand(Query, Connection);
             Command.Parameters.Add(Data);
@@ -72,7 +71,7 @@ public class clsAlumnoHandler
 
             if (DataReader.Read())
             {
-                Alumno.LoadEventFromDataReader(DataReader);
+                Administrador.LoadEventFromDataReader(DataReader);
             }
         }
         catch (Exception ex)
@@ -85,6 +84,6 @@ public class clsAlumnoHandler
             Connection = null;
         }
 
-        return Alumno;
+        return Administrador;
     }
 }

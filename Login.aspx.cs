@@ -23,11 +23,11 @@ public partial class Login : System.Web.UI.Page
     }
     protected void btnLogin_Click(object sender, EventArgs e)
     {
-        clsAlumno Alumno = (new clsAlumnoHandler()).CheckLogin(Convert.ToInt32(txtNumControl.Text), txtContraseña.Text);
+        clsUsuario Usuario = (new clsUsuarioHandler()).CheckLogin(Convert.ToInt32(txtNumControl.Text), txtContraseña.Text);
 
-        if (Alumno.IdAlumno != 0)
+        if (Usuario.IdUsuario != 0)
         {
-            Session["IdLoginAlumno"] = Alumno.IdAlumno;
+            Session["IdLoginAlumno"] = Usuario.IdUsuario;
             Response.Redirect("~\\IndexAlumno.aspx");
         }
         else
