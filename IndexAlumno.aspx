@@ -67,7 +67,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">Usuario</a>
+					<a class="navbar-brand" href="#">Bienvenido</a>
 				</div>
 
 				<div class="collapse navbar-collapse" id="custom-collapse">
@@ -77,6 +77,7 @@
                         <li><a href="#Horarios">Horarios</a></li>
 						<li><a href="#Citas">Citas</a></li>
 						<li><a href="#Contacto">Contacto</a></li>
+                        <li><asp:HyperLink ID="lbl_CerrarSesion" runat="server" NavigateUrl="~/IndexAlumno.aspx?IdLogin=true">Cerrar sesion</asp:HyperLink></li>
 					</ul>
 				</div>
 
