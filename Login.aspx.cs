@@ -28,6 +28,7 @@ public partial class Login : System.Web.UI.Page
         if (Usuario.IdUsuario != 0)
         {
             Session["IdLoginAlumno"] = Usuario.IdUsuario;
+            Session["IdAdministrador"] = Usuario.IdAdministrador;
             Response.Redirect("~\\IndexAlumno.aspx");
         }
         else

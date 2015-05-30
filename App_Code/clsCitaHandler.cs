@@ -93,6 +93,52 @@ public class clsCitaHandler : ObjetoBase
         return Citas;
     }
 
+    public bool CheckCitaAndAdd(clsCita Cita)
+    {
+        bool checkCita = false;
+        String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
+        SqlConnection Connection = new SqlConnection(ConnectionString);
+        try
+        {
+            Connection.Open();
+            String Query = "select * from tbCitas where IdCita = @IdCita and Disponible = 0;";
+            SqlParameter Data = new SqlParameter("@IdCita", Cita.IdCita);
+            Data.DbType = DbType.Int32;
+            SqlCommand Command = new SqlCommand(Query, Connection);
+            Command.Parameters.Add(Data);
+            SqlDataReader DataReader = Command.ExecuteReader();
+
+            if (DataReader.Read())
+            {
+                Query = "update tbCitas set IdUsuario = @IdUsuario, FechaAgendada = @FechaAgendada, Disponible = @Disponible, Comentario = @Comentario;";
+                SqlParameter[] _Data = new SqlParameter[4];
+                _Data[0] = new SqlParameter("@IdUsuario", Cita.IdUsuario);
+                _Data[0].DbType = DbType.Int32;
+                _Data[1] = new SqlParameter("@FechaAgendada", Cita.FechaAgendada);
+                _Data[1].DbType = DbType.DateTime;
+                _Data[2] = new SqlParameter("@Disponible", Cita.Disponible);
+                _Data[2].DbType = DbType.Int32;
+                _Data[3] = new SqlParameter("@Comentario", Cita.Comentario);
+                _Data[3].DbType = DbType.String;
+                SqlCommand _Command = new SqlCommand(Query, Connection);
+                _Command.Parameters.AddRange(_Data);
+                _Command.ExecuteReader();
+                checkCita = true;
+            }
+        }
+        catch (Exception ex)
+        {
+            LogError(ex.Message);
+        }
+        finally
+        {
+            Connection.Close();
+            Connection = null;
+        }
+
+        return checkCita;
+    }
+
     public void AddNewCita(clsCita Cita)
     {
         String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;

@@ -29,4 +29,28 @@ public partial class IndexAlumno : System.Web.UI.Page
             Response.Redirect("~\\Login.aspx");
         }
     }
+    protected void GridView_Citas_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        if (e.CommandName == "SelectRow")
+        {
+            txtNumCita.Text = e.CommandArgument.ToString();
+            Session["IdCita"] = e.CommandArgument.ToString();
+            //Response.Redirect("IndexAlumno.aspx?id=" + e.CommandArgument.ToString());
+        }
+    }
+    protected void btnEnviar_Click(object sender, EventArgs e)
+    {
+        clsCita Cita = new clsCita();
+
+        if(Session["IdCita"] != null)
+            Cita.IdCita = Convert.ToInt32(Session["IdCita"]);
+        else
+            Response.Write(@"<script language = 'javascript'>alert('Seleccione una cita') </script>");
+
+        Cita.IdUsuario = Convert.ToInt32(Session["IdLoginAlumno"]);
+        Cita.IdAdministrador = Convert.ToInt32(Session["IdAdministrador"]);
+        Cita.FechaAgendada = DateTime.Now;
+        Cita.Disponible = 1;
+        Cita.Comentario = txtComentario.Text;
+    }
 }

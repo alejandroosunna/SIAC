@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="IndexAlumno.aspx.cs" Inherits="IndexAlumno" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="IndexAlumno.aspx.cs" Inherits="IndexAlumno" EnableEventValidation="true" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -274,7 +274,7 @@
 
             <div class="row">
 
-			<div id="cbp-qtrotator" class="cbp-qtrotator wow slideInDown" style="margin-top:-50px" >
+			<%--<div id="cbp-qtrotator" class="cbp-qtrotator wow slideInDown" style="margin-top:-50px" >
                 <div class="cbp-qtcontent">
                     <blockquote>
                       	<div class="col-sm-12">
@@ -296,7 +296,33 @@
                     </blockquote>
                 </div>
                
-            </div>		
+            </div>	--%>
+
+                <asp:GridView ID="GridView_Citas" runat="server" AutoGenerateColumns="False" DataKeyNames="NumeroCita" DataSourceID="SqlDataSource_Citas" OnRowCommand="GridView_Citas_RowCommand">
+                    <Columns>
+                        <asp:BoundField DataField="NumeroCita" HeaderText="NumeroCita" InsertVisible="False" ReadOnly="True" SortExpression="NumeroCita"/>
+                        <asp:BoundField DataField="Hora" HeaderText="Hora" SortExpression="Hora" />
+                        <asp:BoundField DataField="Dia" HeaderText="Dia" SortExpression="Dia" />
+                        <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:Button ID="btnSeleccionar" Text="Seleccionar" runat="server"
+                            CommandName="SelectRow"
+                            CommandArgument="<%# ( (GridViewRow) Container).Cells[0].Text %>"/>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
+
+                <asp:SqlDataSource ID="SqlDataSource_Citas" runat="server" ConnectionString="<%$ ConnectionStrings:dbControlDeCitas %>" SelectCommand="SELECT [IdCita] as NumeroCita, [Hora], [Dia] FROM [tbCitas] WHERE (([IdAdministrador] = @IdAdministrador) AND ([Disponible] = @Disponible))">
+                    <SelectParameters>
+                        <asp:SessionParameter DefaultValue="0" Name="IdAdministrador" SessionField="IdAdministrador" />
+                        <asp:Parameter DefaultValue="0" Name="Disponible" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
+
+                <asp:TextBox ID="txtNumCita" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtComentario" runat="server"></asp:TextBox>
+                <asp:Button ID="btnEnviar" runat="server" Text="Enviar" Height="26px" OnClick="btnEnviar_Click" />
 
             </div><!-- .row -->
 
