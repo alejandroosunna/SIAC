@@ -121,6 +121,11 @@
 						</div>
 						<div class="iconbox-text">
 							<h3 class="iconbox-title">Datos del usuario</h3>
+                            <!--
+                                Aqui van los controles de ASP
+
+                                ......................................................................................................
+                                -->
 							<div class="iconbox-desc">
 
 							</div>
@@ -137,6 +142,11 @@
 						</div>
 						<div class="iconbox-text">
 							<h3 class="iconbox-title">Pendientes</h3>
+                              <!--
+                                Aqui van los controles de ASP
+
+                                ......................................................................................................
+                                -->
 							<div class="iconbox-desc">
 								
 							</div>
@@ -182,9 +192,11 @@
 						</div>
 						<div class="iconbox-text" style="margin-top:-20px">
 							<h3 class="iconbox-title">Materias</h3>
-                            <p>MAterias siaosdgpagdosagpa´dsfoasdkgpas<br>
-                           afodajspfasdofkasodfáskdofkaspdfaoó
-                           </p>
+                              <!--
+                                Aqui van los controles de ASP
+
+                                ......................................................................................................
+                                -->
 							<div class="iconbox-desc">
 
 							</div>
@@ -202,9 +214,11 @@
 						</div>
 						<div class="iconbox-text" style="margin-top:-20px">
 							<h3 class="iconbox-tittle">Seleccion</h3>
-                            <p>Poes aqui ira una tablita que mostrara todo los<br />
-                                atributos seleccionados por el usuario
-                            </p>
+                             <!--
+                                Aqui van los controles de ASP
+
+                                ......................................................................................................
+                                -->
 							<div class="iconbox-desc">
 
 							</div>
@@ -262,7 +276,11 @@
 
 					<div class="pfblock-header wow fadeInUp">
 						<h2 class="pfblock-title">Citas</h2>
-						
+						  <!--
+                                Aqui van los controles de ASP
+
+                                ......................................................................................................
+                                -->
 						<div class="pfblock-subtitle">
 
 						</div>
@@ -274,29 +292,7 @@
 
             <div class="row">
 
-			<%--<div id="cbp-qtrotator" class="cbp-qtrotator wow slideInDown" style="margin-top:-50px" >
-                <div class="cbp-qtcontent">
-                    <blockquote>
-                      	<div class="col-sm-12">
-
-					<div class="iconbox wow fadeInUpBig">
-						<div class="iconbox-icon" style="margin-top:-20px">
-							<span class="fa fa-calendar "></span>
-						</div>
-						<div class="iconbox-text">
-							<h3 class="iconbox-title" style="margin-top:-20px">Selecion de cita</h3>
-                          
-							<div class="iconbox-desc">
-
-							</div>
-						</div>
-					</div>
-
-				</div>
-                    </blockquote>
-                </div>
-               
-            </div>	--%>
+		
 
                 <asp:GridView ID="GridView_Citas" runat="server" AutoGenerateColumns="False" DataKeyNames="NumeroCita" DataSourceID="SqlDataSource_Citas" OnRowCommand="GridView_Citas_RowCommand">
                     <Columns>
