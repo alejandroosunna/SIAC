@@ -20,8 +20,32 @@ public partial class IndexAlumno : System.Web.UI.Page
             else
             {
                 clsUsuario Usuario = (new clsUsuarioHandler()).GetUsuario(Convert.ToInt32(Session["IdLoginAlumno"]));
-             /*   lblNombreUsuario.Text = Alumno.Nombre;
-                lblnumControl.Text = Alumno.NumControl.ToString();*/
+                lblNombre.Text = "Alumno: " + Usuario.Nombre + " " + Usuario.ApellidoPaterno + ".";
+                lblNumControl.Text = "Numero de Control: " + Usuario.NumControl + ".";
+
+                clsCita Cita = (new clsCitaHandler()).GetCita(Convert.ToInt32(Session["IdLoginAlumno"]));
+                if (Cita.IdUsuario != 0)
+                {
+                    lblPDiaCita.Text = "Fecha: " + Cita.Dia.Day + "/" + Cita.Dia.Month + "/" + Cita.Dia.Year;
+                    lblPHoraCita.Text = "Hora: " + Cita.Hora.ToString();
+                }
+                else
+                {
+                    lblPDiaCita.Text = "No hay cita pendiente.";
+                }
+
+                if(Request["Cita"] != null)
+                    txtNumCita.Text = Request["Cita"].ToString();
+
+                if(Request["re"] != null)
+                {
+                    if (Request["re"] == "error")
+                        Response.Write(@"<script language = 'javascript'>alert('Esta cita ya esta ocupada. Seleccione otra.') </script>");
+                    else if(Request["re"] == "exito")
+                        Response.Write(@"<script language = 'javascript'>alert('Cita agendada Exitosamente.') </script>");
+                    else if (Request["re"] == "pendiente")
+                        Response.Write(@"<script language = 'javascript'>alert('Ya tienes una cita pendiente.') </script>");
+                }
             }
         }
         else
@@ -34,16 +58,16 @@ public partial class IndexAlumno : System.Web.UI.Page
         if (e.CommandName == "SelectRow")
         {
             txtNumCita.Text = e.CommandArgument.ToString();
-            Session["IdCita"] = e.CommandArgument.ToString();
-            //Response.Redirect("IndexAlumno.aspx?id=" + e.CommandArgument.ToString());
+            int cita = Convert.ToInt32(e.CommandArgument);
+            Response.Redirect("IndexAlumno.aspx?Cita="+cita+"#Citas");
         }
     }
     protected void btnEnviar_Click(object sender, EventArgs e)
     {
         clsCita Cita = new clsCita();
 
-        if(Session["IdCita"] != null)
-            Cita.IdCita = Convert.ToInt32(Session["IdCita"]);
+        if(Request["Cita"] != null)
+            Cita.IdCita = Convert.ToInt32(Request["Cita"]);
         else
             Response.Write(@"<script language = 'javascript'>alert('Seleccione una cita') </script>");
 
@@ -52,5 +76,13 @@ public partial class IndexAlumno : System.Web.UI.Page
         Cita.FechaAgendada = DateTime.Now;
         Cita.Disponible = 1;
         Cita.Comentario = txtComentario.Text;
+
+        int checkCita = (new clsCitaHandler()).CheckCitaAndAdd(Cita);
+        if (checkCita == 1)
+            Response.Redirect("IndexAlumno.aspx?re=exito");
+        else if(checkCita == 0)
+            Response.Redirect("IndexAlumno.aspx?re=error");
+        else if(checkCita == 2)
+            Response.Redirect("IndexAlumno.aspx?re=pendiente");
     }
 }

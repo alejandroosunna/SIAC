@@ -18,7 +18,7 @@ public class clsCitaHandler : ObjetoBase
 		//
 	}
 
-    public clsCita GetCita(int IdCita)
+    public clsCita GetCita(int IdUsuario)
     {
         clsCita Citas = new clsCita();
 
@@ -27,8 +27,8 @@ public class clsCitaHandler : ObjetoBase
         try
         {
             Connection.Open();
-            String Query = "select * from tbCitas where IdCita = @IdCita;";
-            SqlParameter Data = new SqlParameter("@IdCita", IdCita);
+            String Query = "select * from tbCitas where IdUsuario = @IdUsuario;";
+            SqlParameter Data = new SqlParameter("@IdUsuario", IdUsuario);
             Data.DbType = DbType.Int32;
             SqlCommand Command = new SqlCommand(Query, Connection);
             Command.Parameters.Add(Data);
@@ -93,9 +93,9 @@ public class clsCitaHandler : ObjetoBase
         return Citas;
     }
 
-    public bool CheckCitaAndAdd(clsCita Cita)
+    public int CheckCitaAndAdd(clsCita Cita)
     {
-        bool checkCita = false;
+        int checkCita = 0; // 0 existe, 1 no existe, 2 ya tiene una cita
         String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
         try
@@ -110,20 +110,40 @@ public class clsCitaHandler : ObjetoBase
 
             if (DataReader.Read())
             {
-                Query = "update tbCitas set IdUsuario = @IdUsuario, FechaAgendada = @FechaAgendada, Disponible = @Disponible, Comentario = @Comentario;";
-                SqlParameter[] _Data = new SqlParameter[4];
-                _Data[0] = new SqlParameter("@IdUsuario", Cita.IdUsuario);
-                _Data[0].DbType = DbType.Int32;
-                _Data[1] = new SqlParameter("@FechaAgendada", Cita.FechaAgendada);
-                _Data[1].DbType = DbType.DateTime;
-                _Data[2] = new SqlParameter("@Disponible", Cita.Disponible);
-                _Data[2].DbType = DbType.Int32;
-                _Data[3] = new SqlParameter("@Comentario", Cita.Comentario);
-                _Data[3].DbType = DbType.String;
-                SqlCommand _Command = new SqlCommand(Query, Connection);
-                _Command.Parameters.AddRange(_Data);
-                _Command.ExecuteReader();
-                checkCita = true;
+                DataReader.Dispose();
+
+                Query = "select * from tbCitas where IdUsuario = @IdUsuario;";
+                Data = new SqlParameter("@IdUsuario", Cita.IdUsuario);
+                Data.DbType = DbType.Int32;
+                Command = new SqlCommand(Query, Connection);
+                Command.Parameters.Add(Data);
+                DataReader = Command.ExecuteReader();
+
+                if (DataReader.Read())
+                {
+                    checkCita = 2;
+                }
+                else
+                {
+                    DataReader.Dispose();
+
+                    Query = "update tbCitas set IdUsuario = @IdUsuario, FechaAgendada = @FechaAgendada, Disponible = @Disponible, Comentario = @Comentario where IdCita = @IdCita;";
+                    SqlParameter[] _Data = new SqlParameter[5];
+                    _Data[0] = new SqlParameter("@IdUsuario", Cita.IdUsuario);
+                    _Data[0].DbType = DbType.Int32;
+                    _Data[1] = new SqlParameter("@FechaAgendada", Cita.FechaAgendada);
+                    _Data[1].DbType = DbType.DateTime;
+                    _Data[2] = new SqlParameter("@Disponible", Cita.Disponible);
+                    _Data[2].DbType = DbType.Int32;
+                    _Data[3] = new SqlParameter("@Comentario", Cita.Comentario);
+                    _Data[3].DbType = DbType.String;
+                    _Data[4] = new SqlParameter("@IdCita", Cita.IdCita);
+                    _Data[4].DbType = DbType.Int32;
+                    SqlCommand _Command = new SqlCommand(Query, Connection);
+                    _Command.Parameters.AddRange(_Data);
+                    SqlDataReader _DataReader = _Command.ExecuteReader();
+                    checkCita = 1;
+                }
             }
         }
         catch (Exception ex)

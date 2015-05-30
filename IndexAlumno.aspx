@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="IndexAlumno.aspx.cs" Inherits="IndexAlumno" EnableEventValidation="true" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="IndexAlumno.aspx.cs" Inherits="IndexAlumno" EnableEventValidation="false" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -127,7 +127,9 @@
                                 ......................................................................................................
                                 -->
 							<div class="iconbox-desc">
-
+                                <asp:Label ID="lblNombre" runat="server" Text=""></asp:Label>
+                                <br />
+                                <asp:Label ID="lblNumControl" runat="server" Text=""></asp:Label>
 							</div>
 						</div>
 					</div>
@@ -148,7 +150,9 @@
                                 ......................................................................................................
                                 -->
 							<div class="iconbox-desc">
-								
+                                <asp:Label ID="lblPDiaCita" runat="server" Text=""></asp:Label>
+                                <br />
+                                <asp:Label ID="lblPHoraCita" runat="server" Text=""></asp:Label>
 							</div>
 						</div>
 					</div>
@@ -291,8 +295,6 @@
 			</div><!-- .row -->
 
             <div class="row">
-
-		
 
                 <asp:GridView ID="GridView_Citas" runat="server" AutoGenerateColumns="False" DataKeyNames="NumeroCita" DataSourceID="SqlDataSource_Citas" OnRowCommand="GridView_Citas_RowCommand">
                     <Columns>
