@@ -37,7 +37,7 @@
 		<div class="intro">
 			<div class="start">Sistema de apartado de citas</div>
 			<h1>SIAC</h1>
-			<div class="start">Rapido, practico, sencillo...</div>
+			<div class="start">Rápido, fácil y sencillo...</div>
 		</div>
 
         <a href="#Resumen">
@@ -73,7 +73,7 @@
 				<div class="collapse navbar-collapse" id="custom-collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="#home">Inicio</a></li>
-						<li><a href="#Resumen">Resumen</a></li>
+						<li><a href="#Resumen">Principal</a></li>
                         <li><a href="#Horarios">Horarios</a></li>
 						<li><a href="#Citas">Citas</a></li>
 						<li><a href="#Contacto">Contacto</a></li>
@@ -262,7 +262,7 @@
 
 					<div class="pfblock-header wow fadeInUp">
 						<h2 class="pfblock-title">Citas</h2>
-						<div class="pfblock-line"></div>
+						
 						<div class="pfblock-subtitle">
 
 						</div>
@@ -274,22 +274,28 @@
 
             <div class="row">
 
-			<div id="cbp-qtrotator" class="cbp-qtrotator">
+			<div id="cbp-qtrotator" class="cbp-qtrotator wow slideInDown" style="margin-top:-50px" >
                 <div class="cbp-qtcontent">
-                    <img src="assets/images/client-1.jpg" alt="client-1" />
                     <blockquote>
-                      <p>Work with John was a pleasure. He understood exactly what I wanted and created an awesome site for my company.</p>
-                      <footer>Pino Caruso</footer>
-                    </blockquote>
-                </div>
-                <div class="cbp-qtcontent">
-                    <img src="assets/images/client-2.jpg" alt="client-2" />
-                    <blockquote>
-                      <p>I'm really happy with the results. Get 100% satisfaction is difficult but Alex got it without problems.</p>
-                      <footer>Jane Doe</footer>
-                    </blockquote>
-                </div>
+                      	<div class="col-sm-12">
 
+					<div class="iconbox wow fadeInUpBig">
+						<div class="iconbox-icon" style="margin-top:-20px">
+							<span class="fa fa-calendar "></span>
+						</div>
+						<div class="iconbox-text">
+							<h3 class="iconbox-title" style="margin-top:-20px">Selecion de cita</h3>
+                          
+							<div class="iconbox-desc">
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+                    </blockquote>
+                </div>
+               
             </div>		
 
             </div><!-- .row -->
