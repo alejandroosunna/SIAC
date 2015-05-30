@@ -35,7 +35,7 @@ create table tbCitas(
 	IdUsuario int,
 	IdAdministrador int not null,
 	Hora nvarchar(10) not null,
-	Dia date default getdate() not null,
+	Dia date not null,
 	FechaAgendada date default getdate(),
 	Disponible int default 0, /*0 es no disponible, 1 disponible*/
 	Comentario nvarchar(MAX) default '',
@@ -46,10 +46,10 @@ create table tbCitas(
 		references tbAdministradores(IdAdministrador) on delete cascade on update cascade
 );
 
-insert into tbCitas(IdAdministrador, Hora) values (1, '11:10 am');
-insert into tbCitas(IdAdministrador, Hora) values (1, '11:30 am');
-insert into tbCitas(IdAdministrador, Hora) values (1, '12:00 pm');
-insert into tbCitas(IdAdministrador, Hora) values (1, '12:20 pm');
+insert into tbCitas(IdAdministrador, Hora, Dia) values (1, '11:10 am', '29/05/2015');
+insert into tbCitas(IdAdministrador, Hora, Dia) values (1, '11:30 am', '29/05/2015');
+insert into tbCitas(IdAdministrador, Hora, Dia) values (1, '12:00 pm', '29/05/2015');
+insert into tbCitas(IdAdministrador, Hora, Dia) values (1, '12:20 pm', '29/05/2015');
 
 /*
 create table tbMaterias(
