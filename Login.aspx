@@ -13,14 +13,16 @@
         <link rel="stylesheet" href="Themes/css/bootstrap.css">
         <link rel="stylesheet" href="Themes/css/main.css">
         <link rel="stylesheet" href="Fonts/font-awesome-4.3.0/css/font-awesome">
-
+        
+    	<link href="assets/css/font-awesome.min.css" rel="stylesheet" media="screen"/>
+        <link href="assets/css/style.css" rel="stylesheet" media="screen"/> <!-- le meti esta hoja de estilos para que quedara mejor con las otras paginas-->
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <%--<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -35,18 +37,54 @@
           <form class="navbar-form navbar-right" role="form" runat="server">
             <div class="form-group">
               <asp:TextBox id ="txtNumControl" runat ="server" placeholder="Numero de Control" CssClass="form-control"></asp:TextBox>
-            <%--  <input type="text" placeholder="Numero de Control" class="form-control">--%>
+           
             </div>
             <div class="form-group">
               <asp:TextBox id ="txtContraseña" runat ="server" placeholder="Password" type="password" CssClass="form-control"></asp:TextBox>
-              <%--<input type="password" placeholder="Password" class="form-control">--%>
+          
             </div>
               <asp:Button ID ="btnLogin" runat="server" Text="Sign In" CssClass="btn btn-success" OnClick="btnLogin_Click"></asp:Button>
-            <%--<button type="submit" class="btn btn-success">Sign in</button>--%>
+           
           </form>
         </div><!--/.navbar-collapse -->
       </div>
+    </nav>--%> <!-- Esta es la navbar que estaba antes, descomentala si quieres regresarte-->
+      
+          <!---navbar 2    Si quieres el diseño anterior comenta esta barra y descomenta la de arriba            --->
+    <nav class="navbar navbar-custom" role="navigation">
+
+        <div class="container">
+
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#custom-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Sistema de Apartado de Citas</a>
+				</div>
+        
+            <div id="navbar" class="navbar-collapse collapse">
+                <form class="navbar-form navbar-right" role="form" runat="server">
+                    <div>
+                            <div class="form-group">
+                              <asp:TextBox id ="txtNumControl" runat ="server" placeholder="Numero de Control" CssClass="form-control"></asp:TextBox>
+                           
+                            </div>
+                            <div class="form-group">
+                              <asp:TextBox id ="txtContraseña" runat ="server" placeholder="Password" type="password" CssClass="form-control"></asp:TextBox>
+                             
+                            </div>
+                              <asp:Button ID ="btnLogin" runat="server" Text="Sign In" CssClass="btn btn-success" OnClick="btnLogin_Click"></asp:Button> 
+                     </div>
+                </form>
+            </div><!--/.navbar-collapse -->
+        </div><!-- .container -->
+
     </nav>
+
+         <!-- navbar2   -->
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -62,22 +100,22 @@
         <div class="item active" >
           <img  src="http://www.placehold.it/1900x500/99a/fff.png&text=RAPIDO,%20F%C3%81CIL%20y%20SENCILLO" alt="1900x500&amp; text-Slide One" data-holder-rendered="true">
           <div class="carousel-caption">
-            Este es el Primer Slide
+
           </div>
         </div>
 
-        <div class="item" posicion =center>
-          <img  src="Img/imagen.png" alt="1900x500&amp; text-Slide One" data-holder-rendered="true">
+        <div class="item" >
+          <img  src="Img/imagen.png" alt="1900x500&amp; text-Slide One" data-holder-rendered="true"/>
           <div class="carousel-caption">
-            <h1>Este es el Segundo Slide</h1>
-            Asi se ve un subcomentario
+
+         
           </div>
         </div>
 
         <div class="item">
-          <img  src="http://www.placehold.it/1900x500/ff3d00/fff.png&text=About%20us..."alt="1900x500&amp;text-Slide Three" data-holder-rendered="true">
+          <img  src="http://www.placehold.it/1900x500/ff3d00/fff.png&text=About%20us..."alt="1900x500&amp;text-Slide Three" data-holder-rendered="true"/>
           <div class="carousel-caption">
-            ...
+            
           </div>
         </div>
         ...
@@ -85,11 +123,11 @@
 
   <!-- Controls -->
       <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="fa fa-chevron-circle-left" style="margin-top:80%" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
       <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="fa fa-chevron-circle-right" style="margin-top:80%" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
     </div>
