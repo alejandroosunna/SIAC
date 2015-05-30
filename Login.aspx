@@ -60,7 +60,7 @@
   <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
         <div class="item active" >
-          <img  src="http://placehold.it/1900x500" alt="1900x500&amp; text-Slide One" data-holder-rendered="true">
+          <img  src="http://www.placehold.it/1900x500/99a/fff.png&text=RAPIDO,%20F%C3%81CIL%20y%20SENCILLO" alt="1900x500&amp; text-Slide One" data-holder-rendered="true">
           <div class="carousel-caption">
             Este es el Primer Slide
           </div>
@@ -98,18 +98,18 @@
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <h2>¿Qué es SIAC?</h2>
+          <p>Es un Sistemas de apartado de Citas, para nuestro Instituto Técnologico de Hermosillo, desarrollado por alumnos de 6 semestres de Sistemas. </p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <h2>Origen</h2>
+          <p> La idea de desarrollar esta plataforma web, es principalmente para abastecer el problema que existe en los inicios de semestre al quedar incoformes en la selección de horarios y poder cambiarlos de una manera mas sencilla. </p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
        </div>
         <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <h2>Rápido, fácil y Sencillo</h2>
+          <p>La manera de seleccionar una cita es muy fácil solo ingresa y podras ver un video informativo de como usar esta plataforma.</p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
       </div>
