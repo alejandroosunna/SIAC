@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
 public partial class IndexAlumno : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -85,5 +86,21 @@ public partial class IndexAlumno : System.Web.UI.Page
             Response.Redirect("IndexAlumno.aspx?re=error");
         else if(checkCita == 2)
             Response.Redirect("IndexAlumno.aspx?re=pendiente");
+    }
+    protected void btnSend_Click(object sender, EventArgs e)
+    {
+        enviarCorrreo();
+    }
+    public void enviarCorrreo()
+    {
+        string name = txtName.Text;
+        string email = txtEmail.Text;
+        string msg = txtMesg.Text;
+        if(new Emailhtml().enviarcorreo(name, email, msg)){
+            Response.Write(@"<script language = 'javascript'>alert('Correo enviado') </script>");
+        }else{
+             Response.Write(@"<script language = 'javascript'>alert('Correo no enviado') </script>");
+        }
+        
     }
 }
