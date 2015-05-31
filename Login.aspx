@@ -98,14 +98,14 @@
   <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
         <div class="item active" >
-          <img  src="Img/Image1.png" alt="1900x500&amp; text-Slide One" data-holder-rendered="true">
+          <img  src="Img/Image1.1.fw.png" alt="1900x500&amp; text-Slide One" data-holder-rendered="true">
           <div class="carousel-caption">
 
           </div>
         </div>
 
         <div class="item" >
-          <img  src="Img/Image2.png" alt="1900x500&amp; text-Slide One" data-holder-rendered="true"/>
+          <img  src="Img/Image2.2.png" alt="1900x500&amp; text-Slide One" data-holder-rendered="true"/>
           <div class="carousel-caption">
 
          
