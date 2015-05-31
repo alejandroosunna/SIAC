@@ -16,9 +16,9 @@ public partial class Login : System.Web.UI.Page
         {
             Response.Redirect("~\\IndexAlumno.aspx");
         }
-        else if (Session["IdLoginAdministrador"] != null)
+        else if (Session["IdAdministrador"] != null)
         {
-            Response.Redirect("~\\IndexAdministrador.aspx");
+            Response.Redirect("~\\IndexAdmin.aspx");
         }
     }
     protected void btnLogin_Click(object sender, EventArgs e)
@@ -29,12 +29,20 @@ public partial class Login : System.Web.UI.Page
            {
                Session["IdLoginAlumno"] = Usuario.IdUsuario;
                Session["IdAdministrador"] = Usuario.IdAdministrador;
-               Response.Redirect("~\\IndexAlumno.aspx");
            }
            else
            {
-               //lblAlerta.Text = "Credenciales Incorrectas";
-               Response.Write(@"<script language = 'javascript'>alert('Credenciales incorrectas') </script>");
+               clsAdministrador Administrador = (new clsAdministradorHandler()).CheckLogin(Convert.ToInt32(txtNumControl.Text), txtContraseña.Text);
+               if (Administrador.IdAdministrador != 0)
+                   Session["IdAdministrador"] = Administrador.IdAdministrador;
            }
+
+           if (Session["IdLoginAlumno"] != null)
+               Response.Redirect("~\\IndexAlumno.aspx");
+           else if(Session["IdAdministrador"] != null)
+                Response.Redirect("~\\IndexAdmin.aspx");
+            else
+                Response.Write(@"<script language = 'javascript'>alert('Credenciales incorrectas') </script>");
+
     }
 }

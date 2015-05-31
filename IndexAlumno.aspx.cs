@@ -15,6 +15,7 @@ public partial class IndexAlumno : System.Web.UI.Page
             if (strCerrarSesion == true)
             {
                 Session["IdLoginAlumno"] = null;
+                Session["IdAdministrador"] = null;
                 Response.Redirect("~\\Login.aspx");
             }
             else

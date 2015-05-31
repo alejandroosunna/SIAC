@@ -35,7 +35,8 @@
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"><asp:HyperLink ID="lbl_CerrarSesionAdmin" runat="server" NavigateUrl="~/" class="btn btn-danger square-btn-adjust">Salir</asp:HyperLink></div> <!-- control asp para cerrar sesion -->
+font-size: 16px;">
+      <asp:Button ID="btnSalir" runat="server" Text="Salir" CssClass="btn btn-danger square-btn-adjust" OnClick="btnSalir_Click" /><!-- control asp para cerrar sesion -->
         </nav>   <!-- navbar  -->
            <!-- /. NAV TOP <a href="#" class="btn btn-danger square-btn-adjust">Salir</a> -->
                 <nav class="navbar-default navbar-side" role="navigation">
@@ -75,7 +76,9 @@ font-size: 16px;"><asp:HyperLink ID="lbl_CerrarSesionAdmin" runat="server" Navig
                 <div class="row">
                     <div class="col-md-12">
                      <h2>Citas Pendientes</h2>   
-                        <h5>Bienvenida Betina</h5>
+                        <h5>
+                            <asp:Label ID="lblNombre" runat="server" Text=""></asp:Label>
+                        </h5>
                     </div>
                 </div>              
                  <!-- /. ROW  -->
@@ -91,8 +94,21 @@ font-size: 16px;"><asp:HyperLink ID="lbl_CerrarSesionAdmin" runat="server" Navig
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                
                                 <h1>Aqui ira un control de asp para mostrar las citas</h1>
+                                <asp:GridView ID="GridView_Citas" runat="server" AutoGenerateColumns="False" DataKeyNames="NumeroCita" DataSourceID="SqlDataSource">
+                                    <Columns>
+                                        <asp:BoundField DataField="NumeroCita" HeaderText="NumeroCita" InsertVisible="False" ReadOnly="True" SortExpression="NumeroCita" />
+                                        <asp:BoundField DataField="Hora" HeaderText="Hora" SortExpression="Hora" />
+                                        <asp:BoundField DataField="Dia" HeaderText="Dia" SortExpression="Dia" />
+                                        <asp:BoundField DataField="FechaAgendada" HeaderText="FechaAgendada" SortExpression="FechaAgendada" />
+                                        <asp:BoundField DataField="Comentario" HeaderText="Comentario" SortExpression="Comentario" />
+                                    </Columns>
+                                </asp:GridView>
+                                <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:dbControlDeCitas %>" SelectCommand="SELECT IdCita AS NumeroCita, Hora, Dia, FechaAgendada, Comentario FROM tbCitas WHERE (Disponible = @Disponible)">
+                                    <SelectParameters>
+                                        <asp:Parameter DefaultValue="1" Name="Disponible" />
+                                    </SelectParameters>
+                                </asp:SqlDataSource>
                             </div>
                         </div>
                     </div>
