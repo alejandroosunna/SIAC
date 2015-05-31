@@ -98,14 +98,14 @@
   <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
         <div class="item active" >
-          <img  src="http://www.placehold.it/1900x500/99a/fff.png&text=RAPIDO,%20F%C3%81CIL%20y%20SENCILLO" alt="1900x500&amp; text-Slide One" data-holder-rendered="true">
+          <img  src="Img/Image1.png" alt="1900x500&amp; text-Slide One" data-holder-rendered="true">
           <div class="carousel-caption">
 
           </div>
         </div>
 
         <div class="item" >
-          <img  src="Img/imagen.png" alt="1900x500&amp; text-Slide One" data-holder-rendered="true"/>
+          <img  src="Img/Image2.png" alt="1900x500&amp; text-Slide One" data-holder-rendered="true"/>
           <div class="carousel-caption">
 
          
@@ -113,9 +113,12 @@
         </div>
 
         <div class="item">
-          <img  src="http://www.placehold.it/1900x500/ff3d00/fff.png&text=About%20us..."alt="1900x500&amp;text-Slide Three" data-holder-rendered="true"/>
+          <img  src="Img/Image3.png"alt="1900x500&amp;text-Slide Three" data-holder-rendered="true"/>
           <div class="carousel-caption">
-            
+                <h1>><font color="White">
+                        Desarrolladores
+                    </font></h1>
+                <h3>ALejandro, Efren, Luis y Leonardo</h3>
           </div>
         </div>
         ...
@@ -138,17 +141,17 @@
         <div class="col-md-4">
           <h2>¿Qué es SIAC?</h2>
           <p>Es un Sistemas de apartado de Citas, para nuestro Instituto Técnologico de Hermosillo, desarrollado por alumnos de 6 semestres de Sistemas. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        
         </div>
         <div class="col-md-4">
           <h2>Origen</h2>
           <p> La idea de desarrollar esta plataforma web, es principalmente para abastecer el problema que existe en los inicios de semestre al quedar incoformes en la selección de horarios y poder cambiarlos de una manera mas sencilla. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+    
        </div>
         <div class="col-md-4">
           <h2>Rápido, fácil y Sencillo</h2>
           <p>La manera de seleccionar una cita es muy fácil solo ingresa y podras ver un video informativo de como usar esta plataforma.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          
         </div>
       </div>
 
