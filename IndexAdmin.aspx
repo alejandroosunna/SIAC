@@ -112,7 +112,7 @@
                                         </asp:TemplateField>
                                     </Columns>
                                 </asp:GridView>
-                                <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:dbControlDeCitas %>" SelectCommand="SELECT IdCita AS NumeroCita, Hora, Dia, FechaAgendada, Comentario FROM tbCitas WHERE (Disponible = @Disponible)">
+                                <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:dbControlDeCitas %>" SelectCommand="SELECT IdCita AS NumeroCita, Hora, FORMAT([Dia], 'dd/MM/yyyy', 'en-US') AS Dia, FechaAgendada, Comentario FROM tbCitas WHERE (Disponible = @Disponible)">
                                     <SelectParameters>
                                         <asp:Parameter DefaultValue="1" Name="Disponible" />
                                     </SelectParameters>

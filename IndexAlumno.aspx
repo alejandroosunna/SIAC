@@ -311,7 +311,7 @@
                     </Columns>
                 </asp:GridView>
 
-                <asp:SqlDataSource ID="SqlDataSource_Citas" runat="server" ConnectionString="<%$ ConnectionStrings:dbControlDeCitas %>" SelectCommand="SELECT [IdCita] as NumeroCita, [Hora], [Dia] FROM [tbCitas] WHERE (([IdAdministrador] = @IdAdministrador) AND ([Disponible] = @Disponible))">
+                <asp:SqlDataSource ID="SqlDataSource_Citas" runat="server" ConnectionString="<%$ ConnectionStrings:dbControlDeCitas %>" SelectCommand="SELECT [IdCita] as NumeroCita, [Hora], FORMAT([Dia], 'dd/MM/yyyy', 'en-US') AS Dia FROM [tbCitas] WHERE (([IdAdministrador] = @IdAdministrador) AND ([Disponible] = @Disponible))">
                     <SelectParameters>
                         <asp:SessionParameter DefaultValue="0" Name="IdAdministrador" SessionField="IdAdministrador" />
                         <asp:Parameter DefaultValue="0" Name="Disponible" />
