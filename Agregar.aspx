@@ -46,14 +46,13 @@ font-size: 16px;"><asp:Button ID="btnSalir" runat="server" Text="Salir" CssClass
                     <img src="asse/img/find_user.png" class="user-image img-responsive"/>
 					</li>
 				
-					
-                    <li>
-                        <a class="active-menu"  href="IndexAdmin.aspx"><i class="fa fa-dashboard fa-3x"></i>Resumen</a>
+					 <li>
+                        <a class="active-menu"  href="IndexAdmin.aspx"><i class="fa fa-table fa-3x"></i>Resumen</a>
                     </li>
                      
 					                   
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-3x"></i>Alumnos<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-user fa-3x"></i>Alumnos<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="Agregar.aspx">Agregar</a>
@@ -64,6 +63,7 @@ font-size: 16px;"><asp:Button ID="btnSalir" runat="server" Text="Salir" CssClass
                           
                         </ul>
                       </li>  
+                  
                   
                 </ul>
                
@@ -83,27 +83,31 @@ font-size: 16px;"><asp:Button ID="btnSalir" runat="server" Text="Salir" CssClass
             
                  <!-- /. ROW  -->
                  <div class="row" >
-                    <div class="col-md-9 col-sm-12 col-xs-12">
+                    <div class="col-md-3 col-sm-3 col-xs-7 col-md-offset-4">
                
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                          Listado de citas pendientes
+                          Alumno
                         </div>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <h1>Aqui iran controles de asp para la insercion de un alumno</h1>
+                        <div class="panel-body" >
+                            <div class="table-responsive" style="margin-left:5%">
 
                                 <asp:TextBox ID="txtNombre" runat="server" placeholder="Nombre"></asp:TextBox>
                                 <br />
+                                <br />
                                 <asp:TextBox ID="txtApellidoPaterno" runat="server" placeholder="Apellido Paterno"></asp:TextBox>
+                                <br />
                                 <br />
                                 <asp:TextBox ID="txtApellidoMaterno" runat="server" placeholder="Apellido Materno"></asp:TextBox>
                                 <br />
+                                <br />
                                 <asp:TextBox ID="txtNumControl" runat="server" placeholder="Numero de Control" OnTextChanged="txtNumControl_TextChanged" AutoPostBack="True"></asp:TextBox>
+                                <br />
                                 <br />
                                 <asp:TextBox ID="txtContraseña" runat="server" placeholder="Contraseña"></asp:TextBox>
                                 <br />
-                                <asp:Button ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />
+                                
+                               <div style="margin-left:20%;margin-top:3%;"> <asp:Button ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click"  /> </div>
                             </div>
                         </div>
                     </div>

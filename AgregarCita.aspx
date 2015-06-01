@@ -47,13 +47,13 @@ font-size: 16px;"><asp:Button ID="btnSalir" runat="server" Text="Salir" CssClass
 					</li>
 				
 					
-                    <li>
-                        <a class="active-menu"  href="IndexAdmin.aspx"><i class="fa fa-dashboard fa-3x"></i>Resumen</a>
+                   <li>
+                        <a class="active-menu"  href="IndexAdmin.aspx"><i class="fa fa-table fa-3x"></i>Resumen</a>
                     </li>
                      
 					                   
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-3x"></i>Alumnos<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-user fa-3x"></i>Alumnos<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="Agregar.aspx">Agregar</a>
@@ -64,6 +64,7 @@ font-size: 16px;"><asp:Button ID="btnSalir" runat="server" Text="Salir" CssClass
                           
                         </ul>
                       </li>  
+                  
                   
                 </ul>
                
@@ -83,17 +84,15 @@ font-size: 16px;"><asp:Button ID="btnSalir" runat="server" Text="Salir" CssClass
             
                  <!-- /. ROW  -->
                  <div class="row" >
-                    <div class="col-md-9 col-sm-12 col-xs-12">
+                   <div class="col-md-7 col-sm-10 col-xs-12 col-md-offset-1">
                
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                          Listado de citas pendientes
+                          Agregar cita
                         </div>
-                        <div class="panel-body">
+                        <div class="panel-body" style="margin-left:15%">
                             <div class="table-responsive">
-                                <h1>Aqui iran controles de asp para la insercion de un alumno</h1>
-
-                                <asp:Calendar ID="calenDia" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px">
+                                    <asp:Calendar ID="calenDia" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px">
                                     <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
                                     <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
                                     <OtherMonthDayStyle ForeColor="#999999" />

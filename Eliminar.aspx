@@ -48,12 +48,12 @@ font-size: 16px;"><asp:Button ID="btnSalir" runat="server" Text="Salir" CssClass
 				
 					
                     <li>
-                        <a class="active-menu"  href="IndexAdmin.aspx"><i class="fa fa-dashboard fa-3x"></i>Resumen</a>
+                        <a class="active-menu"  href="IndexAdmin.aspx"><i class="fa fa-table fa-3x"></i>Resumen</a>
                     </li>
                      
 					                   
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-3x"></i>Alumnos<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-user fa-3x"></i>Alumnos<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="Agregar.aspx">Agregar</a>
@@ -64,6 +64,7 @@ font-size: 16px;"><asp:Button ID="btnSalir" runat="server" Text="Salir" CssClass
                           
                         </ul>
                       </li>  
+                  
                   
                 </ul>
                
@@ -83,15 +84,15 @@ font-size: 16px;"><asp:Button ID="btnSalir" runat="server" Text="Salir" CssClass
             
                  <!-- /. ROW  -->
                  <div class="row" >
-                    <div class="col-md-9 col-sm-12 col-xs-12">
+                   <div class="col-md-7 col-sm-10 col-xs-12 col-md-offset-1">
                
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                          Listado de citas pendientes
+                          Eliminar
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <h1>Aqui ira un control de asp para mostrar las citas</h1>
+
                                 <asp:GridView ID="GridView_Usuarios" runat="server" AutoGenerateColumns="False" DataKeyNames="IdUsuario" DataSourceID="SqlDataSource" OnRowCommand="GridView_Usuarios_RowCommand">
                                     <Columns>
                                         <asp:BoundField DataField="IdUsuario" HeaderText="IdUsuario" InsertVisible="False" ReadOnly="True" SortExpression="IdUsuario" />

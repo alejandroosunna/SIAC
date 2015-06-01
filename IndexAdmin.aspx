@@ -49,12 +49,12 @@
 				
 					
                     <li>
-                        <a class="active-menu"  href="IndexAdmin.aspx"><i class="fa fa-dashboard fa-3x"></i>Resumen</a>
+                        <a class="active-menu"  href="IndexAdmin.aspx"><i class="fa fa-table fa-3x"></i>Resumen</a>
                     </li>
                      
 					                   
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-3x"></i>Alumnos<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-user fa-3x"></i>Alumnos<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="Agregar.aspx">Agregar</a>
@@ -87,7 +87,7 @@
             
                  <!-- /. ROW  -->
                  <div class="row" >
-                    <div class="col-md-9 col-sm-12 col-xs-12">
+                    <div class="col-md-7 col-sm-10 col-xs-12 col-md-offset-1">
                
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -95,7 +95,6 @@
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <h1>Aqui ira un control de asp para mostrar las citas</h1>
                                 <asp:GridView ID="GridView_Citas" runat="server" AutoGenerateColumns="False" DataKeyNames="NumeroCita" DataSourceID="SqlDataSource" OnRowCommand="GridView_Citas_RowCommand">
                                     <Columns>
                                         <asp:BoundField DataField="NumeroCita" HeaderText="NumeroCita" InsertVisible="False" ReadOnly="True" SortExpression="NumeroCita" />
@@ -123,7 +122,7 @@
                     </div>
                     
                     </div>
-                    <div class="col-md-3 col-sm-12 col-xs-12">
+                    <%--<div class="col-md-3 col-sm-12 col-xs-12">
   <div class="panel panel-primary text-center no-boder bg-color-green">
                         <div class="panel-body">
                             <i class="fa fa-comments-o fa-5x"></i>
@@ -136,7 +135,7 @@
                             
                         </div>
                     </div>
-                    </div>
+                    </div>--%>
                     
                 </div>
                  <!-- /. ROW  -->
