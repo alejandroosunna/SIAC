@@ -270,23 +270,45 @@
 
 	<!-- Citas start -->
 
-	<section id="Citas" class="pfblock pfblock-gray">
+	<section id="Citas" class="pfblock">
 
-		<div class="container">
             
             <div class="row">
 
 				<div class="col-sm-6 col-sm-offset-3">
 
-					<div class="pfblock-header wow fadeInUp">
+					<div class="pfblock-header wow fadeInUp ajax-response">
 						<h2 class="pfblock-title">Citas</h2>
-						  <!--
-                                Aqui van los controles de ASP
+						   <asp:GridView ID="GridView_Citas"  runat="server" AutoGenerateColumns="False" DataKeyNames="NumeroCita" DataSourceID="SqlDataSource_Citas" OnRowCommand="GridView_Citas_RowCommand" CssClass="table media-list fa-border table-bordered table-responsive table-condensed caption ajax-response wow bounce" BorderStyle="None" >
+                            <Columns>
+                                <asp:BoundField DataField="NumeroCita" HeaderText="NumeroCita" InsertVisible="False" ReadOnly="True" SortExpression="NumeroCita"  HeaderStyle-CssClass="text-center" />
+                                <asp:BoundField DataField="Hora" HeaderText="Hora" SortExpression="Hora"  HeaderStyle-CssClass="text-center"  />
+                                <asp:BoundField DataField="Dia" HeaderText="Dia" SortExpression="Dia" HeaderStyle-CssClass="text-center" />
+                                <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:Button ID="btnSeleccionar" Text="Seleccionar" runat="server"
+                                    CommandName="SelectRow" CssClass="btn-link navbar-btn"
+                                    CommandArgument="<%# ( (GridViewRow) Container).Cells[0].Text %>"/>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
 
-                                ......................................................................................................
-                                -->
-						<div class="pfblock-subtitle">
+                <asp:SqlDataSource ID="SqlDataSource_Citas" runat="server" ConnectionString="<%$ ConnectionStrings:dbControlDeCitas %>" SelectCommand="SELECT [IdCita] as NumeroCita, [Hora], FORMAT([Dia], 'dd/MM/yyyy', 'en-US') AS Dia FROM [tbCitas] WHERE (([IdAdministrador] = @IdAdministrador) AND ([Disponible] = @Disponible))">
+                    <SelectParameters>
+                        <asp:SessionParameter DefaultValue="0" Name="IdAdministrador" SessionField="IdAdministrador" />
+                        <asp:Parameter DefaultValue="0" Name="Disponible" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
 
+              
+						<div class="form-group wow fadeInUp">
+      
+                              <asp:TextBox ID="txtNumCita" runat="server" CssClass="text-center text-info form-group-lg" placeholder="Número de Cita" ReadOnly="true"></asp:TextBox>
+                            <br />
+                              <asp:TextBox ID="txtComentario" runat="server" CssClass="text-info  form-control" Rows="3" placeholder="Comentario" TextMode="MultiLine"></asp:TextBox>
+                           
+                             <asp:Button ID="btnEnviar" runat="server" Text="Enviar"  OnClick="btnEnviar_Click" CssClass="btn-group-lg btn-block calltoaction-btn btn-success" />
 						</div>
 					</div>
 
@@ -296,31 +318,7 @@
 
             <div class="row">
 
-                <asp:GridView ID="GridView_Citas" runat="server" AutoGenerateColumns="False" DataKeyNames="NumeroCita" DataSourceID="SqlDataSource_Citas" OnRowCommand="GridView_Citas_RowCommand">
-                    <Columns>
-                        <asp:BoundField DataField="NumeroCita" HeaderText="NumeroCita" InsertVisible="False" ReadOnly="True" SortExpression="NumeroCita"/>
-                        <asp:BoundField DataField="Hora" HeaderText="Hora" SortExpression="Hora" />
-                        <asp:BoundField DataField="Dia" HeaderText="Dia" SortExpression="Dia" />
-                        <asp:TemplateField>
-                    <ItemTemplate>
-                        <asp:Button ID="btnSeleccionar" Text="Seleccionar" runat="server"
-                            CommandName="SelectRow"
-                            CommandArgument="<%# ( (GridViewRow) Container).Cells[0].Text %>"/>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                    </Columns>
-                </asp:GridView>
-
-                <asp:SqlDataSource ID="SqlDataSource_Citas" runat="server" ConnectionString="<%$ ConnectionStrings:dbControlDeCitas %>" SelectCommand="SELECT [IdCita] as NumeroCita, [Hora], FORMAT([Dia], 'dd/MM/yyyy', 'en-US') AS Dia FROM [tbCitas] WHERE (([IdAdministrador] = @IdAdministrador) AND ([Disponible] = @Disponible))">
-                    <SelectParameters>
-                        <asp:SessionParameter DefaultValue="0" Name="IdAdministrador" SessionField="IdAdministrador" />
-                        <asp:Parameter DefaultValue="0" Name="Disponible" />
-                    </SelectParameters>
-                </asp:SqlDataSource>
-
-                <asp:TextBox ID="txtNumCita" runat="server"></asp:TextBox>
-                <asp:TextBox ID="txtComentario" runat="server"></asp:TextBox>
-                <asp:Button ID="btnEnviar" runat="server" Text="Enviar" Height="26px" OnClick="btnEnviar_Click" />
+               
 
             </div><!-- .row -->
 
