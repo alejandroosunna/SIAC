@@ -224,4 +224,29 @@ public class clsCitaHandler : ObjetoBase
             Connection = null;
         }
     }
+
+    public void DeleteCita(int IdCita)
+    {
+        String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
+        SqlConnection Connection = new SqlConnection(ConnectionString);
+        try
+        {
+            Connection.Open();
+            String Query = "delete from tbCitas where IdCita = @IdCita;";
+            SqlParameter Data = new SqlParameter("@IdCita", IdCita);
+            Data.DbType = DbType.Int32;
+            SqlCommand Command = new SqlCommand(Query, Connection);
+            Command.Parameters.Add(Data);
+            SqlDataReader DataReader = Command.ExecuteReader();
+        }
+        catch (Exception ex)
+        {
+            LogError(ex.Message);
+        }
+        finally
+        {
+            Connection.Close();
+            Connection = null;
+        }
+    }
 }

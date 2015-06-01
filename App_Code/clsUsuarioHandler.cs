@@ -107,12 +107,38 @@ public class clsUsuarioHandler : ObjetoBase
             Data[2].DbType = DbType.String;
             Data[3] = new SqlParameter("@ApellidoMaterno", Usuario.ApellidoMaterno);
             Data[3].DbType = DbType.String;
-            Data[3] = new SqlParameter("@NumControl", Usuario.NumControl);
-            Data[3].DbType = DbType.Int32;
-            Data[3] = new SqlParameter("@Contraseña", Usuario.Contraseña);
-            Data[3].DbType = DbType.String;
+            Data[4] = new SqlParameter("@NumControl", Usuario.NumControl);
+            Data[4].DbType = DbType.Int32;
+            Data[5] = new SqlParameter("@Contraseña", Usuario.Contraseña);
+            Data[5].DbType = DbType.String;
             SqlCommand Command = new SqlCommand(Query, Connection);
             Command.Parameters.AddRange(Data);
+            Command.ExecuteReader();
+        }
+        catch (Exception ex)
+        {
+            LogError(ex.Message);
+        }
+        finally
+        {
+            Connection.Close();
+            Connection = null;
+        }
+    }
+
+    public void DeleteUsuario(int IdUsuario)
+    {
+        String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
+        SqlConnection Connection = new SqlConnection(ConnectionString);
+
+        try
+        {
+            Connection.Open();
+            String Query = "delete from tbUsuarios where IdUsuario = @IdUsuario;";
+            SqlParameter Data = new SqlParameter("@IdUsuario", IdUsuario);
+            Data.DbType = DbType.Int32;
+            SqlCommand Command = new SqlCommand(Query, Connection);
+            Command.Parameters.Add(Data);
             Command.ExecuteReader();
         }
         catch (Exception ex)

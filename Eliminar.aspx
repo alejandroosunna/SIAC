@@ -92,6 +92,27 @@ font-size: 16px;"><asp:HyperLink ID="lbl_CerrarSesionAdmin" runat="server" Navig
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <h1>Aqui ira un control de asp para mostrar las citas</h1>
+                                <asp:GridView ID="GridView_Usuarios" runat="server" AutoGenerateColumns="False" DataKeyNames="IdUsuario" DataSourceID="SqlDataSource" OnRowCommand="GridView_Usuarios_RowCommand">
+                                    <Columns>
+                                        <asp:BoundField DataField="IdUsuario" HeaderText="IdUsuario" InsertVisible="False" ReadOnly="True" SortExpression="IdUsuario" />
+                                        <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
+                                        <asp:BoundField DataField="ApellidoPaterno" HeaderText="ApellidoPaterno" SortExpression="ApellidoPaterno" />
+                                        <asp:BoundField DataField="ApellidoMaterno" HeaderText="ApellidoMaterno" SortExpression="ApellidoMaterno" />
+                                        <asp:BoundField DataField="NumControl" HeaderText="NumControl" SortExpression="NumControl" />
+                                        <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <asp:Button ID="btnEliminar" Text="Eliminiar" runat="server"
+                                                    CommandName="DeleteRow"
+                                                    CommandArgument="<%# ( (GridViewRow) Container).Cells[0].Text %>"/>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                </asp:GridView>
+                                <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:dbControlDeCitas %>" SelectCommand="SELECT [IdUsuario], [Nombre], [ApellidoPaterno], [ApellidoMaterno], [NumControl] FROM [tbUsuarios] WHERE ([IdAdministrador] = @IdAdministrador)">
+                                    <SelectParameters>
+                                        <asp:SessionParameter DefaultValue="0" Name="IdAdministrador" SessionField="IdAdministrador" Type="Int32" />
+                                    </SelectParameters>
+                                </asp:SqlDataSource>
                             </div>
                         </div>
                     </div>

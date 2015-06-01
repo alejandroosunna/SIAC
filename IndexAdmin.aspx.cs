@@ -25,4 +25,12 @@ public partial class IndexAdmin : System.Web.UI.Page
         Session["IdAdministrador"] = null;
         Response.Redirect("~\\Login.aspx");
     }
+    protected void GridView_Citas_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        if (e.CommandName == "DeleteRow")
+        {
+            (new clsCitaHandler()).DeleteCita(Convert.ToInt32(e.CommandArgument));
+            Response.Redirect("~\\IndexAdmin.aspx");
+        }
+    }
 }

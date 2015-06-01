@@ -92,6 +92,18 @@ font-size: 16px;"><asp:HyperLink ID="lbl_CerrarSesionAdmin" runat="server" Navig
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <h1>Aqui iran controles de asp para la insercion de un alumno</h1>
+
+                                <asp:TextBox ID="txtNombre" runat="server" placeholder="Nombre"></asp:TextBox>
+                                <br />
+                                <asp:TextBox ID="txtApellidoPaterno" runat="server" placeholder="Apellido Paterno"></asp:TextBox>
+                                <br />
+                                <asp:TextBox ID="txtApellidoMaterno" runat="server" placeholder="Apellido Materno"></asp:TextBox>
+                                <br />
+                                <asp:TextBox ID="txtNumControl" runat="server" placeholder="Numero de Control" OnTextChanged="txtNumControl_TextChanged" AutoPostBack="True"></asp:TextBox>
+                                <br />
+                                <asp:TextBox ID="txtContraseña" runat="server" placeholder="Contraseña"></asp:TextBox>
+                                <br />
+                                <asp:Button ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />
                             </div>
                         </div>
                     </div>

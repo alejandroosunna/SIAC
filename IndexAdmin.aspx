@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="IndexAdmin.aspx.cs" Inherits="IndexAdmin" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="IndexAdmin.aspx.cs" Inherits="IndexAdmin"  EnableEventValidation="false"%>
 
 <!DOCTYPE html>
 
@@ -95,13 +95,20 @@ font-size: 16px;">
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <h1>Aqui ira un control de asp para mostrar las citas</h1>
-                                <asp:GridView ID="GridView_Citas" runat="server" AutoGenerateColumns="False" DataKeyNames="NumeroCita" DataSourceID="SqlDataSource">
+                                <asp:GridView ID="GridView_Citas" runat="server" AutoGenerateColumns="False" DataKeyNames="NumeroCita" DataSourceID="SqlDataSource" OnRowCommand="GridView_Citas_RowCommand">
                                     <Columns>
                                         <asp:BoundField DataField="NumeroCita" HeaderText="NumeroCita" InsertVisible="False" ReadOnly="True" SortExpression="NumeroCita" />
                                         <asp:BoundField DataField="Hora" HeaderText="Hora" SortExpression="Hora" />
                                         <asp:BoundField DataField="Dia" HeaderText="Dia" SortExpression="Dia" />
                                         <asp:BoundField DataField="FechaAgendada" HeaderText="FechaAgendada" SortExpression="FechaAgendada" />
                                         <asp:BoundField DataField="Comentario" HeaderText="Comentario" SortExpression="Comentario" />
+                                        <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <asp:Button ID="btnEliminar" Text="Eliminiar" runat="server"
+                                                    CommandName="DeleteRow"
+                                                    CommandArgument="<%# ( (GridViewRow) Container).Cells[0].Text %>"/>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
                                     </Columns>
                                 </asp:GridView>
                                 <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:dbControlDeCitas %>" SelectCommand="SELECT IdCita AS NumeroCita, Hora, Dia, FechaAgendada, Comentario FROM tbCitas WHERE (Disponible = @Disponible)">
