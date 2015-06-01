@@ -20,4 +20,9 @@ public partial class Eliminar : System.Web.UI.Page
             Response.Redirect("~\\Eliminar.aspx");
         }
     }
+    protected void btnSalir_Click(object sender, EventArgs e)
+    {
+        Session["IdAdministrador"] = null;
+        Response.Redirect("~\\Login.aspx");
+    }
 }

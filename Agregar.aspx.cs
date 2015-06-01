@@ -38,4 +38,9 @@ public partial class Agregar : System.Web.UI.Page
             Response.Write(@"<script language = 'javascript'>alert('Error al agregar el usuario. Verifica que los datos sean los correctos.') </script>");
         }
     }
+    protected void btnSalir_Click(object sender, EventArgs e)
+    {
+        Session["IdAdministrador"] = null;
+        Response.Redirect("~\\Login.aspx");
+    }
 }

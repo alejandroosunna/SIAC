@@ -33,4 +33,8 @@ public partial class IndexAdmin : System.Web.UI.Page
             Response.Redirect("~\\IndexAdmin.aspx");
         }
     }
+    protected void btnNuevaCita_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~\\AgregarCita.aspx");
+    }
 }

@@ -32,11 +32,12 @@
                 </button>
                 <a class="navbar-brand" href="#">Administrador</a> 
             </div>
-  <div style="color: white;
-padding: 15px 50px 5px 50px;
-float: right;
-font-size: 16px;">
-      <asp:Button ID="btnSalir" runat="server" Text="Salir" CssClass="btn btn-danger square-btn-adjust" OnClick="btnSalir_Click" /><!-- control asp para cerrar sesion -->
+              <div style="color: white;
+                    padding: 15px 50px 5px 50px;
+                    float: right;
+                    font-size: 16px;">
+                  <asp:Button ID="btnSalir" runat="server" Text="Salir" CssClass="btn btn-danger square-btn-adjust" OnClick="btnSalir_Click" /><!-- control asp para cerrar sesion -->
+                  </div>    
         </nav>   <!-- navbar  -->
            <!-- /. NAV TOP <a href="#" class="btn btn-danger square-btn-adjust">Salir</a> -->
                 <nav class="navbar-default navbar-side" role="navigation">
@@ -117,6 +118,7 @@ font-size: 16px;">
                                     </SelectParameters>
                                 </asp:SqlDataSource>
                             </div>
+                            <asp:Button ID="btnNuevaCita" runat="server" Text="Nueva Cita" OnClick="btnNuevaCita_Click" />
                         </div>
                     </div>
                     

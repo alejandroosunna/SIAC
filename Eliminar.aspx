@@ -36,7 +36,7 @@
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"><asp:HyperLink ID="lbl_CerrarSesionAdmin" runat="server" NavigateUrl="~/" class="btn btn-danger square-btn-adjust">Salir</asp:HyperLink></div> <!-- control asp para cerrar sesion -->
+font-size: 16px;"><asp:Button ID="btnSalir" runat="server" Text="Salir" CssClass="btn btn-danger square-btn-adjust" OnClick="btnSalir_Click" /></div> <!-- control asp para cerrar sesion -->
         </nav>   <!-- navbar  -->
            <!-- /. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation">
