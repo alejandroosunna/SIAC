@@ -153,6 +153,8 @@
                                 <asp:Label ID="lblPDiaCita" runat="server" Text=""></asp:Label>
                                 <br />
                                 <asp:Label ID="lblPHoraCita" runat="server" Text=""></asp:Label>
+                                <br />
+                                <asp:Button ID="btnEliminarCita" runat="server" Text="Eliminar" Visible="false" OnClick="btnEliminarCita_Click"/>
 							</div>
 						</div>
 					</div>

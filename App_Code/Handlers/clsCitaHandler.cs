@@ -225,10 +225,13 @@ public class clsCitaHandler : ObjetoBase
         }
     }
 
-    public void DeleteCita(int IdCita)
+    public bool DeleteCita(int IdCita)
     {
         String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
+
+        bool error = false;
+
         try
         {
             Connection.Open();
@@ -242,11 +245,45 @@ public class clsCitaHandler : ObjetoBase
         catch (Exception ex)
         {
             LogError(ex.Message);
+            error = true;
         }
         finally
         {
             Connection.Close();
             Connection = null;
         }
+
+        return error;
+    }
+
+    public bool Delete(int IdCita)
+    {
+        String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
+        SqlConnection Connection = new SqlConnection(ConnectionString);
+
+        bool error = false;
+
+        try
+        {
+            Connection.Open();
+            String Query = "update tbCitas set Disponible = 2 where IdCita = @IdCita;";
+            SqlParameter Data = new SqlParameter("@IdCita", IdCita);
+            Data.DbType = DbType.Int32;
+            SqlCommand Command = new SqlCommand(Query, Connection);
+            Command.Parameters.Add(Data);
+            SqlDataReader DataReader = Command.ExecuteReader();
+        }
+        catch (Exception ex)
+        {
+            LogError(ex.Message);
+            error = true;
+        }
+        finally
+        {
+            Connection.Close();
+            Connection = null;
+        }
+
+        return error;
     }
 }

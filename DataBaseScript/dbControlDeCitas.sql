@@ -37,7 +37,7 @@ create table tbCitas(
 	Hora nvarchar(10) not null,
 	Dia date not null,
 	FechaAgendada date default getdate(),
-	Disponible int default 0, /*0 es no disponible, 1 disponible*/
+	Disponible int default 0, /*0 es no disponible, 1 disponible, 2 Ya expliro o elimino*/
 	Comentario nvarchar(MAX) default '',
 	constraint PK_tbCitas_IdCita primary key (IdCita),
 	constraint FK_tbCitas_IdUsuario foreign key (IdUsuario)

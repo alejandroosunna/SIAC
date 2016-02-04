@@ -26,10 +26,11 @@ public partial class IndexAlumno : System.Web.UI.Page
                 lblNumControl.Text = "Numero de Control: " + Usuario.NumControl + ".";
 
                 clsCita Cita = (new clsCitaHandler()).GetCita(Convert.ToInt32(Session["IdLoginAlumno"]));
-                if (Cita.IdUsuario != 0)
+                if (Cita.Disponible == 1)
                 {
                     lblPDiaCita.Text = "Fecha: " + Cita.Dia.Day + "/" + Cita.Dia.Month + "/" + Cita.Dia.Year;
                     lblPHoraCita.Text = "Hora: " + Cita.Hora.ToString();
+                    btnEliminarCita.Visible = true;
                 }
                 else
                 {
@@ -55,6 +56,7 @@ public partial class IndexAlumno : System.Web.UI.Page
             Response.Redirect("~\\Login.aspx");
         }
     }
+
     protected void GridView_Citas_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         if (e.CommandName == "SelectRow")
@@ -64,6 +66,7 @@ public partial class IndexAlumno : System.Web.UI.Page
             Response.Redirect("IndexAlumno.aspx?Cita="+cita+"#Citas");
         }
     }
+
     protected void btnEnviar_Click(object sender, EventArgs e)
     {
         clsCita Cita = new clsCita();
@@ -87,10 +90,12 @@ public partial class IndexAlumno : System.Web.UI.Page
         else if(checkCita == 2)
             Response.Redirect("IndexAlumno.aspx?re=pendiente");
     }
+
     protected void btnSend_Click(object sender, EventArgs e)
     {
         enviarCorrreo();
     }
+
     public void enviarCorrreo()
     {
         string name = txtName.Text;
@@ -102,5 +107,15 @@ public partial class IndexAlumno : System.Web.UI.Page
              Response.Write(@"<script language = 'javascript'>alert('Correo no enviado') </script>");
         }
         
+    }
+
+    protected void btnEliminarCita_Click(object sender, EventArgs e)
+    {
+        int IdCita = (new clsCitaHandler()).GetCita(Convert.ToInt32(Session["IdLoginAlumno"])).IdCita;
+
+        if((new clsCitaHandler()).Delete(IdCita))
+            Response.Write(@"<script language = 'javascript'>alert('Error. Pongase en contacto con sistemas.') </script>");
+        else
+            Response.Write(@"<script language = 'javascript'>alert('Exito. Su cita ha sido eliminada.') </script>");
     }
 }
