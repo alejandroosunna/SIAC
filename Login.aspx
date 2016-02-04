@@ -112,7 +112,7 @@
           </div>
         </div>
 
-        <div class="item">
+       <%-- <div class="item">
           <img  src="Img/Image3.png"alt="1900x500&amp;text-Slide Three" data-holder-rendered="true"/>
           <div class="carousel-caption">
                 <h1>><font color="White">
@@ -120,7 +120,7 @@
                     </font></h1>
                 <h3>ALejandro, Efren, Luis y Leonardo</h3>
           </div>
-        </div>
+        </div>--%>
         ...
       </div>
 
