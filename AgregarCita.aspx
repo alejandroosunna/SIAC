@@ -18,6 +18,11 @@
      <!-- GOOGLE FONTS-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        .table-responsive {
+            width: 632px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -45,7 +50,7 @@ font-size: 16px;"><asp:Button ID="btnSalir" runat="server" Text="Salir" CssClass
 				<li class="text-center">
                     <img src="asse/img/find_user.png" class="user-image img-responsive"/>
 					</li>
-				
+
 					
                    <li>
                         <a class="active-menu"  href="IndexAdmin.aspx"><i class="fa fa-table fa-3x"></i>Resumen</a>
@@ -92,7 +97,7 @@ font-size: 16px;"><asp:Button ID="btnSalir" runat="server" Text="Salir" CssClass
                         </div>
                         <div class="panel-body" style="margin-left:15%">
                             <div class="table-responsive">
-                                    <asp:Calendar ID="calenDia" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px">
+                                    <asp:Calendar ID="calenDia" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="341px">
                                     <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
                                     <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
                                     <OtherMonthDayStyle ForeColor="#999999" />
@@ -110,7 +115,40 @@ font-size: 16px;"><asp:Button ID="btnSalir" runat="server" Text="Salir" CssClass
                     </div>
                 </div>
                  <!-- /. ROW  -->
-                
+                <div class="row" >
+                    <div class="col-md-7 col-sm-10 col-xs-12 col-md-offset-1">
+               
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Generar multiples citas
+                        </div>
+                        <div class="panel-body" style="margin-left:15%">
+                            <div class="table-responsive">
+                                <asp:Label ID="Label1" runat="server" Text="Dias"></asp:Label>
+                                <asp:TextBox ID="txtDias" runat="server" TextMode="Number"></asp:TextBox>
+                            <div class="table-responsive">
+                                <asp:Label ID="Label3" runat="server" Text="Hora Inicio"></asp:Label>
+                                
+                                <asp:TextBox ID="txtHora0" runat="server" placeholder="Hora hh:mm" MaxLength="5" TextMode="Number"></asp:TextBox>
+                                
+                                <asp:Label ID="Label4" runat="server" Text="Hora Fin"></asp:Label>
+                                
+                                <asp:TextBox ID="txtHora1" runat="server" placeholder="Hora hh:mm" MaxLength="5" TextMode="Number"></asp:TextBox>
+                                <asp:Label ID="Label5" runat="server" Text="Intervalo"></asp:Label>
+                                <asp:TextBox ID="txtIntervalo" runat="server" placeholder="Hora hh:mm" MaxLength="2" TextMode="Number">15
+</asp:TextBox>
+                                <asp:Label ID="Label6" runat="server" Text="min"></asp:Label>
+                                <br />
+                                <asp:Button ID="btnGenerarCitas" runat="server" Text="Generar Citas" OnClick="btnGenerarCitas_Click" />
+                                <br />
+                                
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+                </div>
 
     </div>
              <!-- /. PAGE INNER  -->

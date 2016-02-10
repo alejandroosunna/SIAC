@@ -37,4 +37,9 @@ public partial class IndexAdmin : System.Web.UI.Page
     {
         Response.Redirect("~\\AgregarCita.aspx");
     }
+
+    protected void GridView_Citas_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
 }

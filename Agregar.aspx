@@ -107,7 +107,7 @@ font-size: 16px;"><asp:Button ID="btnSalir" runat="server" Text="Salir" CssClass
                                 <asp:TextBox ID="txtContraseña" runat="server" placeholder="Contraseña"></asp:TextBox>
                                 <br />
                                 
-                               <div style="margin-left:20%;margin-top:3%;"> <asp:Button ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click"  /> </div>
+                               <div style="margin-left:20%;margin-top:3%;"> <asp:Button class="btn btn-primary btn-lg" ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click"  /> </div>
                             </div>
                         </div>
                     </div>

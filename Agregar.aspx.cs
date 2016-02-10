@@ -21,7 +21,6 @@ public partial class Agregar : System.Web.UI.Page
         try
         {
             clsUsuario Usuario = new clsUsuario();
-
             Usuario.IdAdministrador = Convert.ToInt32(Session["IdAdministrador"]);
             Usuario.Nombre = txtNombre.Text;
             Usuario.ApellidoPaterno = txtApellidoPaterno.Text;

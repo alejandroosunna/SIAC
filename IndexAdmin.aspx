@@ -15,10 +15,19 @@
     <link href="asse/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
         <!-- CUSTOM STYLES-->
     <link href="asse/css/custom.css" rel="stylesheet" />
+
+	<!-- Custom styles CSS -->
+	<link href="assets/css/style.css" rel="stylesheet" media="screen"/>
      <!-- GOOGLE FONTS-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <script>
+        $(document).ready(function () {
+            $('.scrollspy').scrollSpy();
+        });
+
+    </script>
 </head>
-<body>
+<body data-spy="scroll">
     <form id="form1" runat="server">
     <div id="wrapper">
         
@@ -87,15 +96,15 @@
             
                  <!-- /. ROW  -->
                  <div class="row" >
-                    <div class="col-md-7 col-sm-10 col-xs-12 col-md-offset-1">
+                    <div class="col s12 m9 l10">
                
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
+                  
+                        <div class="panel-heading section scrollspy">
                           Listado de citas pendientes
                         </div>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <asp:GridView ID="GridView_Citas" runat="server" AutoGenerateColumns="False" DataKeyNames="NumeroCita" DataSourceID="SqlDataSource" OnRowCommand="GridView_Citas_RowCommand">
+                        <div class="panel-body pre-scrollable">
+                            <div class="table-responsive section scrollspy">
+                                <asp:GridView ID="GridView_Citas" class="table bordered " runat="server" AutoGenerateColumns="False" DataKeyNames="NumeroCita" DataSourceID="SqlDataSource" OnRowCommand="GridView_Citas_RowCommand" OnSelectedIndexChanged="GridView_Citas_SelectedIndexChanged">
                                     <Columns>
                                         <asp:BoundField DataField="NumeroCita" HeaderText="NumeroCita" InsertVisible="False" ReadOnly="True" SortExpression="NumeroCita" />
                                         <asp:BoundField DataField="Hora" HeaderText="Hora" SortExpression="Hora" />
@@ -111,15 +120,15 @@
                                         </asp:TemplateField>
                                     </Columns>
                                 </asp:GridView>
-                                <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:dbControlDeCitas %>" SelectCommand="SELECT IdCita AS NumeroCita, Hora, FORMAT([Dia], 'dd/MM/yyyy', 'en-US') AS Dia, FechaAgendada, Comentario FROM tbCitas WHERE (Disponible = @Disponible)">
+                                <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:dbControlDeCitas %>" SelectCommand="SELECT IdCita AS NumeroCita, Hora, FORMAT([Dia], 'dd/MM/yyyy', 'en-US') AS Dia, FechaAgendada, Comentario FROM tbCitas " ProviderName="<%$ ConnectionStrings:dbControlDeCitas.ProviderName %>">
                                     <SelectParameters>
-                                        <asp:Parameter DefaultValue="1" Name="Disponible" />
+                                        <asp:Parameter DefaultValue="n" Name="Disponible" />
                                     </SelectParameters>
                                 </asp:SqlDataSource>
                             </div>
-                            <asp:Button ID="btnNuevaCita" runat="server" Text="Nueva Cita" OnClick="btnNuevaCita_Click" />
+                           
                         </div>
-                    </div>
+                        <asp:Button class="btn btn-primary btn-lg right" ID="btnNuevaCita" runat="server" Text="Nueva Cita" OnClick="btnNuevaCita_Click"/> 
                     
                     </div>
                     <%--<div class="col-md-3 col-sm-12 col-xs-12">
@@ -149,7 +158,9 @@
      <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
-    <script src="asse/js/jquery-1.10.2.js"></script>
+    <script src="asse/js/jquery-1.10.2.js">
+
+    </script>
       <!-- BOOTSTRAP SCRIPTS -->
     <script src="asse/js/bootstrap.min.js"></script>
     <!-- METISMENU SCRIPTS -->

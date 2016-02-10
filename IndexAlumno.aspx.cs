@@ -118,4 +118,5 @@ public partial class IndexAlumno : System.Web.UI.Page
         else
             Response.Write(@"<script language = 'javascript'>alert('Exito. Su cita ha sido eliminada.') </script>");
     }
+   
 }

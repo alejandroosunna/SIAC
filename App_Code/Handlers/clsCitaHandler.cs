@@ -180,6 +180,8 @@ public class clsCitaHandler : ObjetoBase
             SqlCommand Command = new SqlCommand(Query, Connection);
             Command.Parameters.AddRange(Data);
             Command.ExecuteReader();
+            Query = "";
+            
         }
         catch (Exception ex)
         {

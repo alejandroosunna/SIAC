@@ -277,10 +277,10 @@
             
             <div class="row">
 
-				<div class="col-sm-6 col-sm-offset-3">
-
-					<div class="pfblock-header wow fadeInUp ajax-response">
-						<h2 class="pfblock-title">Citas</h2>
+				<div class="col-sm-6 col-sm-offset-3 fa-align-center">
+                    <h2 class="pfblock-title">Citas</h2>
+					<div class="pfblock-header wow fadeInUp ajax-response pre-scrollable">
+						
 						   <asp:GridView ID="GridView_Citas"  runat="server" AutoGenerateColumns="False" DataKeyNames="NumeroCita" DataSourceID="SqlDataSource_Citas" OnRowCommand="GridView_Citas_RowCommand" CssClass="table media-list fa-border table-bordered table-responsive table-condensed caption ajax-response wow bounce" BorderStyle="None" >
                             <Columns>
                                 <asp:BoundField DataField="NumeroCita" HeaderText="NumeroCita" InsertVisible="False" ReadOnly="True" SortExpression="NumeroCita"  HeaderStyle-CssClass="text-center" />
@@ -304,7 +304,9 @@
                 </asp:SqlDataSource>
 
               
-						<div class="form-group wow fadeInUp">
+						
+					</div>
+                    <div class="form-group wow fadeInUp">
       
                               <asp:TextBox ID="txtNumCita" runat="server" CssClass="text-center text-info form-group-lg" placeholder="Número de Cita" ReadOnly="true"></asp:TextBox>
                             <br />
@@ -312,8 +314,6 @@
                            
                              <asp:Button ID="btnEnviar" runat="server" Text="Enviar"  OnClick="btnEnviar_Click" CssClass="btn-group-lg btn-block calltoaction-btn btn-success" />
 						</div>
-					</div>
-
 				</div>
 
 			</div><!-- .row -->
