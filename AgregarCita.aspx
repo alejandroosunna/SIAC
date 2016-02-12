@@ -88,7 +88,7 @@ font-size: 16px;"><asp:Button ID="btnSalir" runat="server" Text="Salir" CssClass
                   <hr />
             
                  <!-- /. ROW  -->
-                 <div class="row" >
+                 <div class="container" >
                    <div class="col-md-7 col-sm-10 col-xs-12 col-md-offset-1">
                
                     <div class="panel panel-default">
@@ -115,7 +115,7 @@ font-size: 16px;"><asp:Button ID="btnSalir" runat="server" Text="Salir" CssClass
                     </div>
                 </div>
                  <!-- /. ROW  -->
-                <div class="row" >
+                <div class="container" >
                     <div class="col-md-7 col-sm-10 col-xs-12 col-md-offset-1">
                
                     <div class="panel panel-default">

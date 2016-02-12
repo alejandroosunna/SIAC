@@ -9,20 +9,22 @@
 	<meta name="author" content="">
     
 	<title>SIAC</title>
+   
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
 
-	<!-- CSS -->
-	<link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
-	<link href="assets/css/font-awesome.min.css" rel="stylesheet" media="screen"/>
-	<link href="assets/css/simple-line-icons.css" rel="stylesheet" media="screen"/>
-	<link href="assets/css/animate.css" rel="stylesheet"/>
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<!-- Materialize CSS -->
+       
+  
     
-	<!-- Custom styles CSS -->
-	<link href="assets/css/style.css" rel="stylesheet" media="screen"/>
-    
-    <script src="assets/js/modernizr.custom.js"></script>     
 </head>
 <body>
-    <form id="form1" runat="server">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+     <script type="text/javascript" src="js/materialize.min.js"></script>
+   
    
 	<!-- Preloader -->
 
@@ -30,59 +32,30 @@
 		<div id="status"></div>
 	</div>
 
-	<!-- Home start -->
-
-	<section id="home" class="pfblock-image screen-height">
-        <div class="home-overlay"></div>
-		<div class="intro">
-			<div class="start">Sistema de apartado de citas</div>
-			<h1>SIAC</h1>
-			<div class="start">Rápido, fácil y sencillo...</div>
-		</div>
-
-        <a href="#Resumen">
-		<div class="scroll-down">
-            <span >
-                <i class="fa fa-angle-down fa-2x"></i>
-            </span>
-		</div>
-        </a>
-
-	</section>
-
-	<!-- Home end -->
-
-	<!-- Navigation start -->
-
 	<header class="header">
 
-		<nav class="navbar navbar-custom" role="navigation">
-
-			<div class="container">
-
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#custom-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="#">Bienvenido</a>
-				</div>
-
-				<div class="collapse navbar-collapse" id="custom-collapse">
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#home">Inicio</a></li>
-						<li><a href="#Resumen">Principal</a></li>
+		<nav>
+				<div class="nav-wrapper">
+                    <a href="#!" class="brand-logo">Logo</a>
+                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="#home">Inicio</a></li>
+					    <li><a href="#Resumen">Principal</a></li>
                         <li><a href="#Horarios">Horarios</a></li>
-						<li><a href="#Citas">Citas</a></li>
-						<li><a href="#Contacto">Contacto</a></li>
+					    <li><a href="#Citas">Citas</a></li>
+					    <li><a href="#Contacto">Contacto</a></li>
+                        <li><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/IndexAlumno.aspx?IdLogin=true">Cerrar sesion</asp:HyperLink></li>
+                    </ul>
+             	
+				    <ul  class="side-nav" id="mobile-demo">
+					    <li><a href="#home">Inicio</a></li>
+					    <li><a href="#Resumen">Principal</a></li>
+                        <li><a href="#Horarios">Horarios</a></li>
+					    <li><a href="#Citas">Citas</a></li>
+					    <li><a href="#Contacto">Contacto</a></li>
                         <li><asp:HyperLink ID="lbl_CerrarSesion" runat="server" NavigateUrl="~/IndexAlumno.aspx?IdLogin=true">Cerrar sesion</asp:HyperLink></li>
-					</ul>
+				    </ul>
 				</div>
-
-			</div><!-- .container -->
-
 		</nav>
 
 	</header>
@@ -90,7 +63,7 @@
 	<!-- Navigation end -->
 
     <!-- Resumen -->
-
+ <form id="form1" runat="server">
 	<section id="Resumen" class="pfblock pfblock-gray">
 	    <div class="container">
 			<div class="row">
@@ -110,56 +83,41 @@
 			</div>
 
 			<div class="row" >
-
-		
-
-				<div class="col-sm-6">
-
-					<div class="iconbox wow slideInRight">
-						<div class="iconbox-icon">
-							<span class="fa fa-user"></span>
-						</div>
-						<div class="iconbox-text">
-							<h3 class="iconbox-title">Datos del usuario</h3>
-                            <!--
-                                Aqui van los controles de ASP
-
-                                ......................................................................................................
-                                -->
-							<div class="iconbox-desc">
-                                <asp:Label ID="lblNombre" runat="server" Text=""></asp:Label>
-                                <br />
-                                <asp:Label ID="lblNumControl" runat="server" Text=""></asp:Label>
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-                <div class="col-sm-6" >
-
-					<div class="iconbox wow slideInLeft" >
-						<div class="iconbox-icon">
-							<span class="fa fa-calendar"></span>
-						</div>
-						<div class="iconbox-text">
-							<h3 class="iconbox-title">Pendientes</h3>
-                              <!--
-                                Aqui van los controles de ASP
-
-                                ......................................................................................................
-                                -->
-							<div class="iconbox-desc">
-                                <asp:Label ID="lblPDiaCita" runat="server" Text=""></asp:Label>
+	
+                <div class="row">
+                <div class="col s6 m6">
+                    <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <asp:Label ID="lblNombre" runat="server" Text=""></asp:Label>
+                        <br />
+                        <asp:Label ID="lblNumControl" runat="server" Text=""></asp:Label>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                        <a href="#">This is a link</a>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                  
+                <div class="row">
+                    <div class="col s6 m6">
+                      <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                            <span class="fa fa-calendar"></span>
+                         <asp:Label ID="lblPDiaCita" runat="server" Text=""></asp:Label>
                                 <br />
                                 <asp:Label ID="lblPHoraCita" runat="server" Text=""></asp:Label>
                                 <br />
                                 <asp:Button ID="btnEliminarCita" runat="server" Text="Eliminar" Visible="false" OnClick="btnEliminarCita_Click"/>
-							</div>
-						</div>
-					</div>
-
-				</div>
+                        </div>
+                        <div class="card-action">
+                          <a href="#">This is a link</a>
+                          <a href="#">This is a link</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div> 
 		</div>
 	    </div>
 		
@@ -167,108 +125,7 @@
 
 	<!-- Resumen end -->
     
-	<!-- Horarios start -->
 
-	<section id="Horarios" class="pfblock">
-		<div class="container">
-			
-            <div class="row">
-
-				<div class="col-sm-6 col-sm-offset-3">
-
-					<div class="pfblock-header wow fadeInUp">
-						<h2 class="pfblock-title">Horarios</h2>
-						<div class="pfblock-line"></div>
-						<div class="pfblock-subtitle">
-						</div>
-					</div>
-
-				</div>
-
-			</div><!-- .row -->
-            
-            
-            <div class="row" >
-   
-                <div class="col-sm-7 col-sm-offset-1"  style="margin-top:-50px">
-
-					<div class="iconbox wow zoomInUp"data-wow-duration="1s" style="background-color:#949494;">
-						<div class="iconbox-icon" style="margin-top:-20px">
-							<span class="fa fa-file-text-o wow shake"></span>
-						</div>
-						<div class="iconbox-text" style="margin-top:-20px">
-							<h3 class="iconbox-title">Materias</h3>
-                              <!--
-                                Aqui van los controles de ASP
-
-                                ......................................................................................................
-                                -->
-							<div class="iconbox-desc">
-
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-                 
-               <div class="col-sm-7 col-sm-offset-4">
-
-					<div class="iconbox wow zoomInDown  " data-wow-duration="1.3s"style="background-color:#C4C3C3;">
-						<div class="iconbox-icon" style="margin-top:-20px">
-							<span class="fa fa-table wow shake"></span>
-						</div>
-						<div class="iconbox-text" style="margin-top:-20px">
-							<h3 class="iconbox-tittle">Seleccion</h3>
-                             <!--
-                                Aqui van los controles de ASP
-
-                                ......................................................................................................
-                                -->
-							<div class="iconbox-desc">
-
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-              
-           
-            </div>
-
-
-		</div><!-- .contaier -->
-
-	</section>
-
-	<!-- Horarios end -->
-    
-   
-
-	<!-- CallToAction start -->
-
-	<%--<section class="calltoaction">
-		<div class="container">
-
-			<div class="row">
-
-				<div class="col-md-12 col-lg-12">
-					<h2 class="wow slideInRight" data-wow-delay=".1s">ARE YOU READY TO START?</h2>
-					<div class="calltoaction-decription wow slideInRight" data-wow-delay=".2s">
-						I'm available for freelance projects.
-					</div>
-				</div>
-
-				<div class="col-md-12 col-lg-12 calltoaction-btn wow slideInRight" data-wow-delay=".3s">
-					<a href="#contact" class="btn btn-lg">Hire Me</a>
-				</div>
-
-			</div><!-- .row -->
-		</div><!-- .container -->
-	</section>--%>
-
-	<!-- CallToAction end -->
 
 	<!-- Citas start -->
 
@@ -424,26 +281,19 @@
 	<div class="scroll-up">
 		<a href="#home"><i class="fa fa-angle-up"></i></a>
 	</div>
-    
+    </form>
     <!-- Scroll to top end-->
-
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    ipt src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	<!-- Javascript files -->
+    <script type="text/javascript">
+           $(".button-collapse").sideNav();
+     </script>
 
-	<script src="assets/js/jquery-1.11.1.min.js"></script>
-	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/js/jquery.parallax-1.1.3.js"></script>
-	<script src="assets/js/imagesloaded.pkgd.js"></script>
-	<script src="assets/js/jquery.sticky.js"></script>
-	<script src="assets/js/smoothscroll.js"></script>
-	<script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/jquery.easypiechart.js"></script>
-    <script src="assets/js/waypoints.min.js"></script>
-    <script src="assets/js/jquery.cbpQTRotator.js"></script>
-	<script src="assets/js/custom.js"></script>
 
     
 
    
-    </form>
+    
 </body>
 </html>

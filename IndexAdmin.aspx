@@ -7,15 +7,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Administrador</title>
-	<!-- BOOTSTRAP STYLES-->
-    <link href="asse/css/bootstrap.css" rel="stylesheet" />
+	<!-- Materialize CSS -->
+	<link href="materialize/css/materialize.css" rel="stylesheet" media="screen"/>
      <!-- FONTAWESOME STYLES-->
     <link href="asse/css/font-awesome.css" rel="stylesheet" />
-     <!-- MORRIS CHART STYLES-->
-    <link href="asse/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
-        <!-- CUSTOM STYLES-->
-    <link href="asse/css/custom.css" rel="stylesheet" />
-
+  
+     <script src="materialize/js/materialize.js" ></script>     
 	<!-- Custom styles CSS -->
 	<link href="assets/css/style.css" rel="stylesheet" media="screen"/>
      <!-- GOOGLE FONTS-->
@@ -128,7 +125,9 @@
                             </div>
                            
                         </div>
-                        <asp:Button class="btn btn-primary btn-lg right" ID="btnNuevaCita" runat="server" Text="Nueva Cita" OnClick="btnNuevaCita_Click"/> 
+
+                        
+                        <asp:Button class="waves-effect waves-light btn-large" ID="btnNuevaCita" runat="server" Text="Nueva Cita" OnClick="btnNuevaCita_Click"/> 
                     
                     </div>
                     <%--<div class="col-md-3 col-sm-12 col-xs-12">
