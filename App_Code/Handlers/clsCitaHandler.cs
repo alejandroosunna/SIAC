@@ -52,33 +52,31 @@ public class clsCitaHandler : ObjetoBase
         return Citas;
     }
 
-    public clsCita[] GetListCitas(int IdAdministrador)
+    public List<clsCita> GetListCitas(int IdAdministrador)
     {
-        clsCita[] Citas = new clsCita[0];
+        List<clsCita> listCita = new List<clsCita>();
 
         String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
         try
         {
             Connection.Open();
-            String Query = "select * from tbCitas where IdAdministrador = @IdAdministrador and Disponible = 1;";
+            //String Query = "select * from tbCitas where IdAdministrador = @IdAdministrador and Disponible = 1;";
             SqlParameter Data = new SqlParameter("@IdAdministrador", IdAdministrador);
             Data.DbType = DbType.Int32;
+            String Query = "select * from tbCitas where IdAdministrador = @IdAdministrador and Disponible = 0 order by Dia asc;";
             SqlCommand Command = new SqlCommand(Query, Connection);
             Command.Parameters.Add(Data);
             SqlDataReader DataReader = Command.ExecuteReader();
-            //DataTable tb = DataReader.GetSchemaTable();
-            //int countRows= tb.Rows.Count;
 
-            if (DataReader.Read())
+            while (DataReader.Read())
             {
-                int countRows = DataReader.FieldCount;
-                for (int x = 0; x < countRows; x++)
-                {
-                    Citas[x].LoadEventFromDataReader(DataReader);
-                }
-
+                clsCita Cita = new clsCita();
+                Cita.LoadEventFromDataReader(DataReader);
+                listCita.Add(Cita);
             }
+
+            DataReader.Close();
         }
         catch (Exception ex)
         {
@@ -90,7 +88,7 @@ public class clsCitaHandler : ObjetoBase
             Connection = null;
         }
 
-        return Citas;
+        return listCita;
     }
 
     public int CheckCitaAndAdd(clsCita Cita)
