@@ -33,7 +33,7 @@
 	</div>
 
 	<header class="header">
-
+        <div class="navbar-fixed">
 		<nav>
 				<div class="nav-wrapper">
                     <a href="#!" class="brand-logo">Logo</a>
@@ -57,7 +57,7 @@
 				    </ul>
 				</div>
 		</nav>
-
+ </div>
 	</header>
 
 	<!-- Navigation end -->
@@ -82,10 +82,10 @@
 
 			</div>
 
-			<div class="row" >
+			<div class="container" >
 	
                 <div class="row">
-                <div class="col s6 m6">
+                <div class="col s3 m6">
                     <div class="card blue-grey darken-1">
                     <div class="card-content white-text">
                         <asp:Label ID="lblNombre" runat="server" Text=""></asp:Label>
@@ -101,7 +101,7 @@
                 </div>
                   
                 <div class="row">
-                    <div class="col s6 m6">
+                    <div class="col s3 m6">
                       <div class="card blue-grey darken-1">
                         <div class="card-content white-text">
                             <span class="fa fa-calendar"></span>
@@ -130,7 +130,6 @@
 	<!-- Citas start -->
 
 	<section id="Citas" class="pfblock">
-
             
             <div class="row">
 
