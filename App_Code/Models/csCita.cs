@@ -8,38 +8,35 @@ using System.Data.SqlClient;
 /// <summary>
 /// Descripción breve de clsCitas
 /// </summary>
-public class clsCita : ObjetoBase
+public class csCita : ObjetoBase
 {
     public int IdCita { get; set; }
+    public int IdCoordinador { get; set; }
     public int IdUsuario { get; set; }
-    public int IdAdministrador { get; set; }
-    public string Hora { get; set; }
-    public DateTime Dia { get; set; }
     public DateTime FechaAgendada { get; set; }
-    public int Disponible { get; set; }
+    public DateTime FechaDisponible { get; set; }
+    public int Estado { get; set; }
     public string Comentario { get; set; }
 
-	public clsCita()
+	public csCita()
 	{
         IdCita = 0;
+        IdCoordinador = 0;
         IdUsuario = 0;
-        IdAdministrador = 0;
-        Hora = "";
-        Dia = DateTime.Now;
         FechaAgendada = DateTime.Now;
-        Disponible = 0;
+        FechaDisponible = DateTime.Now;
+        Estado = 0;
         Comentario = "";
 	}
 
     public void LoadEventFromDataReader(SqlDataReader DataReader)
     {
         IdCita = (int)CheckDbNull(DataReader["IdCita"], TipoDeObjeto.TipoInteger);
+        IdCoordinador = (int)CheckDbNull(DataReader["IdCoordinador"], TipoDeObjeto.TipoInteger);
         IdUsuario = (int)CheckDbNull(DataReader["IdUsuario"], TipoDeObjeto.TipoInteger);
-        IdAdministrador = (int)CheckDbNull(DataReader["IdAdministrador"], TipoDeObjeto.TipoInteger);
-        Hora = (string)CheckDbNull(DataReader["Hora"], TipoDeObjeto.TipoString);
-        Dia = (DateTime)CheckDbNull(DataReader["Dia"], TipoDeObjeto.TipoDateTime);
         FechaAgendada = (DateTime)CheckDbNull(DataReader["FechaAgendada"], TipoDeObjeto.TipoDateTime);
+        FechaDisponible = (DateTime)CheckDbNull(DataReader["FechaDisponible"], TipoDeObjeto.TipoDateTime);
+        Estado = (int)CheckDbNull(DataReader["Estado"], TipoDeObjeto.TipoInteger);
         Comentario = (string)CheckDbNull(DataReader["Comentario"], TipoDeObjeto.TipoString);
-        Disponible = (int)CheckDbNull(DataReader["Disponible"], TipoDeObjeto.TipoInteger);
     }
 }
