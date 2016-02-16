@@ -9,10 +9,10 @@ using System.Web;
 public class clsCitaPaginado
 {
 
-    public List<clsCita> listCitas { get; set; }
+    public List<csCita> listCitas { get; set; }
 
     public clsCitaPaginado()
     {
-        listCitas = new List<clsCita>();
+        listCitas = new List<csCita>();
     }
 }

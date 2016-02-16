@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 /// <summary>
 /// Descripción breve de clsAdministrador
 /// </summary>
-public class clsAdministrador : ObjetoBase
+public class csCoordinador : ObjetoBase
 {
     public int IdAdministrador { get; set; }
     public string Nombre { get; set; }
@@ -16,7 +16,7 @@ public class clsAdministrador : ObjetoBase
     public int NumControl { get; set; }
     public string Contraseña { get; set; }
 
-	public clsAdministrador()
+	public csCoordinador()
 	{
         IdAdministrador = 0;
         Nombre = "";

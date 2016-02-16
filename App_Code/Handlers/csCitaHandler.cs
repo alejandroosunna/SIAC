@@ -9,27 +9,29 @@ using System.Configuration;
 /// <summary>
 /// Descripción breve de clsCitaHandler
 /// </summary>
-public class clsCitaHandler : ObjetoBase
+public class csCitaHandler : ObjetoBase
 {
-	public clsCitaHandler()
+	public csCitaHandler()
 	{
 		//
 		// TODO: Agregar aquí la lógica del constructor
 		//
 	}
 
-    public clsCita GetCita(int IdUsuario)
+    public csCita GetCita(int IdUsuario)
     {
-        clsCita Citas = new clsCita();
+        csCita Citas = new csCita();
 
         String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
         try
         {
             Connection.Open();
-            String Query = "select * from tbCitas where IdUsuario = @IdUsuario;";
             SqlParameter Data = new SqlParameter("@IdUsuario", IdUsuario);
             Data.DbType = DbType.Int32;
+
+            String Query = "select * from tbCitas where IdUsuario = @IdUsuario;";
+
             SqlCommand Command = new SqlCommand(Query, Connection);
             Command.Parameters.Add(Data);
             SqlDataReader DataReader = Command.ExecuteReader();
@@ -52,9 +54,9 @@ public class clsCitaHandler : ObjetoBase
         return Citas;
     }
 
-    public List<clsCita> GetListCitas(int IdAdministrador)
+    public List<csCita> GetListCitas(int IdCoordinador)
     {
-        List<clsCita> listCita = new List<clsCita>();
+        List<csCita> listCita = new List<csCita>();
 
         String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
@@ -62,16 +64,18 @@ public class clsCitaHandler : ObjetoBase
         {
             Connection.Open();
             //String Query = "select * from tbCitas where IdAdministrador = @IdAdministrador and Disponible = 1;";
-            SqlParameter Data = new SqlParameter("@IdAdministrador", IdAdministrador);
+            SqlParameter Data = new SqlParameter("@IdCoordinador", IdCoordinador);
             Data.DbType = DbType.Int32;
-            String Query = "select * from tbCitas where IdAdministrador = @IdAdministrador and Disponible = 0 order by Dia asc;";
+
+            String Query = "select * from tbCitas where IdCoordinador = @IdCoordinador and Estado = 0 order by FechaDisponible asc;";
+
             SqlCommand Command = new SqlCommand(Query, Connection);
             Command.Parameters.Add(Data);
             SqlDataReader DataReader = Command.ExecuteReader();
 
             while (DataReader.Read())
             {
-                clsCita Cita = new clsCita();
+                csCita Cita = new csCita();
                 Cita.LoadEventFromDataReader(DataReader);
                 listCita.Add(Cita);
             }
@@ -91,17 +95,21 @@ public class clsCitaHandler : ObjetoBase
         return listCita;
     }
 
-    public int CheckCitaAndAdd(clsCita Cita)
+    public int CheckCitaAndAdd(csCita Cita)
     {
         int checkCita = 0; // 0 existe, 1 no existe, 2 ya tiene una cita
         String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
+
         try
         {
             Connection.Open();
-            String Query = "select * from tbCitas where IdCita = @IdCita and Disponible = 0;";
+
             SqlParameter Data = new SqlParameter("@IdCita", Cita.IdCita);
             Data.DbType = DbType.Int32;
+
+            String Query = "select * from tbCitas where IdCita = @IdCita and Disponible = 0;";
+
             SqlCommand Command = new SqlCommand(Query, Connection);
             Command.Parameters.Add(Data);
             SqlDataReader DataReader = Command.ExecuteReader();
@@ -110,8 +118,10 @@ public class clsCitaHandler : ObjetoBase
             {
                 DataReader.Dispose();
 
-                Query = "select * from tbCitas where IdUsuario = @IdUsuario;";
                 Data = new SqlParameter("@IdUsuario", Cita.IdUsuario);
+
+                Query = "select * from tbCitas where IdUsuario = @IdUsuario;";
+
                 Data.DbType = DbType.Int32;
                 Command = new SqlCommand(Query, Connection);
                 Command.Parameters.Add(Data);
@@ -124,19 +134,21 @@ public class clsCitaHandler : ObjetoBase
                 else
                 {
                     DataReader.Dispose();
-
-                    Query = "update tbCitas set IdUsuario = @IdUsuario, FechaAgendada = @FechaAgendada, Disponible = @Disponible, Comentario = @Comentario where IdCita = @IdCita;";
+                    
                     SqlParameter[] _Data = new SqlParameter[5];
                     _Data[0] = new SqlParameter("@IdUsuario", Cita.IdUsuario);
                     _Data[0].DbType = DbType.Int32;
                     _Data[1] = new SqlParameter("@FechaAgendada", Cita.FechaAgendada);
                     _Data[1].DbType = DbType.DateTime;
-                    _Data[2] = new SqlParameter("@Disponible", Cita.Disponible);
+                    _Data[2] = new SqlParameter("@Estado", Cita.Estado);
                     _Data[2].DbType = DbType.Int32;
                     _Data[3] = new SqlParameter("@Comentario", Cita.Comentario);
                     _Data[3].DbType = DbType.String;
                     _Data[4] = new SqlParameter("@IdCita", Cita.IdCita);
                     _Data[4].DbType = DbType.Int32;
+
+                    Query = "update tbCitas set IdUsuario = @IdUsuario, FechaAgendada = @FechaAgendada, Estado = @Estado where IdCita = @IdCita;";
+
                     SqlCommand _Command = new SqlCommand(Query, Connection);
                     _Command.Parameters.AddRange(_Data);
                     SqlDataReader _DataReader = _Command.ExecuteReader();
@@ -157,7 +169,7 @@ public class clsCitaHandler : ObjetoBase
         return checkCita;
     }
 
-    public void AddNewCita(clsCita Cita)
+    public void AddNewCita(csCita Cita)
     {
         String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
@@ -190,7 +202,7 @@ public class clsCitaHandler : ObjetoBase
         }
     }
 
-    public void UpdateCita(clsCita Cita)
+    public void UpdateCita(csCita Cita)
     {
         String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);

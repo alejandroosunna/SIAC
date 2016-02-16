@@ -9,18 +9,18 @@ using System.Configuration;
 /// <summary>
 /// Descripción breve de clsAdministradorHandler
 /// </summary>
-public class clsAdministradorHandler : ObjetoBase
+public class csCoordinadorHandler : ObjetoBase
 {
-	public clsAdministradorHandler()
+	public csCoordinadorHandler()
 	{
 		//
 		// TODO: Agregar aquí la lógica del constructor
 		//
 	}
 
-    public clsAdministrador CheckLogin(int NumControl, string Contraseña)
+    public csCoordinador CheckLogin(int NumControl, string Contraseña)
     {
-        clsAdministrador Administrador = new clsAdministrador();
+        csCoordinador Administrador = new csCoordinador();
         String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
         try
@@ -54,9 +54,9 @@ public class clsAdministradorHandler : ObjetoBase
         return Administrador;
     }
 
-    public clsAdministrador GetAdministrador(int IdAdministrador)
+    public csCoordinador GetAdministrador(int IdAdministrador)
     {
-        clsAdministrador Administrador = new clsAdministrador();
+        csCoordinador Administrador = new csCoordinador();
         String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
         try
