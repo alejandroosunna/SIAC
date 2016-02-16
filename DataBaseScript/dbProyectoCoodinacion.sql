@@ -37,3 +37,18 @@ create table tbCitas(
 	Comentario nvarchar(MAX) default '',
 	constraint PK_tbCitas_IdCita primary key (IdCita)
 );
+
+create table tbMotivos(
+	IdMotivo int unique identity not null,
+	Motivo nvarchar(MAX),
+	constraint PK_tbMotivos_IdMotivo primary key(IdMotivo)
+);
+
+create table tbRelacionMotivosCitas(
+	IdCita int not null,
+	IdMotivo int not null,
+	constraint FK_tbRelacionMotivosCitas_IdCita foreign key(IdCita)
+		references tbCitas(IdCita) on update,
+	constraint FK_tbRelacionMotivosCitas_IdMotivo foreign key(IdMotivo)
+		references tbMotivos(IdMotivo) on update
+);
