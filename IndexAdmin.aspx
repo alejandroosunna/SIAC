@@ -101,26 +101,7 @@
                         </div>
                         <div class="panel-body pre-scrollable">
                             <div class="table-responsive section scrollspy">
-                                <asp:GridView ID="GridView_Citas" class="table bordered " runat="server" AutoGenerateColumns="False" DataKeyNames="NumeroCita" DataSourceID="SqlDataSource" OnRowCommand="GridView_Citas_RowCommand" OnSelectedIndexChanged="GridView_Citas_SelectedIndexChanged">
-                                    <Columns>
-                                        <asp:BoundField DataField="NumeroCita" HeaderText="NumeroCita" InsertVisible="False" ReadOnly="True" SortExpression="NumeroCita" />
-                                        <asp:BoundField DataField="Hora" HeaderText="Hora" SortExpression="Hora" />
-                                        <asp:BoundField DataField="Dia" HeaderText="Dia" SortExpression="Dia" />
-                                        <asp:BoundField DataField="FechaAgendada" HeaderText="FechaAgendada" SortExpression="FechaAgendada" />
-                                        <asp:BoundField DataField="Comentario" HeaderText="Comentario" SortExpression="Comentario" />
-                                        <asp:TemplateField>
-                                            <ItemTemplate>
-                                                <asp:Button ID="btnEliminar" Text="Eliminiar" runat="server"
-                                                    CommandName="DeleteRow"
-                                                    CommandArgument="<%# ( (GridViewRow) Container).Cells[0].Text %>"/>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                    </Columns>
-                                </asp:GridView>
-                                <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:dbControlDeCitas %>" SelectCommand="SELECT IdCita AS NumeroCita, Hora, FORMAT([Dia], 'dd/MM/yyyy', 'en-US') AS Dia, FechaAgendada, Comentario FROM tbCitas " ProviderName="<%$ ConnectionStrings:dbControlDeCitas.ProviderName %>">
-                                    <SelectParameters>
-                                        <asp:Parameter DefaultValue="n" Name="Disponible" />
-                                    </SelectParameters>
+                                <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:dbProyectoCoordinacion %>" SelectCommand="SELECT [IdCita], [IdUsuario], [FechaAgendada], [FechaDisponible], [Estado], [Comentario] FROM [tbCitas] ORDER BY [FechaDisponible]" OnSelecting="SqlDataSource_Selecting">
                                 </asp:SqlDataSource>
                             </div>
                            
@@ -144,6 +125,17 @@
                         </div>
                     </div>
                     </div>--%>
+                    
+                                <asp:GridView ID="GridView_Citas" class="table bordered " runat="server" AutoGenerateColumns="False" DataKeyNames="IdCita" DataSourceID="SqlDataSource" OnRowCommand="GridView_Citas_RowCommand" OnSelectedIndexChanged="GridView_Citas_SelectedIndexChanged" AllowPaging="True">
+                                    <Columns>
+                                        <asp:BoundField DataField="IdCita" HeaderText="IdCita" InsertVisible="False" ReadOnly="True" SortExpression="IdCita" />
+                                        <asp:BoundField DataField="IdUsuario" HeaderText="IdUsuario" SortExpression="IdUsuario" />
+                                        <asp:BoundField DataField="FechaAgendada" HeaderText="FechaAgendada" SortExpression="FechaAgendada" />
+                                        <asp:BoundField DataField="FechaDisponible" HeaderText="FechaDisponible" SortExpression="FechaDisponible" />
+                                        <asp:BoundField DataField="Estado" HeaderText="Estado" SortExpression="Estado" />
+                                        <asp:BoundField DataField="Comentario" HeaderText="Comentario" SortExpression="Comentario" />
+                                    </Columns>
+                                </asp:GridView>
                     
                 </div>
                  <!-- /. ROW  -->

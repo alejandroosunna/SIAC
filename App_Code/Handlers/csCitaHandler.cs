@@ -54,7 +54,7 @@ public class csCitaHandler : ObjetoBase
         return Citas;
     }
 
-    public List<csCita> GetListCitas(int IdCoordinador)
+    public List<csCita> GetListCitas(int idCarrera)
     {
         List<csCita> listCita = new List<csCita>();
 
@@ -64,10 +64,10 @@ public class csCitaHandler : ObjetoBase
         {
             Connection.Open();
             //String Query = "select * from tbCitas where IdAdministrador = @IdAdministrador and Disponible = 1;";
-            SqlParameter Data = new SqlParameter("@IdCoordinador", IdCoordinador);
+            SqlParameter Data = new SqlParameter("@IdCarrera", idCarrera);
             Data.DbType = DbType.Int32;
 
-            String Query = "select * from tbCitas where IdCoordinador = @IdCoordinador and Estado = 0 order by FechaDisponible asc;";
+            String Query = "select * from tbCitas where IdCoordinador = @IdCarrera and Estado = 0 order by FechaDisponible asc;";
 
             SqlCommand Command = new SqlCommand(Query, Connection);
             Command.Parameters.Add(Data);
@@ -177,15 +177,15 @@ public class csCitaHandler : ObjetoBase
         try
         {
             Connection.Open();
-            String Query = "insert into tbCitas (IdAdministrador, Hora, Dia, Disponible) values (@IdAdministrador, @Hora, @Dia, @Disponible);";
+            String Query = "insert into tbCitas (IdCoordinado, FechaAgendada, FechaDisponible, Estado) values (@IdCoordinador, @FechaAgendada, @FechaDisponible, @Estado);";
             SqlParameter[] Data = new SqlParameter[4];
-            Data[0] = new SqlParameter("@IdAdministrador", Cita.IdAdministrador);
+            Data[0] = new SqlParameter("@IdCoordinador", Cita.IdCoordinador);
             Data[0].DbType = DbType.Int32;
-            Data[1] = new SqlParameter("@Hora", Cita.Hora);
+            Data[1] = new SqlParameter("@FechaDisponible", Cita.FechaDisponible);
             Data[1].DbType = DbType.String;
-            Data[2] = new SqlParameter("@Dia", Cita.Dia);
+            Data[2] = new SqlParameter("@FechaAgendada", Cita.FechaAgendada);
             Data[2].DbType = DbType.Date;
-            Data[3] = new SqlParameter("@Disponible", Cita.Disponible);
+            Data[3] = new SqlParameter("@Estado", Cita.Estado);
             Data[3].DbType = DbType.Int32;
             SqlCommand Command = new SqlCommand(Query, Connection);
             Command.Parameters.AddRange(Data);
@@ -218,7 +218,7 @@ public class csCitaHandler : ObjetoBase
             Data[0].DbType = DbType.Int32;
             Data[1] = new SqlParameter("@FechaAgendada", Cita.FechaAgendada);
             Data[1].DbType = DbType.DateTime;
-            Data[2] = new SqlParameter("@Disponible", Cita.Disponible);
+            Data[2] = new SqlParameter("@Disponible", Cita.Estado);
             Data[2].DbType = DbType.Int32;
             Data[3] = new SqlParameter("@Comentario", Cita.Comentario);
             Data[3].DbType = DbType.String;

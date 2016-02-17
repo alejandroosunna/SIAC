@@ -11,9 +11,9 @@ public partial class IndexAdmin : System.Web.UI.Page
     {
         if (Session["IdAdministrador"] != null)
         {
-            clsAdministrador Administrador = (new csAdministradorHandler()).GetAdministrador(Convert.ToInt32(Session["IdAdministrador"]));
+            csUsuario Administrador = (new csUsuarioHandler()).GetUsuario(Convert.ToInt32(Session["IdAdministrador"]));
 
-            lblNombre.Text = "Bienvenido(a) " + Administrador.Nombre;
+            lblNombre.Text = "Bienvenido(a) " + Administrador.Nombre + Administrador.Apellidos;
         }
         else
         {
@@ -29,7 +29,7 @@ public partial class IndexAdmin : System.Web.UI.Page
     {
         if (e.CommandName == "DeleteRow")
         {
-            (new clsCitaHandler()).DeleteCita(Convert.ToInt32(e.CommandArgument));
+            (new csCitaHandler()).DeleteCita(Convert.ToInt32(e.CommandArgument));
             Response.Redirect("~\\IndexAdmin.aspx");
         }
     }
@@ -39,6 +39,11 @@ public partial class IndexAdmin : System.Web.UI.Page
     }
 
     protected void GridView_Citas_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void SqlDataSource_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
     {
 
     }

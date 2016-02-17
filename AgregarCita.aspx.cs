@@ -28,14 +28,13 @@ public partial class AgregarCita : System.Web.UI.Page
 
             if (calenDia.SelectedDate.ToShortDateString() != Date.ToShortDateString() && txtHora.Text != "")
             {
-                clsCita Cita = new clsCita();
+                csCita Cita = new csCita();
 
-                Cita.IdAdministrador = Convert.ToInt32(Session["IdAdministrador"]);
-                Cita.Hora = txtHora.Text;
-                Cita.Dia = calenDia.SelectedDate;
-                Cita.Disponible = 0;
+                Cita.IdCoordinador = Convert.ToInt32(Session["IdAdministrador"]);
+                Cita.FechaDisponible = calenDia.SelectedDate;
+                Cita.Estado = 0;
 
-                (new clsCitaHandler()).AddNewCita(Cita);
+                (new csCitaHandler()).AddNewCita(Cita);
                 Response.Redirect("~\\AgregarCita.aspx");
             }
             else

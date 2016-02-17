@@ -61,7 +61,7 @@ public class csUsuarioHandler : ObjetoBase
     public csUsuario GetUsuario(int IdUsuario)
     {
         csUsuario Usuario = new csUsuario();
-        String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
+        String ConnectionString = ConfigurationManager.ConnectionStrings["dbProyectoCoordinacion"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
         try
         {
