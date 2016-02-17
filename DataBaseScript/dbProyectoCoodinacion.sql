@@ -48,7 +48,7 @@ create table tbRelacionMotivosCitas(
 	IdCita int not null,
 	IdMotivo int not null,
 	constraint FK_tbRelacionMotivosCitas_IdCita foreign key(IdCita)
-		references tbCitas(IdCita) on update,
+		references tbCitas(IdCita) on update cascade,
 	constraint FK_tbRelacionMotivosCitas_IdMotivo foreign key(IdMotivo)
-		references tbMotivos(IdMotivo) on update
+		references tbMotivos(IdMotivo) on update cascade
 );
