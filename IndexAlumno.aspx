@@ -22,8 +22,8 @@
     
 </head>
 <body>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-     <script type="text/javascript" src="js/materialize.min.js"></script>
+    <%--<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+     <script type="text/javascript" src="js/materialize.min.js"></script>--%>
    
    
 	<!-- Preloader -->
@@ -136,8 +136,8 @@
                     <h2 class="pfblock-title">Citas</h2>
 					<div class="pfblock-header wow fadeInUp ajax-response pre-scrollable">
 						
-						   <asp:GridView ID="GridView_Citas"  runat="server" AutoGenerateColumns="False" DataKeyNames="NumeroCita" DataSourceID="SqlDataSource_Citas" OnRowCommand="GridView_Citas_RowCommand" CssClass="table media-list fa-border table-bordered table-responsive table-condensed caption ajax-response wow bounce" BorderStyle="None" >
-				<div class="col-sm-6 col-sm-offset-3">
+						  <%-- <asp:GridView ID="GridView_Citas"  runat="server" AutoGenerateColumns="False" DataKeyNames="NumeroCita" DataSourceID="SqlDataSource_Citas" OnRowCommand="GridView_Citas_RowCommand" CssClass="table media-list fa-border table-bordered table-responsive table-condensed caption ajax-response wow bounce" BorderStyle="None" >--%>
+				<%--<div class="col-sm-6 col-sm-offset-3">--%>
 
 					<div class="pfblock-header wow fadeInUp ajax-response">
 						<h2 class="pfblock-title">Citas</h2>
@@ -183,7 +183,7 @@
                 </asp:SqlDataSource>--%>
 						
 					</div>
-                    <div class="form-group wow fadeInUp">
+                   <%-- <div class="form-group wow fadeInUp">
       
                               <asp:TextBox ID="txtNumCita" runat="server" CssClass="text-center text-info form-group-lg" placeholder="Número de Cita" ReadOnly="true"></asp:TextBox>
                             <br />
@@ -194,18 +194,17 @@
                             <asp:TextBox ID="txtComentario" runat="server" CssClass="text-info  form-control" Rows="3" placeholder="Comentario" TextMode="MultiLine"></asp:TextBox>
                             <asp:Button ID="btnEnviar" runat="server" Text="Enviar"  OnClick="btnEnviar_Click" CssClass="btn-group-lg btn-block calltoaction-btn btn-success" />
 						</div>
-				</div>
-
+				</div>--%>
+  </div>
 			</div><!-- .row -->
 
-            <div class="row">
+            <%--<div class="row">
 
                
 
-            </div><!-- .row -->
+            </div><!-- .row -->--%>
 
-					
-		<%--</div><!-- .row -->--%>
+		</div><!-- .row -->
 	</section>
 
 	<!-- Citas end -->

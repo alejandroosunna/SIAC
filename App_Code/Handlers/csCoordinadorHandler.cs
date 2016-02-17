@@ -21,7 +21,7 @@ public class csCoordinadorHandler : ObjetoBase
     public csCoordinador CheckLogin(int NumControl, string Contraseña)
     {
         csCoordinador Coordinador = new csCoordinador();
-        String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
+        String ConnectionString = ConfigurationManager.ConnectionStrings["dbProyectoCoordinacion"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
         try
         {
@@ -60,7 +60,7 @@ public class csCoordinadorHandler : ObjetoBase
     public csCoordinador GetAdministrador(int IdCoordinador)
     {
         csCoordinador Coordinador = new csCoordinador();
-        String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
+        String ConnectionString = ConfigurationManager.ConnectionStrings["dbProyectoCoordinacion"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
         try
         {

@@ -22,7 +22,7 @@ public class csCitaHandler : ObjetoBase
     {
         csCita Citas = new csCita();
 
-        String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
+        String ConnectionString = ConfigurationManager.ConnectionStrings["dbProyectoCoordinacion"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
         try
         {
@@ -58,7 +58,7 @@ public class csCitaHandler : ObjetoBase
     {
         List<csCita> listCita = new List<csCita>();
 
-        String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
+        String ConnectionString = ConfigurationManager.ConnectionStrings["dbProyectoCoordinacion"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
         try
         {
@@ -98,7 +98,7 @@ public class csCitaHandler : ObjetoBase
     public int CheckCitaAndAdd(csCita Cita)
     {
         int checkCita = 0; // 0 existe, 1 no existe, 2 ya tiene una cita
-        String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
+        String ConnectionString = ConfigurationManager.ConnectionStrings["dbProyectoCoordinacion"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
 
         try
@@ -119,10 +119,9 @@ public class csCitaHandler : ObjetoBase
                 DataReader.Dispose();
 
                 Data = new SqlParameter("@IdUsuario", Cita.IdUsuario);
+                Data.DbType = DbType.Int32;
 
                 Query = "select * from tbCitas where IdUsuario = @IdUsuario;";
-
-                Data.DbType = DbType.Int32;
                 Command = new SqlCommand(Query, Connection);
                 Command.Parameters.Add(Data);
                 DataReader = Command.ExecuteReader();
@@ -171,7 +170,7 @@ public class csCitaHandler : ObjetoBase
 
     public void AddNewCita(csCita Cita)
     {
-        String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
+        String ConnectionString = ConfigurationManager.ConnectionStrings["dbProyectoCoordinacion"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
 
         try
@@ -206,7 +205,7 @@ public class csCitaHandler : ObjetoBase
 
     public void UpdateCita(csCita Cita)
     {
-        String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
+        String ConnectionString = ConfigurationManager.ConnectionStrings["dbProyectoCoordinacion"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
 
         try
@@ -239,7 +238,7 @@ public class csCitaHandler : ObjetoBase
 
     public bool DeleteCita(int IdCita)
     {
-        String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
+        String ConnectionString = ConfigurationManager.ConnectionStrings["dbProyectoCoordinacion"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
 
         bool error = false;
@@ -270,7 +269,7 @@ public class csCitaHandler : ObjetoBase
 
     public bool Delete(int IdCita)
     {
-        String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
+        String ConnectionString = ConfigurationManager.ConnectionStrings["dbProyectoCoordinacion"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
 
         bool error = false;
