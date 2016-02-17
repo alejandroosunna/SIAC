@@ -11,7 +11,7 @@ public partial class IndexAdmin : System.Web.UI.Page
     {
         if (Session["IdAdministrador"] != null)
         {
-            clsAdministrador Administrador = (new clsAdministradorHandler()).GetAdministrador(Convert.ToInt32(Session["IdAdministrador"]));
+            clsAdministrador Administrador = (new csAdministradorHandler()).GetAdministrador(Convert.ToInt32(Session["IdAdministrador"]));
 
             lblNombre.Text = "Bienvenido(a) " + Administrador.Nombre;
         }
