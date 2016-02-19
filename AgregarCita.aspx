@@ -39,7 +39,18 @@
     </style>
   </head>
   <body>
-      
+     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+     <script type="text/javascript" language="javascript">// <![CDATA[
+        $(document).ready(function(){
+           
+            $('.datepicker').pickadate({
+                selectMonths: true, // Creates a dropdown to control month
+                selectYears: 15 // Creates a dropdown of 15 years to control year
+            });
+        });
+ 
+   </script> 
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
       <header class="demo-header mdl-layout__header mdl-color--orange mdl-color-text--grey-600">
         <div class="mdl-layout__header-row">
@@ -108,9 +119,12 @@
                                     <TodayDayStyle BackColor="#CCCCCC" />
                                 </asp:Calendar>
                                 <br />
-                                <asp:TextBox ID="txtHora" runat="server" placeholder="Hora hh:mm" MaxLength="5" TextMode="Time"></asp:TextBox>
+                                
+                                 <div class="input-field col s6">
+                                  <asp:TextBox ID="txtHora" runat="server" placeholder="Hora hh:mm" MaxLength="5" TextMode="Time"></asp:TextBox>
+                                </div>
                                 <br />
-                                <asp:Button ID="btnAgregarCita" runat="server" Text="Agregar Cita" OnClick="btnAgregarCita_Click" />
+                                <asp:Button ID="btnAgregarCita" class="waves-effect waves-light btn" runat="server" Text="Agregar Cita" OnClick="btnAgregarCita_Click" />
                             </div>
                         </div>
                     </div>
@@ -118,13 +132,17 @@
                  <!-- /. ROW  -->
                 <div class="container" >               
                     <div class="panel panel-default">
-                        <div class="panel-heading">
+                        <div class="panel-heading center">
                             Generar multiples citas
                         </div>
                         <div class="panel-body" style="margin-left:15%">
                             <div class="table-responsive">
-                                <asp:Label ID="Label1" runat="server" Text="Dias"></asp:Label>
-                                <asp:TextBox ID="txtDias" runat="server" TextMode="Number"></asp:TextBox>
+                                <div class="input-field col s6">
+                                    <asp:Label ID="Label1" for="txtDias" runat="server">Dias</asp:Label>
+                                    <asp:TextBox ID="txtDias" runat="server" TextMode="Number"></asp:TextBox>
+                                    
+                                </div>
+                                
                             <div class="table-responsive">
                                 <asp:Label ID="Label3" runat="server" Text="Hora Inicio"></asp:Label>
                                 
@@ -135,9 +153,8 @@
                                 <asp:TextBox ID="txtHora1" runat="server" placeholder="Hora hh:mm" MaxLength="5" TextMode="Number"></asp:TextBox>
                                 <asp:Label ID="Label5" runat="server" Text="Intervalo"></asp:Label>
                                 <asp:TextBox ID="txtIntervalo" runat="server" placeholder="Hora hh:mm" MaxLength="2" TextMode="Number">15</asp:TextBox>
-                                <asp:Label ID="Label6" runat="server" Text="min"></asp:Label>
-                                <br />
-                                <asp:Button ID="btnGenerarCitas" runat="server" Text="Generar Citas" OnClick="btnGenerarCitas_Click" />
+                                
+                                <asp:Button ID="btnGenerarCitas" class="waves-effect waves-light btn" runat="server" Text="Generar Citas" OnClick="btnGenerarCitas_Click" />
                                 <br />
                                 
                             </div>

@@ -30,7 +30,7 @@ public partial class AgregarCita : System.Web.UI.Page
             {
                 csCita Cita = new csCita();
 
-                Cita.IdCoordinador = Convert.ToInt16(Session["IdCarrera"]);
+                Cita.IdCoordinador = Convert.ToInt32(Session["IdCarrera"]);
                 Cita.FechaDisponible = calenDia.SelectedDate;
                 Cita.Estado = 0;
 

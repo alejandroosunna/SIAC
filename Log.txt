@@ -68,3 +68,13 @@
 18/2/2016 19:31. Conversion failed when converting date and/or time from character string.
 
 18/2/2016 19:34. Conversion failed when converting date and/or time from character string.
+
+18/2/2016 19:42. 2
+
+18/2/2016 19:42. 1
+
+18/2/2016 19:59. 1
+
+18/2/2016 20:22. Conversion failed when converting date and/or time from character string.
+
+18/2/2016 20:26. Conversion failed when converting date and/or time from character string.
