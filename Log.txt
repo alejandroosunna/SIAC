@@ -1,82 +1,20 @@
+ï»¿
+19/2/2016 14:15. 17
 
-18/2/2016 17:12. 2
+19/2/2016 14:15. 20
 
-18/2/2016 17:12. 1
+19/2/2016 14:15. 25
 
-18/2/2016 17:21. 2
+19/2/2016 14:15. 112
 
-18/2/2016 17:21. 1
+19/2/2016 14:16. 16
 
-18/2/2016 17:23. 2
+19/2/2016 14:16. 16
 
-18/2/2016 17:23. 1
+19/2/2016 14:16. 18
 
-18/2/2016 17:24. 2
+19/2/2016 14:16. 18
 
-18/2/2016 17:45. 2
+19/2/2016 14:16. 18
 
-18/2/2016 17:47. 2
-
-18/2/2016 17:51. 2
-
-18/2/2016 17:52. 1
-
-18/2/2016 18:04. 1
-
-18/2/2016 18:35. 1
-
-18/2/2016 18:43. Error relacionado con la red o específico de la instancia mientras se establecía una conexión con el servidor SQL Server. No se encontró el servidor o éste no estaba accesible. Compruebe que el nombre de la instancia es correcto y que SQL Server está configurado para admitir conexiones remotas. (provider: Named Pipes Provider, error: 40 - No se pudo abrir una conexión con SQL Server)
-
-18/2/2016 18:43. 0
-
-18/2/2016 18:44. Error relacionado con la red o específico de la instancia mientras se establecía una conexión con el servidor SQL Server. No se encontró el servidor o éste no estaba accesible. Compruebe que el nombre de la instancia es correcto y que SQL Server está configurado para admitir conexiones remotas. (provider: Named Pipes Provider, error: 40 - No se pudo abrir una conexión con SQL Server)
-
-18/2/2016 18:44. 0
-
-18/2/2016 18:44. Error relacionado con la red o específico de la instancia mientras se establecía una conexión con el servidor SQL Server. No se encontró el servidor o éste no estaba accesible. Compruebe que el nombre de la instancia es correcto y que SQL Server está configurado para admitir conexiones remotas. (provider: Named Pipes Provider, error: 40 - No se pudo abrir una conexión con SQL Server)
-
-18/2/2016 18:44. 0
-
-18/2/2016 18:44. Error relacionado con la red o específico de la instancia mientras se establecía una conexión con el servidor SQL Server. No se encontró el servidor o éste no estaba accesible. Compruebe que el nombre de la instancia es correcto y que SQL Server está configurado para admitir conexiones remotas. (provider: Named Pipes Provider, error: 40 - No se pudo abrir una conexión con SQL Server)
-
-18/2/2016 18:44. 0
-
-18/2/2016 18:45. Error relacionado con la red o específico de la instancia mientras se establecía una conexión con el servidor SQL Server. No se encontró el servidor o éste no estaba accesible. Compruebe que el nombre de la instancia es correcto y que SQL Server está configurado para admitir conexiones remotas. (provider: Named Pipes Provider, error: 40 - No se pudo abrir una conexión con SQL Server)
-
-18/2/2016 18:45. 0
-
-18/2/2016 18:52. 2
-
-18/2/2016 18:53. 1
-
-18/2/2016 19:09. 2
-
-18/2/2016 19:10. 1
-
-18/2/2016 19:22. Invalid column name 'IdCoordinado'.
-
-18/2/2016 19:24. Invalid column name 'IdCoordinado'.
-
-18/2/2016 19:25. 1
-
-18/2/2016 19:26. Conversion failed when converting date and/or time from character string.
-
-18/2/2016 19:29. 1
-
-18/2/2016 19:29. Conversion failed when converting date and/or time from character string.
-
-18/2/2016 19:31. Conversion failed when converting date and/or time from character string.
-
-18/2/2016 19:34. Conversion failed when converting date and/or time from character string.
-
-18/2/2016 19:42. 2
-
-18/2/2016 19:42. 1
-
-18/2/2016 19:59. 1
-
-18/2/2016 20:22. Conversion failed when converting date and/or time from character string.
-
-18/2/2016 20:26. Conversion failed when converting date and/or time from character string.
-
-19/2/2016 0:18. 14
+19/2/2016 14:16. 22

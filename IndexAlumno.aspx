@@ -105,24 +105,27 @@
 			<div class="container" >
 	
                 <div class="row">
-                <div class="col s3 m6">
-                    <div class="card blue-grey darken-1">
+                    <div class="col m3 l3 hide-on-small-and-down"><a></a></div>
+                <div class="col s12 m6 l6">
+                    <div class="card green">
                     <div class="card-content white-text">
                         <asp:Label ID="lblNombre" runat="server" Text=""></asp:Label>
                         <br />
                         <asp:Label ID="lblNumControl" runat="server" Text=""></asp:Label>
                     </div>
                     <div class="card-action">
-                        <a href="#">This is a link</a>
-                        <a href="#">This is a link</a>
+                        <a href="#">Configuración</a>
+                        
                     </div>
                     </div>
                 </div>
-                </div>
+                    <div class="col m3 l3"></div>
+                
                   
-                <div class="row">
-                    <div class="col s3 m6">
-                      <div class="card blue-grey darken-1">
+                
+                    <div class="col m3 l3 hide-on-small-and-down"><a></a></div>
+                    <div class="col s12 m6 l6">
+                      <div class="card green">
                         <div class="card-content white-text">
                             <span class="fa fa-calendar"></span>
                          <asp:Label ID="lblPDiaCita" runat="server" Text=""></asp:Label>
@@ -132,12 +135,11 @@
                                 <asp:Button ID="btnEliminarCita" runat="server" Text="Eliminar" Visible="false" OnClick="btnEliminarCita_Click"/>
                         </div>
                         <div class="card-action">
-                          <a href="#">This is a link</a>
-                          <a href="#">This is a link</a>
+                         
                         </div>
                       </div>
                     </div>
-                  </div> 
+                   
 		</div>
 	    </div>
 		
@@ -161,13 +163,13 @@
                         <!-- GRIDVIEW START -->
                         <asp:GridView ID="GridViewCitas" runat="server"  DataKeyNames="NumeroCita" AutoGenerateColumns="false" CssClass="striped responsive-table " BorderStyle="None" OnSelectedIndexChanged="GridViewCitas_SelectedIndexChanged">
                             <Columns>
-                                <asp:TemplateField HeaderText="Seleccionar"> 
+                               <%-- <asp:TemplateField HeaderText="Seleccionar"> 
                                     <ItemTemplate>
                                         <asp:Button ID="btnSeleccionar" Text="Seleccionar!!" runat="server"
                                             CommandName="SelectRow" CssClass="btn-link navbar-btn"
                                             CommandArgument="<%# ( (GridViewRow) Container).Cells[0].Text %>"/>
                                     </ItemTemplate>
-                                </asp:TemplateField>
+                                </asp:TemplateField>--%>
                                 <asp:CommandField ShowSelectButton="true" ButtonType="Link" HeaderText="Seleccionar" />
                                 <asp:BoundField DataField="NumeroCita" HeaderText="NumeroCita" ReadOnly="True" 
                                     SortExpression="NumeroCita" />
@@ -204,38 +206,35 @@
 				<div class="col-sm-6 col-sm-offset-3">
 
 					<div class="pfblock-header">
-						<h2 class="pfblock-title center">Contactanos</h2>
+						<h2 class="pfblock-title center">Quejas & Sugerencias</h2>
 						<div class="pfblock-line"></div>
-						<div class="pfblock-subtitle">
-                            Preguntanos lo que quieras..<br />
-                            Nosotros respondemos ;D
-						</div>
+						
 					</div>
 
 				</div>
 
 			</div><!-- .row -->
 
-			<div class="row">
+			<div class="container">
 
 				<div class="col-sm-6 col-sm-offset-3">
 
 					<form id="contact-form" role="form">
 						<div class="ajax-hidden">
-							<div class="form-group wow fadeInUp">
+							<div class="input-field col s6">
 								<label class="sr-only" for="c_name">Name</label>
                                 <asp:TextBox ID="txtName" placeholder = "Nombre" CssClass="form-control" runat="server" Width="550px"></asp:TextBox>
 								<%--<input type="text" id="c_name" class="form-control" name="c_name" placeholder="Name">--%>
 							</div>
 
-							<div class="form-group wow fadeInUp" data-wow-delay=".1s">
+							<div class="input-field col s6" data-wow-delay=".1s">
 								<label class="sr-only" for="c_email">Email</label>
                                 <asp:TextBox ID="txtEmail" placeholder = "E-mail" CssClass="form-control" runat="server" Width="550px" ></asp:TextBox>
 								<%--<input type="email" id="c_email" class="form-control" name="c_email" placeholder="E-mail">--%>
 							</div>
 
-							<div class="form-group wow fadeInUp" data-wow-delay=".2s">
-                                <asp:TextBox ID="txtMesg" placeholder = "Mensaje" CssClass="form-control" runat="server" Rows="10" TextMode="MultiLine" Width="288px"></asp:TextBox>
+							<div class="input-field col s6" data-wow-delay=".2s">
+                                <asp:TextBox ID="txtMesg" placeholder = "Mensaje" CssClass="materialize-textarea" runat="server" Rows="10" TextMode="MultiLine" Width="288px"></asp:TextBox>
 								<%--<textarea class="form-control" id="c_message" name="c_message" rows="7" placeholder="Message"></textarea>--%>
 							</div>
                             <asp:Button id="btnSend" type="submit" CssClass="btn btn-lg btn-block wow fadeIn" data-wow-delay=".3s" runat="server" Text="Enviar Mensaje" OnClick="btnSend_Click"></asp:Button>
@@ -255,10 +254,10 @@
 	<!-- Footer start -->
 
 	<footer id="footer">
-		<div class="container">
+		<div class="container center">
 			<div class="row">
 
-				<div class="col-sm-12">
+				<div class="container">
 
 					<ul class="social-links">
 						<li><a href="index.html#" class="wow fadeInUp"><i class="fa fa-facebook"></i></a></li>
@@ -272,7 +271,7 @@
                         <span class="fa fa-thumbs-o-up fa-3x animated tada"style="color:#e81d1d;"></span> 
                     </p>                <%--Modificado--%>
                     <p class="copyright"">
-                        © 2015  <a href="ith.mx"style="color:#e81d1d;">ITH</a>
+                        © 2015  <a href="http://www.ith.mx"style="color:#e81d1d;">ITH</a>
 					</p>            <%--Modificado--%>
 
 				</div>
@@ -288,14 +287,6 @@
 	<div class="scroll-up">
 		<a href="#home"><i class="fa fa-angle-up"></i></a>
 	</div>
-    </form>
-
-  
-
-
-    
-
-   
-    
+    </form>  
 </body>
 </html>

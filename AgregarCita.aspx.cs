@@ -27,23 +27,16 @@ public partial class AgregarCita : System.Web.UI.Page
             DateTime Date = new DateTime(01/01/0001);
             DateTime finicio = new DateTime();
 
-            finicio = calenDia.SelectedDate;
-            try
-            {
-                finicio = finicio.AddHours(Convert.ToDouble(txtHora.Text));
-            }
-            catch(Exception l)
-            {
-               
-            }
+            finicio = Convert.ToDateTime(txtFecha.Text).AddHours(Convert.ToDouble(txtHora.Text));
+           
             
 
-            if (calenDia.SelectedDate.ToShortDateString() != Date.ToShortDateString() && txtHora.Text != "")
+            if (finicio.ToShortDateString() != Date.ToShortDateString() && txtHora.Text != "")
             {
                 csCita Cita = new csCita();
 
                 Cita.IdCoordinador = Convert.ToInt32(Session["IdCarrera"]);
-                Cita.FechaDisponible = calenDia.SelectedDate.AddHours(Convert.ToDouble(txtHora.Text));
+                Cita.FechaDisponible = finicio.AddHours(Convert.ToDouble(txtHora.Text));
                 Cita.Estado = 0;
 
                 (new csCitaHandler()).AddNewCita(Cita);
@@ -64,8 +57,11 @@ public partial class AgregarCita : System.Web.UI.Page
     {
         try
         {
+            DateTime finicio = new DateTime();
+
+            finicio = Convert.ToDateTime(txtFecha.Text).AddHours(Convert.ToDouble(txtHora.Text));
             DateTime Date = new DateTime(01 / 01 / 0001);
-            DateTime wfinicio = new DateTime(calenDia.SelectedDate.Year, calenDia.SelectedDate.Month, calenDia.SelectedDate.Day, Convert.ToInt16(txtHora0.Text), 0, 0);
+            DateTime wfinicio = new DateTime(finicio.Year,finicio.Month, finicio.Day, Convert.ToInt16(txtHora0.Text), 0, 0);
             GenerateDates(wfinicio, Convert.ToInt16(txtDias.Text), Convert.ToDouble(txtHora1.Text), Convert.ToDouble(txtIntervalo.Text));
         }
         catch

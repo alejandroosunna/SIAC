@@ -48,15 +48,23 @@
     <link rel="stylesheet" href="materialize/css/styles.css">
      <link href="materialize/css/materialize.css" rel="stylesheet" media="screen"/>
     <style>
-    #view-source {
-      position: fixed;
-      display: block;
-      right: 0;
-      bottom: 0;
-      margin-right: 40px;
-      margin-bottom: 40px;
-      z-index: 900;
-    }
+        #view-source {
+          position: fixed;
+          display: block;
+          right: 0;
+          bottom: 0;
+          margin-right: 40px;
+          margin-bottom: 40px;
+          z-index: 900;
+        }
+         
+        .scrolling-table-container {
+            height: 378px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+   
+    
     </style>
   </head>
   <body>
@@ -102,11 +110,7 @@
           <a class="mdl-navigation__link" href="IndexAdmin.aspx"><i class="mdl-color-text--black material-icons" role="presentation">home</i>Resumen</a>
           <a class="mdl-navigation__link" href="Agregar.aspx"><i class="mdl-color-text--black material-icons" role="presentation">inbox</i>Agregar</a>
           <a class="mdl-navigation__link" href="Eliminar.aspx"><i class="mdl-color-text--black material-icons" role="presentation">delete</i>Eliminar</a>
-          <a class="mdl-navigation__link" id="menuAlumno"><i class="mdl-color-text--black material-icons" role="presentation">more_vert</i>Alumnos</a>  
-          <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-color--orange" for="menuAlumno">
-            <li class="mdl-menu__item "><a href="Agregar.aspx">Agregar</a></li>
-            <li class="mdl-menu__item"><a href="Eliminar.aspx">Eliminar</a></li>
-          </ul>
+          
 
         </nav>
       </div>
@@ -120,7 +124,7 @@
                         <div class="panel-heading section scrollspy">
                           Listado de citas pendientes
                         </div>
-                        <div class="panel-body">
+                        <div class="panel-body scrolling-table-container">
                            
                                 <asp:GridView ID="GridView_Citas" class="table striped responsive-table" runat="server" AutoGenerateColumns="False" DataKeyNames="IdCita" DataSourceID="SqlDataSource" OnRowCommand="GridView_Citas_RowCommand" OnSelectedIndexChanged="GridView_Citas_SelectedIndexChanged">
                                     <Columns>
@@ -130,6 +134,7 @@
                                         <asp:BoundField DataField="FechaDisponible" HeaderText="FechaDisponible" SortExpression="FechaDisponible" />
                                         <asp:BoundField DataField="Estado" HeaderText="Estado" SortExpression="Estado" />
                                         <asp:BoundField DataField="Comentario" HeaderText="Comentario" SortExpression="Comentario" />
+                                        <asp:CommandField ShowSelectButton="true" ButtonType="Link" HeaderText="Eliminar" />
                                     </Columns>
                                 </asp:GridView>
                                 <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:dbProyectoCoordinacion %>" SelectCommand="SELECT [IdCita], [IdUsuario], [FechaAgendada], [FechaDisponible], [Estado], [Comentario] FROM [tbCitas]">

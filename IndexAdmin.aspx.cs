@@ -52,7 +52,17 @@ public partial class IndexAdmin : System.Web.UI.Page
 
     protected void GridView_Citas_SelectedIndexChanged(object sender, EventArgs e)
     {
+        GridViewRow row = GridView_Citas.SelectedRow;
 
+        int id = Convert.ToInt32(GridView_Citas.DataKeys[row.RowIndex].Value);
+        if(!(new csCitaHandler()).DeleteCita(id)){
+            Response.Redirect("~\\IndexAdmin.aspx");
+        }
+        else
+        {
+
+        }
+        (new ObjetoBase()).LogError(id.ToString());
     }
 
     protected void SqlDataSource_Selecting(object sender, SqlDataSourceSelectingEventArgs e)

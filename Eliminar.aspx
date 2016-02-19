@@ -83,11 +83,7 @@
           <a class="mdl-navigation__link" href="IndexAdmin.aspx"><i class="mdl-color-text--black material-icons" role="presentation">home</i>Resumen</a>
           <a class="mdl-navigation__link" href="Agregar.aspx"><i class="mdl-color-text--black material-icons" role="presentation">inbox</i>Agregar</a>
           <a class="mdl-navigation__link" href="Eliminar.aspx"><i class="mdl-color-text--black material-icons" role="presentation">delete</i>Eliminar</a>
-          <a class="mdl-navigation__link" id="menuAlumno"><i class="mdl-color-text--black material-icons" role="presentation">more_vert</i>Alumnos</a>  
-          <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-color--orange" for="menuAlumno">
-            <li class="mdl-menu__item "><a href="Agregar.aspx">Agregar</a></li>
-            <li class="mdl-menu__item"><a href="Eliminar.aspx">Eliminar</a></li>
-          </ul>
+         
         </nav>   
                 </div>              
       <main class="mdl-layout__content mdl-color--grey-100">

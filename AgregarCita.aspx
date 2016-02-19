@@ -91,11 +91,7 @@
           <a class="mdl-navigation__link" href="IndexAdmin.aspx"><i class="mdl-color-text--black material-icons" role="presentation">home</i>Resumen</a>
           <a class="mdl-navigation__link" href="Agregar.aspx"><i class="mdl-color-text--black material-icons" role="presentation">inbox</i>Agregar</a>
           <a class="mdl-navigation__link" href="Eliminar.aspx"><i class="mdl-color-text--black material-icons" role="presentation">delete</i>Eliminar</a>
-          <a class="mdl-navigation__link" id="menuAlumno"><i class="mdl-color-text--black material-icons" role="presentation">more_vert</i>Alumnos</a>  
-          <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-color--orange" for="menuAlumno">
-            <li class="mdl-menu__item "><a href="Agregar.aspx">Agregar</a></li>
-            <li class="mdl-menu__item"><a href="Eliminar.aspx">Eliminar</a></li>
-          </ul>
+          
         </nav>
       </div>
       <main class="mdl-layout__content mdl-color--grey-100">
@@ -108,19 +104,13 @@
                         </div>
                         <div class="panel-body" style="margin-left:15%">
                             <div class="table-responsive">
-                                    <asp:Calendar ID="calenDia" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="341px">
-                                    <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
-                                    <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
-                                    <OtherMonthDayStyle ForeColor="#999999" />
-                                    <SelectedDayStyle BackColor="#333399" ForeColor="White" />
-                                    <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
-                                    <TodayDayStyle BackColor="#CCCCCC" />
-                                </asp:Calendar>
+                                <asp:TextBox ID="txtFecha" class="datepicker" placeholder="Fecha Inicio" runat="server"></asp:TextBox>
                                 <br />
                                 
                                  <div class="input-field col s6">
                                   <asp:TextBox ID="txtHora" runat="server" placeholder="Hora hh:mm" MaxLength="5" TextMode="Number"></asp:TextBox>
                                 </div>
+                                    
                                 <br />
                                 <asp:Button ID="btnAgregarCita" class="waves-effect waves-light btn orange" runat="server" Text="Agregar Cita" OnClick="btnAgregarCita_Click" />
                             </div>
