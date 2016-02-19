@@ -18,25 +18,31 @@
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<!-- Materialize CSS -->
-       
-  
+
+    <style type="text/css">
+        .scrolling-table-container {
+            height: 378px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+    </style>
     
 </head>
 <body>
-    <%--<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     <script type="text/javascript" language="javascript">// <![CDATA[
         $(document).ready(function(){
            
             $('.button-collapse').sideNav({
                 menuWidth: 300, // Default is 240
-                edge: 'right', // Choose the horizontal origin
+                edge: 'left', // Choose the horizontal origin
                 closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-            }
- );
+            });
+            
         });
  
-   </script>--%>
+   </script>
   
    
    
@@ -50,7 +56,7 @@
         <div class="navbar-fixed orange darken-1">
 		<nav>
 				<div class="nav-wrapper orange darken-1">
-                    <a href="#!" class="brand-logo">Logo</a>
+                    <a href="#!" class="brand-logo">SIAC</a>
                     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="#home">Inicio</a></li>
@@ -85,7 +91,7 @@
 				<div class="col-sm-6 col-sm-offset-3">
                     
 					<div class="pfblock-header wow fadeInUp">
-						<h2 class="pfblock-title">Usuario</h2>
+						<h2 class="pfblock-title center">Usuario</h2>
 						<div class="pfblock-line"></div>
 						<div class="pfblock-subtitle">
                             
@@ -145,15 +151,15 @@
 
 	<section id="Citas" class="pfblock">
             
-            <div class="row">
+            <div class="container">
 				<div class="col-sm-6 col-sm-offset-3 fa-align-center">
 					<div class="pfblock-header wow fadeInUp ajax-response pre-scrollable">
 
 					<div class="pfblock-header wow fadeInUp ajax-response">
-						<h2 class="pfblock-title">Citas</h2>
-
+						<h2 class="pfblock-title center">Citas</h2>
+                        <div class="scrolling-table-container">
                         <!-- GRIDVIEW START -->
-                        <asp:GridView ID="GridViewCitas" runat="server" DataKeyNames="NumeroCita" AutoGenerateColumns="false" CssClass="table media-list fa-border table-bordered table-responsive table-condensed caption ajax-response wow bounce" BorderStyle="None" OnSelectedIndexChanged="GridViewCitas_SelectedIndexChanged">
+                        <asp:GridView ID="GridViewCitas" runat="server"  DataKeyNames="NumeroCita" AutoGenerateColumns="false" CssClass="striped responsive-table " BorderStyle="None" OnSelectedIndexChanged="GridViewCitas_SelectedIndexChanged">
                             <Columns>
                                 <asp:TemplateField HeaderText="Seleccionar"> 
                                     <ItemTemplate>
@@ -172,7 +178,7 @@
                             </Columns>
                         </asp:GridView>
                         <!-- GRIDVIEW END -->
-						
+						</div>
 					</div>
   </div>
 			</div><!-- .row -->
@@ -198,7 +204,7 @@
 				<div class="col-sm-6 col-sm-offset-3">
 
 					<div class="pfblock-header">
-						<h2 class="pfblock-title">Contactanos</h2>
+						<h2 class="pfblock-title center">Contactanos</h2>
 						<div class="pfblock-line"></div>
 						<div class="pfblock-subtitle">
                             Preguntanos lo que quieras..<br />
