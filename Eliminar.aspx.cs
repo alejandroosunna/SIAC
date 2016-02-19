@@ -16,7 +16,7 @@ public partial class Eliminar : System.Web.UI.Page
     {
         if (e.CommandName == "DeleteRow")
         {
-            (new clsUsuarioHandler()).DeleteUsuario(Convert.ToInt32(e.CommandArgument));
+            (new csUsuarioHandler()).DeleteUsuario(Convert.ToInt32(e.CommandArgument));
             Response.Redirect("~\\Eliminar.aspx");
         }
     }

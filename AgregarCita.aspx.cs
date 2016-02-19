@@ -54,7 +54,7 @@ public partial class AgregarCita : System.Web.UI.Page
         {
             DateTime Date = new DateTime(01 / 01 / 0001);
             DateTime wfinicio = new DateTime(calenDia.SelectedDate.Year, calenDia.SelectedDate.Month, calenDia.SelectedDate.Day, Convert.ToInt16(txtHora0.Text), 0, 0);
-            GenerateDates(wfinicio, Convert.ToInt16(txtDias.Text), Convert.ToDouble(txtHora1.Text), Convert.ToDouble(txtIntervalo.Text));
+            //GenerateDates(wfinicio, Convert.ToInt16(txtDias.Text), Convert.ToDouble(txtHora1.Text), Convert.ToDouble(txtIntervalo.Text));
         }
         catch
         {
@@ -62,34 +62,34 @@ public partial class AgregarCita : System.Web.UI.Page
         }
        
     }
-    private void GenerateDates(DateTime xfInicio,int xdias, double xhoraFinal,double xintervalo)
-    {
-        DateTime Date = new DateTime(01 / 01 / 0001);
-        DateTime fInicio = xfInicio;
-        clsCita Cita = new clsCita();
-        try
-        {
-            for (int i = 1; i <= xdias; i++)
-            {
-                for (int j = fInicio.Hour; j < xhoraFinal;)
-                {
-                    Cita.IdAdministrador = Convert.ToInt32(Session["IdAdministrador"]);
-                    Cita.Hora = fInicio.Hour.ToString() + ":" + fInicio.Minute.ToString();
-                    Cita.Dia = fInicio;
-                    Cita.Disponible = 0;
-                    fInicio = fInicio.AddMinutes(xintervalo);
-                    j = fInicio.Hour;
-                    (new clsCitaHandler()).AddNewCita(Cita);
-                }
-                fInicio = xfInicio;
-                fInicio = fInicio.AddDays(i);
-            }
-            Response.Redirect("~\\AgregarCita.aspx");
-        }
-        catch (Exception ex)
-        {
-            Response.Write(@"<script language = 'javascript'>alert('Error al dar de alta la cita. Verefique los datos.') </script>");
-        }
-    }
+    //private void GenerateDates(DateTime xfInicio,int xdias, double xhoraFinal,double xintervalo)
+    //{
+    //    DateTime Date = new DateTime(01 / 01 / 0001);
+    //    DateTime fInicio = xfInicio;
+    //    clsCita Cita = new clsCita();
+    //    try
+    //    {
+    //        for (int i = 1; i <= xdias; i++)
+    //        {
+    //            for (int j = fInicio.Hour; j < xhoraFinal;)
+    //            {
+    //                Cita.IdAdministrador = Convert.ToInt32(Session["IdAdministrador"]);
+    //                Cita.Hora = fInicio.Hour.ToString() + ":" + fInicio.Minute.ToString();
+    //                Cita.Dia = fInicio;
+    //                Cita.Disponible = 0;
+    //                fInicio = fInicio.AddMinutes(xintervalo);
+    //                j = fInicio.Hour;
+    //                (new clsCitaHandler()).AddNewCita(Cita);
+    //            }
+    //            fInicio = xfInicio;
+    //            fInicio = fInicio.AddDays(i);
+    //        }
+    //        Response.Redirect("~\\AgregarCita.aspx");
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        Response.Write(@"<script language = 'javascript'>alert('Error al dar de alta la cita. Verefique los datos.') </script>");
+    //    }
+    //}
 
 }
