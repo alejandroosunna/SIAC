@@ -181,7 +181,7 @@ public class csCitaHandler : ObjetoBase
             Data[0] = new SqlParameter("@IdCoordinador", Cita.IdCoordinador);
             Data[0].DbType = DbType.Int32;
             Data[1] = new SqlParameter("@FechaDisponible", Cita.FechaDisponible);
-            Data[1].DbType = DbType.String;
+            Data[1].DbType = DbType.Date;
             Data[2] = new SqlParameter("@FechaAgendada", Cita.FechaAgendada);
             Data[2].DbType = DbType.Date;
             Data[3] = new SqlParameter("@Estado", Cita.Estado);

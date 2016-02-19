@@ -39,16 +39,16 @@ public partial class IndexAlumno : System.Web.UI.Page
                     {
                         
                         lblPDiaCita.Text = "Fecha: " + Cita.FechaDisponible.ToString("dd / MM / yyyy");
-                        lblPHoraCita.Text = "Hora: " + Cita.FechaDisponible.ToString("HH:mm");
+                        lblPHoraCita.Text = "Hora: " + Cita.FechaDisponible.ToString("t");
                         btnEliminarCita.Visible = true;
-                        //GridViewCitas.Visible = false;
+                        GridViewCitas.Visible = false;
                         //txtComentario.Visible = true;
                         //btnEnviar.Visible = true;
                     }
                     else
                     {
                         lblPDiaCita.Text = "No hay cita pendiente.";
-                        //GridViewCitas.Visible = true;
+                        GridViewCitas.Visible = true;
                         //txtComentario.Visible = false;
                         //btnEnviar.Visible = false;
 
@@ -65,14 +65,15 @@ public partial class IndexAlumno : System.Web.UI.Page
                             DataRow dr = dt.NewRow();
                             dr["Apartar"] = listCita[y].IdCita.ToString();
                             dr["NumeroCita"] = listCita[y].IdCita.ToString();
-                            dr["Hora"] = listCita[y].FechaDisponible.ToString("HH:mm");
+                            dr["Hora"] = listCita[y].FechaDisponible.ToString("t");
                             dr["Dia"] = listCita[y].FechaDisponible.ToString("dd / MM / yyyy");
+                            //(new ObjetoBase()).LogError(listCita[y].FechaDisponible.ToString("t"));
 
                             dt.Rows.Add(dr);
                         }
 
-                        //GridViewCitas.DataSource = dt;
-                        //GridViewCitas.DataBind();
+                        GridViewCitas.DataSource = dt;
+                        GridViewCitas.DataBind();
                     }
 
                     if (Request["re"] != null)
