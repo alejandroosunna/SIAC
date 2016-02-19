@@ -69,19 +69,12 @@
           </span>
           <div class="mdl-layout-spacer"></div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-<%--            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-              <i class="material-icons">search</i>
-            </label>
-            <div class="mdl-textfield__expandable-holder">
-              <input class="mdl-textfield__input" type="text" id="search">
-              <label class="mdl-textfield__label" for="search">Enter your query...</label>
-            </div>
-          </div>--%>
+
           <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
             <i class="material-icons">more_vert</i>
           </button>
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-            <li class="mdl-menu__item">Infrormacion</li>
+            <li class="mdl-menu__item"><asp:HyperLink ID="lbl_CerrarSesion" runat="server" NavigateUrl="~/IndexAdmin.aspx?IdLogin=true">Cerrar sesion</asp:HyperLink></li>
           </ul>
         </div>
       </header>
@@ -113,31 +106,13 @@
             <li class="mdl-menu__item "><a href="Agregar.aspx">Agregar</a></li>
             <li class="mdl-menu__item"><a href="Eliminar.aspx">Eliminar</a></li>
           </ul>
-<%--         <div class="demo-avatar-dropdown">
-          <span class="mdl-layout-title">
-             <span>Menu</span>
-          </span>
-            <div class="mdl-layout-spacer"></div>
-            <button id="menuAlumno" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-              <i class="material-icons" role="presentation">arrow_drop_down</i>
-              <span class="visuallyhidden">Accounts</span>
-            </button>
-            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="menuAlumno">
-             <li class="mdl-menu__item "><a href="Agregar.aspx">Agregar</a></li>
-            <li class="mdl-menu__item"><a href="Eliminar.aspx">Eliminar</a></li>
-            </ul>
-          </div>--%>
+
         </nav>
       </div>
       <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-grid demo-content">
           <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--12-col">
-          <%--  <svg fill="currentColor" viewBox="0 0 500 250" class="demo-graph">
-              <use xlink:href="#chart">
-            </svg>
-            <svg fill="currentColor" viewBox="0 0 500 250" class="demo-graph">
-              <use xlink:href="#chart">
-            </svg>--%>
+
               <form id="form1" runat="server">
 
                     
@@ -145,29 +120,20 @@
                           Listado de citas pendientes
                         </div>
                         <div class="panel-body pre-scrollable">
-                            <table  class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-                                <asp:GridView ID="GridView_Citas" class="table bordered " runat="server" AutoGenerateColumns="False" DataKeyNames="NumeroCita" DataSourceID="SqlDataSource" OnRowCommand="GridView_Citas_RowCommand" OnSelectedIndexChanged="GridView_Citas_SelectedIndexChanged">
+                           
+                                <asp:GridView ID="GridView_Citas" class="table bordered " runat="server" AutoGenerateColumns="False" DataKeyNames="IdCita" DataSourceID="SqlDataSource" OnRowCommand="GridView_Citas_RowCommand" OnSelectedIndexChanged="GridView_Citas_SelectedIndexChanged">
                                     <Columns>
-                                        <asp:BoundField DataField="NumeroCita" HeaderText="NumeroCita" InsertVisible="False" ReadOnly="True" SortExpression="NumeroCita" />
-                                        <asp:BoundField DataField="Hora" HeaderText="Hora" SortExpression="Hora" />
-                                        <asp:BoundField DataField="Dia" HeaderText="Dia" SortExpression="Dia" />
+                                        <asp:BoundField DataField="IdCita" HeaderText="IdCita" InsertVisible="False" ReadOnly="True" SortExpression="IdCita" />
+                                        <asp:BoundField DataField="IdUsuario" HeaderText="IdUsuario" SortExpression="IdUsuario" />
                                         <asp:BoundField DataField="FechaAgendada" HeaderText="FechaAgendada" SortExpression="FechaAgendada" />
+                                        <asp:BoundField DataField="FechaDisponible" HeaderText="FechaDisponible" SortExpression="FechaDisponible" />
+                                        <asp:BoundField DataField="Estado" HeaderText="Estado" SortExpression="Estado" />
                                         <asp:BoundField DataField="Comentario" HeaderText="Comentario" SortExpression="Comentario" />
-                                        <asp:TemplateField>
-                                            <ItemTemplate>
-                                                <asp:Button ID="btnEliminar" Text="Eliminiar" runat="server"
-                                                    CommandName="DeleteRow"
-                                                    CommandArgument="<%# ( (GridViewRow) Container).Cells[0].Text %>"/>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
                                     </Columns>
                                 </asp:GridView>
-                                <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:dbControlDeCitas %>" SelectCommand="SELECT IdCita AS NumeroCita, Hora, FORMAT([Dia], 'dd/MM/yyyy', 'en-US') AS Dia, FechaAgendada, Comentario FROM tbCitas " ProviderName="<%$ ConnectionStrings:dbControlDeCitas.ProviderName %>">
-                                    <SelectParameters>
-                                        <asp:Parameter DefaultValue="n" Name="Disponible" />
-                                    </SelectParameters>
+                                <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:dbProyectoCoordinacion %>" SelectCommand="SELECT [IdCita], [IdUsuario], [FechaAgendada], [FechaDisponible], [Estado], [Comentario] FROM [tbCitas]">
                                 </asp:SqlDataSource>
-                            </table>
+                       
                         </div>
                         <asp:Button class="waves-effect waves-light btn-large mdl-color--orange" ID="btnNuevaCita" runat="server" Text="Nueva Cita" OnClick="btnNuevaCita_Click"/> 
 
@@ -328,174 +294,3 @@
 
 
 
-
-
-<%--<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<%--    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Administrador</title>
-	<!-- Materialize CSS -->
-	<link href="materialize/css/materialize.css" rel="stylesheet" media="screen"/>--%>
-
-    <!--Aqui-->
-<%--     <!-- FONTAWESOME STYLES-->
-    <link href="asse/css/font-awesome.css" rel="stylesheet" />
-  
-     <script src="materialize/js/materialize.js" ></script>     
-	<!-- Custom styles CSS -->
-	<link href="assets/css/style.css" rel="stylesheet" media="screen"/>
-     <!-- GOOGLE FONTS-->
-   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />--%>
-    <script>
-        $(document).ready(function () {
-            $('.scrollspy').scrollSpy();
-        });
-
-    </script>
-<%--</head>
-<body data-spy="scroll">
-    <form id="form1" runat="server">
-    <div id="wrapper">
-        
-        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Administrador</a> 
-            </div>
-              <div style="color: white;
-                    padding: 15px 50px 5px 50px;
-                    float: right;
-                    font-size: 16px;">
-                  <asp:Button ID="btnSalir" runat="server" Text="Salir" CssClass="btn btn-danger square-btn-adjust" OnClick="btnSalir_Click" /><!-- control asp para cerrar sesion -->
-                  </div>    
-        </nav>   <!-- navbar  -->
-           <!-- /. NAV TOP <a href="#" class="btn btn-danger square-btn-adjust">Salir</a> -->
-                <nav class="navbar-default navbar-side" role="navigation">
-            <div class="sidebar-collapse">
-                <ul class="nav" id="main-menu">
-				<li class="text-center">
-                    <img src="asse/img/find_user.png" class="user-image img-responsive"/>
-					</li>
-				
-					
-                    <li>
-                        <a class="active-menu"  href="IndexAdmin.aspx"><i class="fa fa-table fa-3x"></i>Resumen</a>
-                    </li>
-                     
-					                   
-                    <li>
-                        <a href="#"><i class="fa fa-user fa-3x"></i>Alumnos<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="Agregar.aspx">Agregar</a>
-                            </li>
-                            <li>
-                                <a href="Eliminar.aspx">Eliminar<span class="fa arrow"></span></a>
-                            </li>
-                          
-                        </ul>
-                      </li>  
-                  
-                </ul>
-               
-            </div>
-            
-        </nav>     <!-- vertical navbar  -->
-        <!-- /. NAV SIDE  -->
-        <div id="page-wrapper" style="min-height:530px;" >
-            <div id="page-inner" style="min-height:530px;">
-                <div class="row">
-                    <div class="col-md-12">
-                     <h2>Citas Pendientes</h2>   
-                        <h5>
-                            <asp:Label ID="lblNombre" runat="server" Text=""></asp:Label>
-                        </h5>
-                    </div>
-                </div>              
-                 <!-- /. ROW  -->
-                  <hr />
-            
-                 <!-- /. ROW  -->
-                 <div class="row" >
-                    <div class="col s12 m9 l10">
-               
-                  
-                        <div class="panel-heading section scrollspy">
-                          Listado de citas pendientes
-                        </div>
-                        <div class="panel-body pre-scrollable">
-                            <div class="table-responsive section scrollspy">
-                                <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:dbProyectoCoordinacion %>" SelectCommand="SELECT [IdCita], [IdUsuario], [FechaAgendada], [FechaDisponible], [Estado], [Comentario] FROM [tbCitas] ORDER BY [FechaDisponible]" OnSelecting="SqlDataSource_Selecting">
-                                </asp:SqlDataSource>
-                            </div>
-                           
-                        </div>
-
-                        
-                        <asp:Button class="waves-effect waves-light btn-large" ID="btnNuevaCita" runat="server" Text="Nueva Cita" OnClick="btnNuevaCita_Click"/> 
-                    
-                    </div>
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-  <div class="panel panel-primary text-center no-boder bg-color-green">
-                        <div class="panel-body">
-                            <i class="fa fa-comments-o fa-5x"></i>
-                            <h4>200 New Comments </h4>
-                             <h4>See All Comments  </h4>
-                        </div>
-                        <div class="panel-footer back-footer-green">
-                             <i class="fa fa-rocket fa-5x"></i>
-                            Lorem ipsum dolor sit amet sit sit, consectetur adipiscing elitsit sit gthn ipsum dolor sit amet ipsum dolor sit amet
-                            
-                        </div>
-                    </div>
-                    </div>
-                    
-                                <asp:GridView ID="GridView_Citas" class="table bordered " runat="server" AutoGenerateColumns="False" DataKeyNames="IdCita" DataSourceID="SqlDataSource" OnRowCommand="GridView_Citas_RowCommand" OnSelectedIndexChanged="GridView_Citas_SelectedIndexChanged" AllowPaging="True">
-                                    <Columns>
-                                        <asp:BoundField DataField="IdCita" HeaderText="IdCita" InsertVisible="False" ReadOnly="True" SortExpression="IdCita" />
-                                        <asp:BoundField DataField="IdUsuario" HeaderText="IdUsuario" SortExpression="IdUsuario" />
-                                        <asp:BoundField DataField="FechaAgendada" HeaderText="FechaAgendada" SortExpression="FechaAgendada" />
-                                        <asp:BoundField DataField="FechaDisponible" HeaderText="FechaDisponible" SortExpression="FechaDisponible" />
-                                        <asp:BoundField DataField="Estado" HeaderText="Estado" SortExpression="Estado" />
-                                        <asp:BoundField DataField="Comentario" HeaderText="Comentario" SortExpression="Comentario" />
-                                    </Columns>
-                                </asp:GridView>
-                    
-                </div>
-                 <!-- /. ROW  -->
-                
-
-    </div>
-             <!-- /. PAGE INNER  -->
-            </div>
-         <!-- /. PAGE WRAPPER  -->
-        </div>
-     <!-- /. WRAPPER  -->
-    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-    <!-- JQUERY SCRIPTS -->
-
-
-<!-- Aqui-->
-    <script src="asse/js/jquery-1.10.2.js">
-
-    </script>
-      <!-- BOOTSTRAP SCRIPTS -->
-    <script src="asse/js/bootstrap.min.js"></script>
-    <!-- METISMENU SCRIPTS -->
-    <script src="asse/js/jquery.metisMenu.js"></script>
-     <!-- MORRIS CHART SCRIPTS -->
-     <script src="asse/js/morris/raphael-2.1.0.min.js"></script>
-    <script src="asse/js/morris/morris.js"></script>
-      <!-- CUSTOM SCRIPTS -->
-    <script src="asse/js/custom.js"></script>
-    
-   
-    </form>
-</body>
-</html>--%>

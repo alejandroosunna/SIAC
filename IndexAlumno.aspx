@@ -23,8 +23,21 @@
     
 </head>
 <body>
-    <%--<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-     <script type="text/javascript" src="js/materialize.min.js"></script>--%>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    <script type="text/javascript" language="javascript">// <![CDATA[
+        $(document).ready(function(){
+           
+            $('.button-collapse').sideNav({
+                menuWidth: 300, // Default is 240
+                edge: 'right', // Choose the horizontal origin
+                closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+            }
+ );
+        });
+ 
+   </script>
+  
    
    
 	<!-- Preloader -->
@@ -34,9 +47,9 @@
 	</div>
 
 	<header class="header">
-        <div class="navbar-fixed">
+        <div class="navbar-fixed orange darken-1">
 		<nav>
-				<div class="nav-wrapper">
+				<div class="nav-wrapper orange darken-1">
                     <a href="#!" class="brand-logo">Logo</a>
                     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
@@ -134,7 +147,6 @@
             
             <div class="row">
 				<div class="col-sm-6 col-sm-offset-3 fa-align-center">
-                    <h2 class="pfblock-title">Citas</h2>
 					<div class="pfblock-header wow fadeInUp ajax-response pre-scrollable">
 						
 						  <%-- <asp:GridView ID="GridView_Citas"  runat="server" AutoGenerateColumns="False" DataKeyNames="NumeroCita" DataSourceID="SqlDataSource_Citas" OnRowCommand="GridView_Citas_RowCommand" CssClass="table media-list fa-border table-bordered table-responsive table-condensed caption ajax-response wow bounce" BorderStyle="None" >--%>
@@ -305,13 +317,8 @@
 		<a href="#home"><i class="fa fa-angle-up"></i></a>
 	</div>
     </form>
-    <!-- Scroll to top end-->
-    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-    ipt src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-	<!-- Javascript files -->
-    <script type="text/javascript">
-           $(".button-collapse").sideNav();
-     </script>
+
+  
 
 
     

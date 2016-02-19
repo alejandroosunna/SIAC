@@ -113,7 +113,7 @@
                                         <asp:BoundField DataField="Contraseña" HeaderText="Contraseña" SortExpression="Contraseña" />
                                     </Columns>
                                 </asp:GridView>
-                                <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:dbProyectoCoordinacionConnectionString %>" SelectCommand="SELECT [IdUsuario], [IdCarrera], [Nombre], [Apellidos], [Contraseña] FROM [tbUsuarios] WHERE ([IdRol] = @IdRol)">
+                                <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:dbProyectoCoordinacion %>" SelectCommand="SELECT [IdUsuario], [IdCarrera], [Nombre], [Apellidos], [Contraseña] FROM [tbUsuarios] WHERE ([IdRol] = @IdRol)">
                                     <SelectParameters>
                                         <asp:ControlParameter ControlID="GridView_Usuarios" DefaultValue="2" Name="IdRol" PropertyName="SelectedValue" Type="Int32" />
                                     </SelectParameters>
