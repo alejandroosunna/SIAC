@@ -9,32 +9,64 @@ public partial class IndexAdmin : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["IdAdministrador"] != null)
+        if (Session["IdUsuario"] != null && Session["IdRol"] != null)
         {
-            clsAdministrador Administrador = (new clsAdministradorHandler()).GetAdministrador(Convert.ToInt32(Session["IdAdministrador"]));
-
-            lblNombre.Text = "Bienvenido(a) " + Administrador.Nombre;
+            if (Convert.ToInt32(Session["IdRol"]) == 1)
+            {
+                bool result = bool.TryParse(Request["IdLogin"], out result);
+                if (result)
+                {
+                    Session["IdUsuario"] = null;
+                    Session["IdRol"] = null;
+                    Response.Redirect("~\\Login.aspx");
+                }
+                else
+                {
+                    csUsuario Usuario = (new csUsuarioHandler()).GetUsuario(Convert.ToInt32(Session["IdUsuario"]));
+                    lblNombre.Text = "Coordinador: " + Usuario.Nombre + " " + Usuario.Apellidos + ".";
+                }
+            }
+            else
+                Response.Redirect("~\\IndexAlumno.aspx");
         }
         else
-        {
             Response.Redirect("~\\Login.aspx");
-        }
     }
     protected void btnSalir_Click(object sender, EventArgs e)
     {
-        Session["IdAdministrador"] = null;
+        Session["IdUsuario"] = null;
         Response.Redirect("~\\Login.aspx");
     }
     protected void GridView_Citas_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         if (e.CommandName == "DeleteRow")
         {
-            (new clsCitaHandler()).DeleteCita(Convert.ToInt32(e.CommandArgument));
+            (new csCitaHandler()).DeleteCita(Convert.ToInt32(e.CommandArgument));
             Response.Redirect("~\\IndexAdmin.aspx");
         }
     }
     protected void btnNuevaCita_Click(object sender, EventArgs e)
     {
         Response.Redirect("~\\AgregarCita.aspx");
+    }
+
+    protected void GridView_Citas_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        GridViewRow row = GridView_Citas.SelectedRow;
+
+        int id = Convert.ToInt32(GridView_Citas.DataKeys[row.RowIndex].Value);
+        if(!(new csCitaHandler()).DeleteCita(id)){
+            Response.Redirect("~\\IndexAdmin.aspx");
+        }
+        else
+        {
+
+        }
+        (new ObjetoBase()).LogError(id.ToString());
+    }
+
+    protected void SqlDataSource_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+    {
+
     }
 }

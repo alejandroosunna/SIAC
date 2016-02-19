@@ -51,7 +51,6 @@ public class ObjetoBase
         }
         catch (UnauthorizedAccessException)
         {
-
         }
     }
 

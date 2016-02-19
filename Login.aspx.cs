@@ -12,45 +12,42 @@ public partial class Login : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["IdLoginAlumno"] != null)
+        if (Session["IdUsuario"] != null)
         {
-            Response.Redirect("~\\IndexAlumno.aspx");
-        }
-        else if (Session["IdAdministrador"] != null)
-        {
-            Response.Redirect("~\\IndexAdmin.aspx");
+            csUsuario Usuario = (new csUsuarioHandler()).GetUsuario(Convert.ToInt32(Session["IdUsuario"]));
+
+            if(Usuario.IdRol == 1)
+                Response.Redirect("~\\IndexAdmin.aspx");
+            else if(Usuario.IdRol == 2)
+                Response.Redirect("~\\IndexAlumno.aspx");
         }
     }
     protected void btnLogin_Click(object sender, EventArgs e)
     {
-        try
+        int result;
+        if (Int32.TryParse(txtNumControl.Text, out result))
         {
-            clsUsuario Usuario = (new clsUsuarioHandler()).CheckLogin(Convert.ToInt32(txtNumControl.Text), txtContraseña.Text);
+            csUsuario Usuario = (new csUsuarioHandler()).CheckLogin(result, txtContraseña.Text);
+            //(new ObjetoBase()).LogError(Usuario.IdRol.ToString());
 
-            if (Usuario.IdUsuario != 0)
+            if (Usuario.IdRol == 1)
             {
-                Session["IdLoginAlumno"] = Usuario.IdUsuario;
-                Session["IdAdministrador"] = Usuario.IdAdministrador;
-            }
-            else
-            {
-                clsAdministrador Administrador = (new clsAdministradorHandler()).CheckLogin(Convert.ToInt32(txtNumControl.Text), txtContraseña.Text);
-                if (Administrador.IdAdministrador != 0)
-                    Session["IdAdministrador"] = Administrador.IdAdministrador;
-            }
-
-            if (Session["IdLoginAlumno"] != null)
-                Response.Redirect("~\\IndexAlumno.aspx");
-            else if (Session["IdAdministrador"] != null)
+                Session["IdUsuario"] = Usuario.IdUsuario;
+                Session["IdRol"] = Usuario.IdRol;
+                Session["IdCarrera"] = Usuario.IdCarrera;
                 Response.Redirect("~\\IndexAdmin.aspx");
-            else
+            }
+            else if (Usuario.IdRol == 2)
+            {
+                Session["IdUsuario"] = Usuario.IdUsuario;
+                Session["IdRol"] = Usuario.IdRol;
+                Session["IdCarrera"] = Usuario.IdCarrera;
+                Response.Redirect("~\\IndexAlumno.aspx");
+            }
+            else if (Usuario.IdRol == 0)
                 Response.Write(@"<script language = 'javascript'>alert('Credenciales incorrectas') </script>");
         }
-        catch(Exception b)
-        {
+        else
             Response.Write(@"<script language = 'javascript'>alert('Credenciales incorrectas') </script>");
-
-        }
-
     }
 }

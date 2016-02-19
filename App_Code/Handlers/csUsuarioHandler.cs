@@ -21,7 +21,7 @@ public class csUsuarioHandler : ObjetoBase
     public csUsuario CheckLogin(int NumControl, string Contraseña) 
     {
         csUsuario Usuario = new csUsuario();
-        String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
+        String ConnectionString = ConfigurationManager.ConnectionStrings["dbProyectoCoordinacion"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
 
         try
@@ -34,7 +34,7 @@ public class csUsuarioHandler : ObjetoBase
             Data[1] = new SqlParameter("@Contraseña", Contraseña);
             Data[1].DbType = DbType.String;
 
-            String Query = "select * from tbUsuarios where NumControl = @NumControl and Contraseña = @Contraseña;";
+            String Query = "select * from tbUsuarios where IdUsuario = @NumControl and Contraseña = @Contraseña;";
 
             SqlCommand Command = new SqlCommand(Query, Connection);
             Command.Parameters.AddRange(Data);
@@ -61,7 +61,7 @@ public class csUsuarioHandler : ObjetoBase
     public csUsuario GetUsuario(int IdUsuario)
     {
         csUsuario Usuario = new csUsuario();
-        String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
+        String ConnectionString = ConfigurationManager.ConnectionStrings["dbProyectoCoordinacion"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
         try
         {
@@ -96,7 +96,7 @@ public class csUsuarioHandler : ObjetoBase
 
     public void AddNewUsuario(csUsuario Usuario)
     {
-        String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
+        String ConnectionString = ConfigurationManager.ConnectionStrings["dbProyectoCoordinacion"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
 
         try
@@ -137,7 +137,7 @@ public class csUsuarioHandler : ObjetoBase
 
     public void DeleteUsuario(int IdUsuario)
     {
-        String ConnectionString = ConfigurationManager.ConnectionStrings["dbControlDeCitas"].ConnectionString;
+        String ConnectionString = ConfigurationManager.ConnectionStrings["dbProyectoCoordinacion"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
 
         try

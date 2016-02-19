@@ -9,14 +9,14 @@ public partial class Eliminar : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["IdAdministrador"] == null)
+        if (Session["IdUsuario"] == null || Convert.ToInt32(Session["IdRol"]) == 2)
             Response.Redirect("~\\Login.aspx");
     }
     protected void GridView_Usuarios_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         if (e.CommandName == "DeleteRow")
         {
-            (new clsUsuarioHandler()).DeleteUsuario(Convert.ToInt32(e.CommandArgument));
+            (new csUsuarioHandler()).DeleteUsuario(Convert.ToInt32(e.CommandArgument));
             Response.Redirect("~\\Eliminar.aspx");
         }
     }

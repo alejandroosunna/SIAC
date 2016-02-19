@@ -32,7 +32,7 @@ create table tbCitas(
 	IdCoordinador int not null,
 	IdUsuario int,
 	FechaAgendada date default getdate(),
-	FechaDisponible date,
+	FechaDisponible datetime,
 	Estado int default 0, /*0 disponible, 1 ocupada, 2 expiro, 3 elimino*/
 	Comentario nvarchar(MAX) default '',
 	constraint PK_tbCitas_IdCita primary key (IdCita)
@@ -48,7 +48,7 @@ create table tbRelacionMotivosCitas(
 	IdCita int not null,
 	IdMotivo int not null,
 	constraint FK_tbRelacionMotivosCitas_IdCita foreign key(IdCita)
-		references tbCitas(IdCita) on update,
+		references tbCitas(IdCita) on update cascade,
 	constraint FK_tbRelacionMotivosCitas_IdMotivo foreign key(IdMotivo)
-		references tbMotivos(IdMotivo) on update
+		references tbMotivos(IdMotivo) on update cascade
 );
