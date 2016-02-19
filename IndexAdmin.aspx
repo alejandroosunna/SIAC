@@ -69,19 +69,12 @@
           </span>
           <div class="mdl-layout-spacer"></div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-<%--            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-              <i class="material-icons">search</i>
-            </label>
-            <div class="mdl-textfield__expandable-holder">
-              <input class="mdl-textfield__input" type="text" id="search">
-              <label class="mdl-textfield__label" for="search">Enter your query...</label>
-            </div>
-          </div>--%>
+
           <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
             <i class="material-icons">more_vert</i>
           </button>
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-            <li class="mdl-menu__item">Infrormacion</li>
+            <li class="mdl-menu__item"><asp:HyperLink ID="lbl_CerrarSesion" runat="server" NavigateUrl="~/IndexAdmin.aspx?IdLogin=true">Cerrar sesion</asp:HyperLink></li>
           </ul>
         </div>
       </header>
@@ -113,31 +106,13 @@
             <li class="mdl-menu__item "><a href="Agregar.aspx">Agregar</a></li>
             <li class="mdl-menu__item"><a href="Eliminar.aspx">Eliminar</a></li>
           </ul>
-<%--         <div class="demo-avatar-dropdown">
-          <span class="mdl-layout-title">
-             <span>Menu</span>
-          </span>
-            <div class="mdl-layout-spacer"></div>
-            <button id="menuAlumno" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-              <i class="material-icons" role="presentation">arrow_drop_down</i>
-              <span class="visuallyhidden">Accounts</span>
-            </button>
-            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="menuAlumno">
-             <li class="mdl-menu__item "><a href="Agregar.aspx">Agregar</a></li>
-            <li class="mdl-menu__item"><a href="Eliminar.aspx">Eliminar</a></li>
-            </ul>
-          </div>--%>
+
         </nav>
       </div>
       <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-grid demo-content">
           <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--12-col">
-          <%--  <svg fill="currentColor" viewBox="0 0 500 250" class="demo-graph">
-              <use xlink:href="#chart">
-            </svg>
-            <svg fill="currentColor" viewBox="0 0 500 250" class="demo-graph">
-              <use xlink:href="#chart">
-            </svg>--%>
+
               <form id="form1" runat="server">
 
                     
