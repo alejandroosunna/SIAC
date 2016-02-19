@@ -181,7 +181,8 @@ font-size: 16px;"><asp:Button ID="btnSalir" runat="server" Text="Salir" CssClass
     </style>
   </head>
   <body>
-      
+     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
       <header class="demo-header mdl-layout__header mdl-color--orange mdl-color-text--grey-600">
         <div class="mdl-layout__header-row">
@@ -194,9 +195,7 @@ font-size: 16px;"><asp:Button ID="btnSalir" runat="server" Text="Salir" CssClass
             <i class="material-icons">more_vert</i>
           </button>
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-            <li class="mdl-menu__item">About</li>
-            <li class="mdl-menu__item">Contact</li>
-            <li class="mdl-menu__item">Legal information</li>
+            <li class="mdl-menu__item"><asp:HyperLink ID="lbl_CerrarSesion" runat="server" NavigateUrl="~/IndexAdmin.aspx?IdLogin=true">Cerrar sesion</asp:HyperLink></li>
           </ul>
         </div>
        </div>
@@ -257,7 +256,7 @@ font-size: 16px;"><asp:Button ID="btnSalir" runat="server" Text="Salir" CssClass
                                 <asp:TextBox ID="txtContraseña" runat="server" placeholder="Contraseña"></asp:TextBox>
                                 <br />
                                 
-                               <div style="margin-left:20%;margin-top:3%;"> <asp:Button class="btn btn-primary btn-lg" ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click"  /> </div>
+                               <div style="margin-left:20%;margin-top:3%;"> <asp:Button class="waves-effect waves-light btn"  ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click"  /> </div>
                             </div>
                         </div>
                     </div>

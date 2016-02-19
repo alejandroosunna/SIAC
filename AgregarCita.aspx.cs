@@ -25,13 +25,25 @@ public partial class AgregarCita : System.Web.UI.Page
         try
         {
             DateTime Date = new DateTime(01/01/0001);
+            DateTime finicio = new DateTime();
+
+            finicio = calenDia.SelectedDate;
+            try
+            {
+                finicio = finicio.AddHours(Convert.ToDouble(txtHora.Text));
+            }
+            catch(Exception l)
+            {
+               
+            }
+            
 
             if (calenDia.SelectedDate.ToShortDateString() != Date.ToShortDateString() && txtHora.Text != "")
             {
                 csCita Cita = new csCita();
 
                 Cita.IdCoordinador = Convert.ToInt32(Session["IdCarrera"]);
-                Cita.FechaDisponible = calenDia.SelectedDate;
+                Cita.FechaDisponible = calenDia.SelectedDate.AddHours(Convert.ToDouble(txtHora.Text));
                 Cita.Estado = 0;
 
                 (new csCitaHandler()).AddNewCita(Cita);

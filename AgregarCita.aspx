@@ -63,9 +63,7 @@
             <i class="material-icons">more_vert</i>
           </button>
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-            <li class="mdl-menu__item">About</li>
-            <li class="mdl-menu__item">Contact</li>
-            <li class="mdl-menu__item">Legal information</li>
+             <li class="mdl-menu__item"><asp:HyperLink ID="lbl_CerrarSesion" runat="server" NavigateUrl="~/IndexAdmin.aspx?IdLogin=true">Cerrar sesion</asp:HyperLink></li>
           </ul>
         </div>
        </div>
@@ -121,10 +119,10 @@
                                 <br />
                                 
                                  <div class="input-field col s6">
-                                  <asp:TextBox ID="txtHora" runat="server" placeholder="Hora hh:mm" MaxLength="5" TextMode="Time"></asp:TextBox>
+                                  <asp:TextBox ID="txtHora" runat="server" placeholder="Hora hh:mm" MaxLength="5" TextMode="Number"></asp:TextBox>
                                 </div>
                                 <br />
-                                <asp:Button ID="btnAgregarCita" class="waves-effect waves-light btn" runat="server" Text="Agregar Cita" OnClick="btnAgregarCita_Click" />
+                                <asp:Button ID="btnAgregarCita" class="waves-effect waves-light btn orange" runat="server" Text="Agregar Cita" OnClick="btnAgregarCita_Click" />
                             </div>
                         </div>
                     </div>
