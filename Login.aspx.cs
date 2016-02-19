@@ -34,12 +34,14 @@ public partial class Login : System.Web.UI.Page
             {
                 Session["IdUsuario"] = Usuario.IdUsuario;
                 Session["IdRol"] = Usuario.IdRol;
+                Session["IdCarrera"] = Usuario.IdCarrera;
                 Response.Redirect("~\\IndexAdmin.aspx");
             }
             else if (Usuario.IdRol == 2)
             {
                 Session["IdUsuario"] = Usuario.IdUsuario;
                 Session["IdRol"] = Usuario.IdRol;
+                Session["IdCarrera"] = Usuario.IdCarrera;
                 Response.Redirect("~\\IndexAlumno.aspx");
             }
             else if (Usuario.IdRol == 0)

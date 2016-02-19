@@ -52,3 +52,19 @@
 18/2/2016 19:09. 2
 
 18/2/2016 19:10. 1
+
+18/2/2016 19:22. Invalid column name 'IdCoordinado'.
+
+18/2/2016 19:24. Invalid column name 'IdCoordinado'.
+
+18/2/2016 19:25. 1
+
+18/2/2016 19:26. Conversion failed when converting date and/or time from character string.
+
+18/2/2016 19:29. 1
+
+18/2/2016 19:29. Conversion failed when converting date and/or time from character string.
+
+18/2/2016 19:31. Conversion failed when converting date and/or time from character string.
+
+18/2/2016 19:34. Conversion failed when converting date and/or time from character string.

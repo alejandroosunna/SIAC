@@ -176,7 +176,7 @@ public class csCitaHandler : ObjetoBase
         try
         {
             Connection.Open();
-            String Query = "insert into tbCitas (IdCoordinado, FechaAgendada, FechaDisponible, Estado) values (@IdCoordinador, @FechaAgendada, @FechaDisponible, @Estado);";
+            String Query = "insert into tbCitas (IdCoordinador, FechaDisponible,FechaAgendada , Estado) values (@IdCoordinador, @FechaAgendada, @FechaDisponible, @Estado);";
             SqlParameter[] Data = new SqlParameter[4];
             Data[0] = new SqlParameter("@IdCoordinador", Cita.IdCoordinador);
             Data[0].DbType = DbType.Int32;
