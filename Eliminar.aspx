@@ -9,20 +9,20 @@
     <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Administrador</title>
-
-
-
+        
+				
+					
     <!-- Tile icon for Win8 (144x144 + tile color) -->
     <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
     <meta name="msapplication-TileColor" content="#3372DF">
-
+                     
     <link rel="shortcut icon" href="images/favicon.png">
-
+					                   
     <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
     <!--
     <link rel="canonical" href="http://www.example.com/">
     -->
-
+                          
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="material.min.css">
@@ -58,7 +58,7 @@
             <li class="mdl-menu__item">About</li>
             <li class="mdl-menu__item">Contact</li>
             <li class="mdl-menu__item">Legal information</li>
-          </ul>
+                        </ul>
         </div>
        </div>
       </header>
@@ -78,8 +78,8 @@
               <li class="mdl-menu__item">hello@example.com</li>
               <li class="mdl-menu__item">info@example.com</li>
               <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li>
-            </ul>
-          </div>
+                </ul>
+            </div>
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--white">
           <a class="mdl-navigation__link" href="IndexAdmin.aspx"><i class="mdl-color-text--black material-icons" role="presentation">home</i>Resumen</a>
@@ -90,8 +90,8 @@
             <li class="mdl-menu__item "><a href="Agregar.aspx">Agregar</a></li>
             <li class="mdl-menu__item"><a href="Eliminar.aspx">Eliminar</a></li>
           </ul>
-        </nav>
-      </div>
+        </nav>   
+                </div>              
       <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-grid demo-content">
           <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--12-col">
@@ -106,34 +106,27 @@
 
                                 <asp:GridView ID="GridView_Usuarios" runat="server" AutoGenerateColumns="False" DataKeyNames="IdUsuario" DataSourceID="SqlDataSource" OnRowCommand="GridView_Usuarios_RowCommand">
                                     <Columns>
-                                        <asp:BoundField DataField="IdUsuario" HeaderText="IdUsuario" InsertVisible="False" ReadOnly="True" SortExpression="IdUsuario" />
+                                        <asp:BoundField DataField="IdUsuario" HeaderText="IdUsuario" ReadOnly="True" SortExpression="IdUsuario" />
+                                        <asp:BoundField DataField="IdCarrera" HeaderText="IdCarrera" SortExpression="IdCarrera" />
                                         <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
-                                        <asp:BoundField DataField="ApellidoPaterno" HeaderText="ApellidoPaterno" SortExpression="ApellidoPaterno" />
-                                        <asp:BoundField DataField="ApellidoMaterno" HeaderText="ApellidoMaterno" SortExpression="ApellidoMaterno" />
-                                        <asp:BoundField DataField="NumControl" HeaderText="NumControl" SortExpression="NumControl" />
-                                        <asp:TemplateField>
-                                            <ItemTemplate>
-                                                <asp:Button ID="btnEliminar" Text="Eliminiar" runat="server"
-                                                    CommandName="DeleteRow"
-                                                    CommandArgument="<%# ( (GridViewRow) Container).Cells[0].Text %>"/>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
+                                        <asp:BoundField DataField="Apellidos" HeaderText="Apellidos" SortExpression="Apellidos" />
+                                        <asp:BoundField DataField="Contraseña" HeaderText="Contraseña" SortExpression="Contraseña" />
                                     </Columns>
                                 </asp:GridView>
-                                <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:dbControlDeCitas %>" SelectCommand="SELECT [IdUsuario], [Nombre], [ApellidoPaterno], [ApellidoMaterno], [NumControl] FROM [tbUsuarios] WHERE ([IdAdministrador] = @IdAdministrador)">
+                                <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:dbProyectoCoordinacionConnectionString %>" SelectCommand="SELECT [IdUsuario], [IdCarrera], [Nombre], [Apellidos], [Contraseña] FROM [tbUsuarios] WHERE ([IdRol] = @IdRol)">
                                     <SelectParameters>
-                                        <asp:SessionParameter DefaultValue="0" Name="IdAdministrador" SessionField="IdAdministrador" Type="Int32" />
+                                        <asp:ControlParameter ControlID="GridView_Usuarios" DefaultValue="2" Name="IdRol" PropertyName="SelectedValue" Type="Int32" />
                                     </SelectParameters>
                                 </asp:SqlDataSource>
                             </div>
                         </div>
                     </div>
           </form>
-        </div>
-       </div>
-      </main>
     </div>
+            </div>
+      </main>
+        </div>
    <script src="../../material.min.js"></script> <!-- Importante-->
-
-  </body>
+   
+</body>
 </html>
