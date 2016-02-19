@@ -32,7 +32,7 @@ create table tbCitas(
 	IdCoordinador int not null,
 	IdUsuario int,
 	FechaAgendada date default getdate(),
-	FechaDisponible date,
+	FechaDisponible datetime,
 	Estado int default 0, /*0 disponible, 1 ocupada, 2 expiro, 3 elimino*/
 	Comentario nvarchar(MAX) default '',
 	constraint PK_tbCitas_IdCita primary key (IdCita)
