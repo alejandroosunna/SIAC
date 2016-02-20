@@ -29,23 +29,6 @@
     
 </head>
 <body>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-    <script type="text/javascript" language="javascript">// <![CDATA[
-        $(document).ready(function(){
-           
-            $('.button-collapse').sideNav({
-                menuWidth: 300, // Default is 240
-                edge: 'left', // Choose the horizontal origin
-                closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-            });
-            
-        });
- 
-   </script>
-  
-   
-   
 	<!-- Preloader -->
 
 	<div id="preloader">
@@ -132,10 +115,9 @@
                                 <br />
                                 <asp:Label ID="lblPHoraCita" runat="server" Text=""></asp:Label>
                                 <br />
-                                <asp:Button ID="btnEliminarCita" runat="server" Text="Eliminar" Visible="false" OnClick="btnEliminarCita_Click"/>
+                                <asp:Button ID="btnEliminarCita" runat="server" Text="Eliminar" OnClick="btnEliminarCita_Click"/>
                         </div>
                         <div class="card-action">
-                         
                         </div>
                       </div>
                     </div>
@@ -161,26 +143,28 @@
 						<h2 class="pfblock-title center">Citas</h2>
                         <div class="scrolling-table-container">
                         <!-- GRIDVIEW START -->
-                        <asp:GridView ID="GridViewCitas" runat="server"  DataKeyNames="NumeroCita" AutoGenerateColumns="false" CssClass="striped responsive-table " BorderStyle="None" OnSelectedIndexChanged="GridViewCitas_SelectedIndexChanged">
-                            <Columns>
-                               <%-- <asp:TemplateField HeaderText="Seleccionar"> 
-                                    <ItemTemplate>
-                                        <asp:Button ID="btnSeleccionar" Text="Seleccionar!!" runat="server"
-                                            CommandName="SelectRow" CssClass="btn-link navbar-btn"
-                                            CommandArgument="<%# ( (GridViewRow) Container).Cells[0].Text %>"/>
-                                    </ItemTemplate>
-                                </asp:TemplateField>--%>
-                                <asp:CommandField ShowSelectButton="true" ButtonType="Link" HeaderText="Seleccionar" />
-                                <asp:BoundField DataField="NumeroCita" HeaderText="NumeroCita" ReadOnly="True" 
-                                    SortExpression="NumeroCita" />
-                                <asp:BoundField DataField="Hora" HeaderText="Hora" 
-                                    SortExpression="Hora" />
-                                <asp:BoundField DataField="Dia" HeaderText="Dia" 
-                                    SortExpression="Dia" />
-                            </Columns>
-                        </asp:GridView>
+                            <asp:GridView ID="GridViewCitas" runat="server"  DataKeyNames="NumeroCita" AutoGenerateColumns="false" CssClass="striped responsive-table " BorderStyle="None" OnSelectedIndexChanged="GridViewCitas_SelectedIndexChanged">
+                                <Columns>
+                                    <%--<asp:TemplateField HeaderText="Seleccionar"> 
+                                        <ItemTemplate>
+                                            <asp:Button ID="btnSeleccionar" Text="Seleccionar!!" runat="server"
+                                                CommandName="SelectRow" CssClass="btn-link navbar-btn"
+                                                CommandArgument="<%# ( (GridViewRow) Container).Cells[0].Text %>"/>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>--%>
+                                    <asp:CommandField ShowSelectButton="true" ButtonType="Link" HeaderText="Seleccionar" />
+                                    <asp:BoundField DataField="NumeroCita" HeaderText="NumeroCita" ReadOnly="True" 
+                                        SortExpression="NumeroCita" />
+                                    <asp:BoundField DataField="Hora" HeaderText="Hora" 
+                                        SortExpression="Hora" />
+                                    <asp:BoundField DataField="Dia" HeaderText="Dia" 
+                                        SortExpression="Dia" />
+                                </Columns>
+                            </asp:GridView>
                         <!-- GRIDVIEW END -->
 						</div>
+                        <asp:DropDownList ID="DropDListMotivos" Width="256px" Height="22px" runat="server" CssClass="materialboxed">
+                        </asp:DropDownList>
 					</div>
   </div>
 			</div><!-- .row -->
@@ -287,6 +271,22 @@
 	<div class="scroll-up">
 		<a href="#home"><i class="fa fa-angle-up"></i></a>
 	</div>
-    </form>  
+    </form>
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    <script type="text/javascript" language="javascript">// <![CDATA[
+        $(document).ready(function(){
+           
+            $('.button-collapse').sideNav({
+                menuWidth: 300, // Default is 240
+                edge: 'left', // Choose the horizontal origin
+                closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+            });
+            
+        });
+ 
+   </script>
+   
 </body>
 </html>

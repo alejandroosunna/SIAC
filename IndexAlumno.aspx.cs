@@ -48,6 +48,7 @@ public partial class IndexAlumno : System.Web.UI.Page
                     else
                     {
                         lblPDiaCita.Text = "No hay cita pendiente.";
+                        btnEliminarCita.Visible = false;
                         GridViewCitas.Visible = true;
                         //txtComentario.Visible = false;
                         //btnEnviar.Visible = false;
@@ -74,6 +75,14 @@ public partial class IndexAlumno : System.Web.UI.Page
 
                         GridViewCitas.DataSource = dt;
                         GridViewCitas.DataBind();
+
+                        dt = new DataTable();
+                        dt = (new csMotivoHandler()).GetDataSet(Usuario.IdCarrera);
+
+                        DropDListMotivos.DataSource = dt;
+                        DropDListMotivos.DataValueField = "IdMotivo";
+                        DropDListMotivos.DataTextField = "Motivo";
+                        DropDListMotivos.DataBind();
                     }
 
                     if (Request["re"] != null)
