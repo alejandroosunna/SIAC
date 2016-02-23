@@ -19,38 +19,7 @@
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
     <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-    <%--<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Sistemas de apartado de Citas</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" role="form" runat="server">
-            <div class="form-group">
-              <asp:TextBox id ="txtNumControl" runat ="server" placeholder="Numero de Control" CssClass="form-control"></asp:TextBox>
-           
-            </div>
-            <div class="form-group">
-              <asp:TextBox id ="txtContraseña" runat ="server" placeholder="Password" type="password" CssClass="form-control"></asp:TextBox>
-          
-            </div>
-              <asp:Button ID ="btnLogin" runat="server" Text="Sign In" CssClass="btn btn-success" OnClick="btnLogin_Click"></asp:Button>
-           
-          </form>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </nav>--%> <!-- Esta es la navbar que estaba antes, descomentala si quieres regresarte-->
-      
-          <!---navbar 2    Si quieres el diseño anterior comenta esta barra y descomenta la de arriba            --->
+
     <nav class="navbar navbar-custom" role="navigation">
 
         <div class="container">
@@ -65,7 +34,7 @@
 					<a class="navbar-brand" href="#">Sistema de Apartado de Citas</a>
 				</div>
         
-            <div id="navbar" class="navbar-collapse collapse">
+            <div id="navbar" class="side-nav">
                 <form class="navbar-form navbar-right" role="form" runat="server">
                     <div>
                             <div class="form-group">
@@ -112,16 +81,7 @@
           </div>
         </div>
 
-       <%-- <div class="item">
-          <img  src="Img/Image3.png"alt="1900x500&amp;text-Slide Three" data-holder-rendered="true"/>
-          <div class="carousel-caption">
-                <h1>><font color="White">
-                        Desarrolladores
-                    </font></h1>
-                <h3>ALejandro, Efren, Luis y Leonardo</h3>
-          </div>
-        </div>--%>
-        ...
+ 
       </div>
 
   <!-- Controls -->
@@ -168,15 +128,6 @@
         <script src="JS/main.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function (b, o, i, l, e, r) {
-                b.GoogleAnalyticsObject = l; b[l] || (b[l] =
-                function () { (b[l].q = b[l].q || []).push(arguments) }); b[l].l = +new Date;
-                e = o.createElement(i); r = o.getElementsByTagName(i)[0];
-                e.src = '//www.google-analytics.com/analytics.js';
-                r.parentNode.insertBefore(e, r)
-            }(window, document, 'script', 'ga'));
-            ga('create', 'UA-XXXXX-X', 'auto'); ga('send', 'pageview');
-        </script>
+        
     </body>
 </html>
