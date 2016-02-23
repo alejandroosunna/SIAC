@@ -22,7 +22,7 @@
   
     
 </head>
-<body class=" green lighten-4">
+<body>
     <%--<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     <script type="text/javascript" language="javascript">// <![CDATA[
@@ -77,13 +77,14 @@
 	<!-- Navigation end -->
 
     <!-- Resumen -->
- <form id="form1" runat="server" class="container center-block">
-	<section id="Resumen" class="centered green lighten-3 z-depth-3 center-block">
+ <form id="form1" runat="server">
+	<section id="Resumen" class="pfblock pfblock-gray">
+	    <div class="container">
 			<div class="row">
 
 				<div class="col-sm-6 col-sm-offset-3">
                     
-					<div class="pfblock-header wow fadeInUp center">
+					<div class="pfblock-header wow fadeInUp">
 						<h2 class="pfblock-title">Usuario</h2>
 						<div class="pfblock-line"></div>
 						<div class="pfblock-subtitle">
@@ -95,10 +96,11 @@
 
 			</div>
 
-			<div class="row" >
+			<div class="container" >
 	
-                <div class="col l6 hide-on-med-and-down">
-                    <div class="card green">
+                <div class="row">
+                <div class="col s3 m6">
+                    <div class="card blue-grey darken-1">
                     <div class="card-content white-text">
                         <asp:Label ID="lblNombre" runat="server" Text=""></asp:Label>
                         <br />
@@ -110,9 +112,11 @@
                     </div>
                     </div>
                 </div>
-                 
-                    <div class="col s12 m12 l6">
-                      <div class="card green">
+                </div>
+                  
+                <div class="row">
+                    <div class="col s3 m6">
+                      <div class="card blue-grey darken-1">
                         <div class="card-content white-text">
                             <span class="fa fa-calendar"></span>
                          <asp:Label ID="lblPDiaCita" runat="server" Text=""></asp:Label>
@@ -127,8 +131,9 @@
                         </div>
                       </div>
                     </div>
-                <br />
+                  </div> 
 		</div>
+	    </div>
 		
 	</section>
 
@@ -138,18 +143,17 @@
 
 	<!-- Citas start -->
 
-	<section id="Citas" class="">
-           
-            <div class="container">
-				<div class="col s12 centered">
+	<section id="Citas" class="pfblock">
+            
+            <div class="row">
+				<div class="col-sm-6 col-sm-offset-3 fa-align-center">
 					<div class="pfblock-header wow fadeInUp ajax-response pre-scrollable">
 
-					<div class="pfblock-header wow fadeInUp ajax-response center-align">
+					<div class="pfblock-header wow fadeInUp ajax-response">
 						<h2 class="pfblock-title">Citas</h2>
-                        <div class="row">
-                            <div class="section scrollspy">
-                             <!-- GRIDVIEW START -->
-                        <asp:GridView ID="GridViewCitas" runat="server" DataKeyNames="NumeroCita" AutoGenerateColumns="false" CssClass="centered mdl-layout__header--scroll table media-list fa-border table-bordered table-responsive table-condensed caption ajax-response wow bounce responsive-table" BorderStyle="None" OnSelectedIndexChanged="GridViewCitas_SelectedIndexChanged">
+
+                        <!-- GRIDVIEW START -->
+                        <asp:GridView ID="GridViewCitas" runat="server" DataKeyNames="NumeroCita" AutoGenerateColumns="false" CssClass="table media-list fa-border table-bordered table-responsive table-condensed caption ajax-response wow bounce" BorderStyle="None" OnSelectedIndexChanged="GridViewCitas_SelectedIndexChanged">
                             <Columns>
                                 <asp:TemplateField HeaderText="Seleccionar"> 
                                     <ItemTemplate>
@@ -168,9 +172,6 @@
                             </Columns>
                         </asp:GridView>
                         <!-- GRIDVIEW END -->
-                        </div><!-- GRIDVIEW START -->
-                        </div>                      
-                       
 						
 					</div>
   </div>
@@ -190,31 +191,54 @@
 
 	<!-- Contacto start -->
 
-	<section id="Contacto" class="center-align center-block centered">
-		<div class="container center-block">
-			<div class="row centered">
-                <h4 class="center-align">Contacto</h4>
-							<div class="white-text  col s12 m6 l6">
+	<section id="Contacto" class="pfblock">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-sm-6 col-sm-offset-3">
+
+					<div class="pfblock-header">
+						<h2 class="pfblock-title">Contactanos</h2>
+						<div class="pfblock-line"></div>
+						<div class="pfblock-subtitle">
+                            Preguntanos lo que quieras..<br />
+                            Nosotros respondemos ;D
+						</div>
+					</div>
+
+				</div>
+
+			</div><!-- .row -->
+
+			<div class="row">
+
+				<div class="col-sm-6 col-sm-offset-3">
+
+					<form id="contact-form" role="form">
+						<div class="ajax-hidden">
+							<div class="form-group wow fadeInUp">
 								<label class="sr-only" for="c_name">Name</label>
-                                <asp:TextBox ID="txtName" placeholder = "Nombre" CssClass="green-text" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtName" placeholder = "Nombre" CssClass="form-control" runat="server" Width="550px"></asp:TextBox>
 								<%--<input type="text" id="c_name" class="form-control" name="c_name" placeholder="Name">--%>
 							</div>
 
-							<div class="white-text col s12 m6 l6" data-wow-delay=".1s">
+							<div class="form-group wow fadeInUp" data-wow-delay=".1s">
 								<label class="sr-only" for="c_email">Email</label>
-                                <asp:TextBox ID="txtEmail" placeholder = "E-mail" CssClass="green-text" runat="server"  ></asp:TextBox>
+                                <asp:TextBox ID="txtEmail" placeholder = "E-mail" CssClass="form-control" runat="server" Width="550px" ></asp:TextBox>
 								<%--<input type="email" id="c_email" class="form-control" name="c_email" placeholder="E-mail">--%>
 							</div>
 
-							<div class="white-text col s12 m6 l6 center" data-wow-delay=".2s">
-                                <asp:TextBox ID="txtMesg" placeholder = "Mensaje" CssClass="green-text" runat="server" Rows="10" TextMode="MultiLine" ></asp:TextBox>
+							<div class="form-group wow fadeInUp" data-wow-delay=".2s">
+                                <asp:TextBox ID="txtMesg" placeholder = "Mensaje" CssClass="form-control" runat="server" Rows="10" TextMode="MultiLine" Width="288px"></asp:TextBox>
 								<%--<textarea class="form-control" id="c_message" name="c_message" rows="7" placeholder="Message"></textarea>--%>
 							</div>
-                            <div class="center-align center container center-block col s12 m6 l6">
-                                <asp:Button id="btnSend" type="submit" CssClass=" btn-block btn center" data-wow-delay=".3s" runat="server" Text="Enviar Mensaje" OnClick="btnSend_Click"></asp:Button>
+                            <asp:Button id="btnSend" type="submit" CssClass="btn btn-lg btn-block wow fadeIn" data-wow-delay=".3s" runat="server" Text="Enviar Mensaje" OnClick="btnSend_Click"></asp:Button>
 							<%--<button type="submit" class="btn btn-lg btn-block wow fadeInUp" data-wow-delay=".3s">Send Message</button>--%>
-                            <br />
-                            </div>
+						</div>
+						<div class="ajax-response"></div>
+					</form>
+
+				</div>
 
 			</div><!-- .row -->
 		</div><!-- .container -->
@@ -225,7 +249,7 @@
 	<!-- Footer start -->
 
 	<footer id="footer">
-		<div class="container green lighten-4">
+		<div class="container">
 			<div class="row">
 
 				<div class="col-sm-12">
