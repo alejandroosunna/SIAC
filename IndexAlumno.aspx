@@ -3,10 +3,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="author" content="">
+    <meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name="description" content=""/>
+	<meta name="author" content=""/>
     
 	<title>SIAC</title>
    
@@ -26,7 +26,6 @@
             overflow-x: hidden;
         }
     </style>
-    
 </head>
 <body>
 	<!-- Preloader -->
@@ -34,7 +33,6 @@
 	<div id="preloader">
 		<div id="status"></div>
 	</div>
-
 	<header class="header">
         <div class="navbar-fixed orange darken-1">
 		<nav>
@@ -47,7 +45,7 @@
                         <li><a href="#Horarios">Horarios</a></li>
 					    <li><a href="#Citas">Citas</a></li>
 					    <li><a href="#Contacto">Contacto</a></li>
-                        <li><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/IndexAlumno.aspx?IdLogin=true">Cerrar sesion</asp:HyperLink></li>
+                        <li><asp:HyperLink ID="lbl_CerrarSesion_uno" runat="server" NavigateUrl="~/IndexAlumno.aspx?Logout=true">Cerrar sesion</asp:HyperLink></li>
                     </ul>
              	
 				    <ul  class="side-nav" id="mobile-demo">
@@ -56,7 +54,7 @@
                         <li><a href="#Horarios">Horarios</a></li>
 					    <li><a href="#Citas">Citas</a></li>
 					    <li><a href="#Contacto">Contacto</a></li>
-                        <li><asp:HyperLink ID="lbl_CerrarSesion" runat="server" NavigateUrl="~/IndexAlumno.aspx?IdLogin=true">Cerrar sesion</asp:HyperLink></li>
+                        <li><asp:HyperLink ID="lbl_CerrarSesion_dos" runat="server" NavigateUrl="~/IndexAlumno.aspx?Logout=true">Cerrar sesion</asp:HyperLink></li>
 				    </ul>
 				</div>
 		</nav>
@@ -66,7 +64,7 @@
 	<!-- Navigation end -->
 
     <!-- Resumen -->
- <form id="form1" runat="server">
+ <form runat="server">
 	<section id="Resumen" class="pfblock pfblock-gray">
 	    <div class="container">
 			<div class="row">
@@ -124,7 +122,7 @@
                    
 		</div>
 	    </div>
-		
+		</div>
 	</section>
 
 	<!-- Resumen end -->
@@ -143,7 +141,7 @@
 						<h2 class="pfblock-title center">Citas</h2>
                         <div class="scrolling-table-container">
                         <!-- GRIDVIEW START -->
-                            <asp:GridView ID="GridViewCitas" runat="server"  DataKeyNames="NumeroCita" AutoGenerateColumns="false" CssClass="striped responsive-table " BorderStyle="None" OnSelectedIndexChanged="GridViewCitas_SelectedIndexChanged">
+                            <asp:GridView ID="GridViewCitas" runat="server" DataKeyNames="NumeroCita" AutoGenerateColumns="false" CssClass="striped responsive-table " BorderStyle="None" OnSelectedIndexChanged="GridViewCitas_SelectedIndexChanged">
                                 <Columns>
                                     <%--<asp:TemplateField HeaderText="Seleccionar"> 
                                         <ItemTemplate>
@@ -163,8 +161,16 @@
                             </asp:GridView>
                         <!-- GRIDVIEW END -->
 						</div>
-                        <asp:DropDownList ID="DropDListMotivos" Width="256px" Height="22px" runat="server" CssClass="materialboxed">
-                        </asp:DropDownList>
+                        <asp:DropDownList ID="DropDListMotivos" runat ="server" CssClass="materialboxed" DataTextField="Motivo" DataValueField="IdMotivo" DataSourceID="SqlDataDropDListMotivos"/>
+                        <asp:SqlDataSource ID="SqlDataDropDListMotivos" runat="server" ConnectionString="<%$ ConnectionStrings:dbProyectoCoordinacion %>" SelectCommand="SELECT * FROM [tbMotivos] WHERE ([IdCarrera] = @IdCarrera)">
+                            <SelectParameters>
+                                <asp:SessionParameter DefaultValue="0" Name="IdCarrera" SessionField="IdCarrera" Type="Int32" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
+                        <%--<asp:SqlDataSource id="SqlDataDropDListMotivos" 
+                          ConnectionString='<%$ ConnectionStrings:dbProyectoCoordinacion %>'
+                          SelectCommand="select IdMotivo, Motivo from tbMotivos"
+                          runat="server"/>--%>
 					</div>
   </div>
 			</div><!-- .row -->
@@ -203,7 +209,7 @@
 
 				<div class="col-sm-6 col-sm-offset-3">
 
-					<form id="contact-form" role="form">
+					<%--<form id="contact-form" role="form">--%>
 						<div class="ajax-hidden">
 							<div class="input-field col s6">
 								<label class="sr-only" for="c_name">Name</label>
@@ -225,7 +231,7 @@
 							<%--<button type="submit" class="btn btn-lg btn-block wow fadeInUp" data-wow-delay=".3s">Send Message</button>--%>
 						</div>
 						<div class="ajax-response"></div>
-					</form>
+					<%--</form>--%>
 
 				</div>
 
