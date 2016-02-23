@@ -10,10 +10,7 @@ using System.Web.UI.WebControls;
 public partial class IndexAlumno : System.Web.UI.Page
 {
     public DataTable dt;
-    public static List<clsCitaPaginado> listCitaPaginado;
-    public int countCitaPaginado;
-    public int paginaActual;
-    public int tmpUltimaPagina;
+    public int estadoCita;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -21,72 +18,96 @@ public partial class IndexAlumno : System.Web.UI.Page
         {
             if(Convert.ToInt32(Session["IdRol"]) == 2)
             {
-                bool result = bool.TryParse(Request["IdLogin"], out result);
+                bool result = bool.TryParse(Request["Logout"], out result);
                 if (result)
                 {
                     Session["IdUsuario"] = null;
                     Session["IdRol"] = null;
+                    Session["IdCarrera"] = null;
                     Response.Redirect("~\\Login.aspx");
                 }
-                else
+                else if (Request["Cita"] != null)
                 {
-                    csUsuario Usuario = (new csUsuarioHandler()).GetUsuario(Convert.ToInt32(Session["IdUsuario"]));
-                    lblNombre.Text = "Alumno: " + Usuario.Nombre + " " + Usuario.Apellidos + ".";
-                    lblNumControl.Text = "Numero de Control: " + Usuario.IdUsuario + ".";
+                    if (Request["Cita"] == "error")
+                        Response.Write(@"<script language = 'javascript'>alert('Esta cita ya esta ocupada. Seleccione otra.') </script>");
+                    else if (Request["Cita"] == "exito")
+                        Response.Write(@"<script language = 'javascript'>alert('Cita agendada Exitosamente.') </script>");
+                    else if (Request["Cita"] == "pendiente")
+                        Response.Write(@"<script language = 'javascript'>alert('Ya tienes una cita pendiente.') </script>");
+                }
+                else if (Request["Delete"] != null)
+                {
+                    if (Request["Delete"] == "exito")
+                        Response.Write(@"<script language = 'javascript'>alert('Cita eliminada con exito.') </script>");
+                    if (Request["Delete"] == "error")
+                        Response.Write(@"<script language = 'javascript'>alert('Error al eliminar la cita.') </script>");
+                }
 
-                    csCita Cita = (new csCitaHandler()).GetCita(Convert.ToInt32(Session["IdUsuario"]));
-                    if (Cita.Estado == 1)
+                csCitaHandler CitaHandler = new csCitaHandler();
+                csUsuario Usuario = (new csUsuarioHandler()).GetUsuario(Convert.ToInt32(Session["IdUsuario"]));
+
+                lblNombre.Text = "Alumno: " + Usuario.Nombre + " " + Usuario.Apellidos + ".";
+                lblNumControl.Text = "Numero de Control: " + Usuario.IdUsuario + ".";
+
+                estadoCita = 1; //Agendada
+                csCita Cita = CitaHandler.GetCita(Convert.ToInt32(Session["IdUsuario"]), estadoCita);
+
+                if (Cita.Estado != 0 && Cita.Estado == 1)
+                {
+                    if (DateTime.Now > Cita.FechaDisponible)
                     {
-                        
+                        estadoCita = 3; //Update cita con error.
+                        if (!(CitaHandler.Delete(Cita.IdCita, estadoCita)))
+                        {
+                            Response.Write(@"<script language = 'javascript'>alert('Tu cita ya expiro.') </script>");
+
+                            lblPDiaCita.Text = "Ningun pendiente";
+                            lblPHoraCita.Text = "";
+                            btnEliminarCita.Visible = false;
+                            GridViewCitas.Visible = true;
+                            DropDListMotivos.Visible = true;
+                        }
+                        else
+                            Response.Redirect("~//IndexAlumno.aspx?Logout=true");
+                    }
+                    else
+                    {
                         lblPDiaCita.Text = "Fecha: " + Cita.FechaDisponible.ToString("dd / MM / yyyy");
                         lblPHoraCita.Text = "Hora: " + Cita.FechaDisponible.ToString("t");
                         btnEliminarCita.Visible = true;
                         GridViewCitas.Visible = false;
-                        //txtComentario.Visible = true;
-                        //btnEnviar.Visible = true;
+                        DropDListMotivos.Visible = false;
                     }
-                    else
+                }
+                else
+                {
+                    lblPDiaCita.Text = "Ningun pendiente.";
+                    lblPHoraCita.Text = "";
+                    btnEliminarCita.Visible = false;
+                    GridViewCitas.Visible = true;
+                    DropDListMotivos.Visible = true;
+
+                    List<csCita> listCita = CitaHandler.GetListCitas(Usuario.IdCarrera);
+
+                    dt = new DataTable();
+                    dt.Columns.Add("Apartar");
+                    dt.Columns.Add("NumeroCita");
+                    dt.Columns.Add("Hora");
+                    dt.Columns.Add("Dia");
+
+                    for (int y = 0; y < listCita.Count; y++)
                     {
-                        lblPDiaCita.Text = "No hay cita pendiente.";
-                        GridViewCitas.Visible = true;
-                        //txtComentario.Visible = false;
-                        //btnEnviar.Visible = false;
+                        DataRow dr = dt.NewRow();
+                        dr["Apartar"] = listCita[y].IdCita.ToString();
+                        dr["NumeroCita"] = listCita[y].IdCita.ToString();
+                        dr["Hora"] = listCita[y].FechaDisponible.ToString("t");
+                        dr["Dia"] = listCita[y].FechaDisponible.ToString("dd / MM / yyyy");
 
-                        List<csCita> listCita = (new csCitaHandler()).GetListCitas(Usuario.IdCarrera);
-
-                        dt = new DataTable();
-                        dt.Columns.Add("Apartar");
-                        dt.Columns.Add("NumeroCita");
-                        dt.Columns.Add("Hora");
-                        dt.Columns.Add("Dia");
-
-                        for (int y = 0; y < listCita.Count; y++)
-                        {
-                            DataRow dr = dt.NewRow();
-                            dr["Apartar"] = listCita[y].IdCita.ToString();
-                            dr["NumeroCita"] = listCita[y].IdCita.ToString();
-                            dr["Hora"] = listCita[y].FechaDisponible.ToString("t");
-                            dr["Dia"] = listCita[y].FechaDisponible.ToString("dd / MM / yyyy");
-                            //(new ObjetoBase()).LogError(listCita[y].FechaDisponible.ToString("t"));
-
-                            dt.Rows.Add(dr);
-                        }
-
-                        GridViewCitas.DataSource = dt;
-                        GridViewCitas.DataBind();
+                        dt.Rows.Add(dr);
                     }
 
-                    if (Request["re"] != null)
-                    {
-                        if (Request["re"] == "error")
-                            Response.Write(@"<script language = 'javascript'>alert('Esta cita ya esta ocupada. Seleccione otra.') </script>");
-                        else if (Request["re"] == "exito")
-                            Response.Write(@"<script language = 'javascript'>alert('Cita agendada Exitosamente.') </script>");
-                        else if (Request["re"] == "pendiente")
-                            Response.Write(@"<script language = 'javascript'>alert('Ya tienes una cita pendiente.') </script>");
-                    }
-
-                    //PaginadoCitas(PrimeraVez: true);
+                    GridViewCitas.DataSource = dt;
+                    GridViewCitas.DataBind();
                 }
             }
             else
@@ -97,30 +118,6 @@ public partial class IndexAlumno : System.Web.UI.Page
             Response.Redirect("~\\Login.aspx");
     }
 
-    protected void btnEnviar_Click(object sender, EventArgs e)
-    {
-        csCita Cita = new csCita();
-
-        if(Request["Cita"] != null)
-            Cita.IdCita = Convert.ToInt32(Request["Cita"]);
-        else
-            Response.Write(@"<script language = 'javascript'>alert('Seleccione una cita') </script>");
-
-        Cita.IdUsuario = Convert.ToInt32(Session["IdUsuario"]);
-        //Cita.IdAdministrador = Convert.ToInt32(Session["IdAdministrador"]);
-        Cita.FechaAgendada = DateTime.Now;
-        Cita.Estado = 1;
-        //Cita.Comentario = txtComentario.Text;
-
-        int checkCita = (new csCitaHandler()).CheckCitaAndAdd(Cita);
-        if (checkCita == 1)
-            Response.Redirect("IndexAlumno.aspx?re=exito");
-        else if(checkCita == 0)
-            Response.Redirect("IndexAlumno.aspx?re=error");
-        else if(checkCita == 2)
-            Response.Redirect("IndexAlumno.aspx?re=pendiente");
-    }
-
     protected void btnSend_Click(object sender, EventArgs e)
     {
         enviarCorrreo();
@@ -129,11 +126,12 @@ public partial class IndexAlumno : System.Web.UI.Page
     protected void btnEliminarCita_Click(object sender, EventArgs e)
     {
         int IdCita = (new csCitaHandler()).GetCita(Convert.ToInt32(Session["IdUsuario"])).IdCita;
+        estadoCita = 3;
 
-        if((new csCitaHandler()).Delete(IdCita))
-            Response.Write(@"<script language = 'javascript'>alert('Error. Pongase en contacto con sistemas.') </script>");
+        if (!(new csCitaHandler()).Delete(IdCita, estadoCita))
+            Response.Redirect("~\\IndexAlumno.aspx?Delete=exito");
         else
-            Response.Write(@"<script language = 'javascript'>alert('Exito. Su cita ha sido eliminada.') </script>");
+            Response.Redirect("~\\IndexAlumno.aspx?Delete=error");
     }
 
     public void enviarCorrreo()
@@ -148,123 +146,22 @@ public partial class IndexAlumno : System.Web.UI.Page
             Response.Write(@"<script language = 'javascript'>alert('Correo no enviado') </script>");
     }
 
-    private void PaginadoCitas(bool PrimeraVez = false, bool Izquierda = false, bool Derecha = false)
-    {
-        if (PrimeraVez)
-        {
-
-            csUsuario Usuario = (new csUsuarioHandler()).GetUsuario(Convert.ToInt32(Session["IdUsuario"]));
-            List<csCita> listCita = (new csCitaHandler()).GetListCitas(Usuario.IdCarrera);
-            List<csCita> listCitaGroup = new List<csCita>();
-            clsCitaPaginado CitaPaginado;
-            listCitaPaginado = new List<clsCitaPaginado>();
-            countCitaPaginado = 0;
-            paginaActual = 0;
-            tmpUltimaPagina = 0;
-
-            int countList = listCita.Count;
-            int posX = 0;
-            int x;
-
-            for (x = 0; x < countList; x++)
-            {
-                if (x == 0)
-                    listCitaGroup.Add(listCita[x]);
-                else
-                {
-                    if (listCitaGroup[posX].FechaDisponible.ToString("dd / MM / yyyy") == listCita[x].FechaDisponible.ToString("dd / MM / yyyy"))
-                    {
-                        listCitaGroup.Add(listCita[x]);
-                        posX++;
-                    }
-                    else
-                    {
-                        CitaPaginado = new clsCitaPaginado();
-                        CitaPaginado.listCitas = listCitaGroup;
-                        listCitaPaginado.Add(CitaPaginado);
-                        listCitaGroup = new List<csCita>();
-                        listCitaGroup.Add(listCita[x]);
-                        posX = 0;
-                    }
-                }
-            }
-
-            CitaPaginado = new clsCitaPaginado();
-            CitaPaginado.listCitas = listCitaGroup;
-            listCitaPaginado.Add(CitaPaginado);
-            countCitaPaginado = listCitaPaginado.Count;
-            tmpUltimaPagina = listCitaPaginado.Count - 1;
-
-            //if (countCitaPaginado < 1)
-            //    btnSiguiente.Visible = false;
-            //btnAnterior.Visible = false;
-        }
-        else if (Izquierda)
-        {
-            //if (paginaActual > 0)
-            //    btnAnterior.Visible = false;
-            //else
-            //{
-            //    if(!btnAnterior.Visible)
-            //        btnAnterior.Visible = true;
-            //    paginaActual--;
-            //}
-        }
-        else if (Derecha)
-        {
-            //if (paginaActual < tmpUltimaPagina)
-            //    btnSiguiente.Visible = false;
-            //else
-            //{
-            //    if(!btnSiguiente.Visible)
-            //        btnSiguiente.Visible = true;
-            //    paginaActual++;
-            //}
-        }
-
-        dt = new DataTable();
-        dt.Columns.Add("Apartar");
-        dt.Columns.Add("NumeroCita");
-        dt.Columns.Add("Hora");
-        dt.Columns.Add("Dia");
-
-
-        (new ObjetoBase()).LogError(paginaActual.ToString() + "-" + PrimeraVez.ToString() + "-" + Izquierda.ToString() + "-" + Derecha.ToString());
-
-        for (int y = 0; y < listCitaPaginado[paginaActual].listCitas.Count; y++)
-        {
-            DataRow dr = dt.NewRow();
-            dr["Apartar"] = listCitaPaginado[paginaActual].listCitas[y].IdCita.ToString();
-            dr["NumeroCita"] = listCitaPaginado[paginaActual].listCitas[y].IdCita.ToString();
-            dr["Hora"] = listCitaPaginado[paginaActual].listCitas[y].FechaDisponible.ToString("HH:mm");
-            dr["Dia"] = listCitaPaginado[paginaActual].listCitas[y].FechaDisponible.ToString("dd / MM / yyyy");
-
-            dt.Rows.Add(dr);
-        }
-
-        GridViewCitas.DataSource = dt;//listCitaPaginado[0].listCitas;
-        GridViewCitas.DataBind();
-    }
-
-    protected void GridViewCitas_DataBound(object sender, EventArgs e)
-    {
-        //for (int i = 0; i < dt.Rows.Count; i++)
-        //{
-        //    LinkButton lb = GridViewCitas.Rows[i].Controls[0].Controls[0] as LinkButton;
-        //    lb.Text = "Seleccionar";//dt.Rows[i]["Apartar"].ToString();
-        //}
-    }
-
     protected void GridViewCitas_SelectedIndexChanged(object sender, EventArgs e)
     {
-        //GridView gv = (GridView)sender;
-        //int filaSeleccionada = gv.SelectedIndex;
-        //LinkButton lb = gv.Rows[filaSeleccionada].Cells[0].Controls[0] as LinkButton;
+        csCita Cita = new csCita();
+        Cita.IdCita = Convert.ToInt32(GridViewCitas.DataKeys[GridViewCitas.SelectedRow.RowIndex].Value);
+        Cita.IdUsuario = Convert.ToInt32(Session["IdUsuario"]);
+        Cita.FechaAgendada = DateTime.Now;
+        Cita.Estado = 1;
 
-        GridViewRow row = GridViewCitas.SelectedRow;
+        int idMotivo = Convert.ToInt32(DropDListMotivos.SelectedItem.Value);
+        int checkCita = (new csCitaHandler()).CheckCitaAndAddCitaMotivo(Cita, idMotivo);
 
-        int id = Convert.ToInt32(GridViewCitas.DataKeys[row.RowIndex].Value);
-        (new ObjetoBase()).LogError(id.ToString());
+        if (checkCita == 1)
+            Response.Redirect("IndexAlumno.aspx?Cita=exito");
+        else if (checkCita == 0)
+            Response.Redirect("IndexAlumno.aspx?Cita=error");
+        else if (checkCita == 2)
+            Response.Redirect("IndexAlumno.aspx?Cita=pendiente");
     }
-   
 }
