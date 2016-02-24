@@ -224,7 +224,7 @@ public class csCitaHandler : ObjetoBase
     {
         String ConnectionString = ConfigurationManager.ConnectionStrings["dbProyectoCoordinacion"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
-        if (CheckDate(Cita.FechaDisponible))
+        if (Cita.FechaDisponible < DateTime.Now && CheckDate(Cita.FechaDisponible))
         {
             try
             {
