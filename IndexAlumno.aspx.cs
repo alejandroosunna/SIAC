@@ -11,6 +11,7 @@ public partial class IndexAlumno : System.Web.UI.Page
 {
     public DataTable dt;
     public int estadoCita;
+    public bool result;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -18,7 +19,7 @@ public partial class IndexAlumno : System.Web.UI.Page
         {
             if(Convert.ToInt32(Session["IdRol"]) == 2)
             {
-                bool result = bool.TryParse(Request["Logout"], out result);
+                result = bool.TryParse(Request["Logout"], out result);
                 if (result)
                 {
                     Session["IdUsuario"] = null;
@@ -28,19 +29,27 @@ public partial class IndexAlumno : System.Web.UI.Page
                 }
                 else if (Request["Cita"] != null)
                 {
-                    if (Request["Cita"] == "error")
+                    if (Request["Cita"] == "err")
                         Response.Write(@"<script language = 'javascript'>alert('Esta cita ya esta ocupada. Seleccione otra.') </script>");
-                    else if (Request["Cita"] == "exito")
+                    else if (Request["Cita"] == "ex")
                         Response.Write(@"<script language = 'javascript'>alert('Cita agendada Exitosamente.') </script>");
-                    else if (Request["Cita"] == "pendiente")
+                    else if (Request["Cita"] == "pen")
                         Response.Write(@"<script language = 'javascript'>alert('Ya tienes una cita pendiente.') </script>");
                 }
-                else if (Request["Delete"] != null)
+                else if (Request["De"] != null)
                 {
-                    if (Request["Delete"] == "exito")
+                    if (Request["De"] == "ex")
                         Response.Write(@"<script language = 'javascript'>alert('Cita eliminada con exito.') </script>");
-                    if (Request["Delete"] == "error")
+                    if (Request["De"] == "err")
                         Response.Write(@"<script language = 'javascript'>alert('Error al eliminar la cita.') </script>");
+                }
+                else if(Request["Exp"] != null)
+                {
+                    result = bool.TryParse(Request["Logout"], out result);
+                    if (result)
+                        Response.Write(@"<script language = 'javascript'>alert('Tu cita ya expiro.') </script>");
+                    else
+                        Response.Write(@"<script language = 'javascript'>alert('Tu cita ya expiro.') </script>");
                 }
 
                 csCitaHandler CitaHandler = new csCitaHandler();
@@ -52,21 +61,13 @@ public partial class IndexAlumno : System.Web.UI.Page
                 estadoCita = 1; //Agendada
                 csCita Cita = CitaHandler.GetCita(Convert.ToInt32(Session["IdUsuario"]), estadoCita);
 
-                if (Cita.Estado != 0 && Cita.Estado == 1)
+                if (Cita.Estado == 1)
                 {
                     if (DateTime.Now > Cita.FechaDisponible)
                     {
                         estadoCita = 3; //Update cita con error.
                         if (!(CitaHandler.Delete(Cita.IdCita, estadoCita)))
-                        {
-                            Response.Write(@"<script language = 'javascript'>alert('Tu cita ya expiro.') </script>");
-
-                            lblPDiaCita.Text = "Ningun pendiente";
-                            lblPHoraCita.Text = "";
-                            btnEliminarCita.Visible = false;
-                            GridViewCitas.Visible = true;
-                            DropDListMotivos.Visible = true;
-                        }
+                            Response.Redirect("~//IndexAlumno.aspx?Exp=true");
                         else
                             Response.Redirect("~//IndexAlumno.aspx?Logout=true");
                     }
@@ -87,7 +88,7 @@ public partial class IndexAlumno : System.Web.UI.Page
                     GridViewCitas.Visible = true;
                     DropDListMotivos.Visible = true;
 
-                    List<csCita> listCita = CitaHandler.GetListCitas(Usuario.IdCarrera);
+                    List<csCita> listCita = CitaHandler.GetListCitas(Usuario.IdCarrera, DateTime.Now);
 
                     dt = new DataTable();
                     dt.Columns.Add("Apartar");
@@ -108,17 +109,21 @@ public partial class IndexAlumno : System.Web.UI.Page
 
                     GridViewCitas.DataSource = dt;
                     GridViewCitas.DataBind();
-                    DataTable Dt = new DataTable();
-                    DataView Dv = default(DataView);
-                    Dv = (DataView)SqlDataDropDListMotivos.Select(DataSourceSelectArguments.Empty);
-                    Dt = Dv.ToTable();
-                    for (int i = 0; i < Dt.Rows.Count; i++)
-                    {
-                        DropDListMotivos.Items.Add("op" + i.ToString());
-                        DropDListMotivos.Items[i].Value = Dt.Rows[i]["IdMotivo"].ToString();
-                        DropDListMotivos.Items[i].Text = Dt.Rows[i]["Motivo"].ToString();
-                    }
-                }                
+
+                    //DataTable Dt = new DataTable();
+                    //DataView Dv = default(DataView);
+                    //Dv = (DataView)SqlDataDropDListMotivos.Select(DataSourceSelectArguments.Empty);
+                    //Dt = Dv.ToTable();
+                    //DropDListMotivos.Items.Clear();
+
+                    //for (int i = 0; i < Dt.Rows.Count; i++)
+                    //{
+                    //    //DropDListMotivos.Items.Add("op" + i.ToString());
+                    //    DropDListMotivos.Items.Add(Dt.Rows[i]["Motivo"].ToString());
+                    //    DropDListMotivos.Items[i].Value = Dt.Rows[i]["IdMotivo"].ToString();
+                    //    DropDListMotivos.Items[i].Text = Dt.Rows[i]["Motivo"].ToString();
+                    //}
+                }
 
             }
             else
@@ -140,9 +145,9 @@ public partial class IndexAlumno : System.Web.UI.Page
         estadoCita = 3;
 
         if (!(new csCitaHandler()).Delete(IdCita, estadoCita))
-            Response.Redirect("~\\IndexAlumno.aspx?Delete=exito");
+            Response.Redirect("~\\IndexAlumno.aspx?De=ex");
         else
-            Response.Redirect("~\\IndexAlumno.aspx?Delete=error");
+            Response.Redirect("~\\IndexAlumno.aspx?De=err");
     }
 
     public void enviarCorrreo()
@@ -169,10 +174,10 @@ public partial class IndexAlumno : System.Web.UI.Page
         int checkCita = (new csCitaHandler()).CheckCitaAndAddCitaMotivo(Cita, idMotivo);
 
         if (checkCita == 1)
-            Response.Redirect("IndexAlumno.aspx?Cita=exito");
+            Response.Redirect("IndexAlumno.aspx?Cita=ex");
         else if (checkCita == 0)
-            Response.Redirect("IndexAlumno.aspx?Cita=error");
+            Response.Redirect("IndexAlumno.aspx?Cita=err");
         else if (checkCita == 2)
-            Response.Redirect("IndexAlumno.aspx?Cita=pendiente");
+            Response.Redirect("IndexAlumno.aspx?Cita=pen");
     }
 }

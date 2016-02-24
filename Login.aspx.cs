@@ -27,7 +27,7 @@ public partial class Login : System.Web.UI.Page
         int result;
         if (Int32.TryParse(txtNumControl.Text, out result))
         {
-            csUsuario Usuario = (new csUsuarioHandler()).CheckLogin(result, txtContraseña.Text);
+            csUsuario Usuario = (new csUsuarioHandler()).CheckLogin(result, txtPassword.Text);
             //(new ObjetoBase()).LogError(Usuario.IdRol.ToString());
 
             if (Usuario.IdRol == 1)
