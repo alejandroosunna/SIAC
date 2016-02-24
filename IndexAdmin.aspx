@@ -136,7 +136,10 @@
                                         <asp:CommandField ShowEditButton="True" />
                                     </Columns>
                                 </asp:GridView>
-                                <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:dbProyectoCoordinacion %>" SelectCommand="SELECT [IdCita], [IdUsuario], [FechaAgendada], [FechaDisponible], [Estado], [Comentario] FROM [tbCitas]">
+                                <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:dbProyectoCoordinacion %>" SelectCommand="SELECT [IdCita], [IdUsuario], [FechaAgendada], [FechaDisponible], [Estado], [Comentario] FROM [tbCitas] WHERE (([IdUsuario] IS NOT NULL) AND ([Estado] = @Estado))">
+                                    <SelectParameters>
+                                        <asp:Parameter DefaultValue="1" Name="Estado" Type="Int32" />
+                                    </SelectParameters>
                                 </asp:SqlDataSource>
                        
                         </div>
