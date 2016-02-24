@@ -123,7 +123,50 @@ public class csCitaHandler : ObjetoBase
         }
         catch (Exception ex)
         {
-            LogError(ex.Message);
+            LogError(ex.Message + ex.StackTrace);
+        }
+        finally
+        {
+            Connection.Close();
+            Connection = null;
+        }
+
+        return listCita;
+    }
+    public List<csCita> GetListCitas(int idCarrera, DateTime dateTime)
+    {
+        List<csCita> listCita = new List<csCita>();
+
+        String ConnectionString = ConfigurationManager.ConnectionStrings["dbProyectoCoordinacion"].ConnectionString;
+        SqlConnection Connection = new SqlConnection(ConnectionString);
+        try
+        {
+            Connection.Open();
+            //String Query = "select * from tbCitas where IdAdministrador = @IdAdministrador and Disponible = 1;";
+            SqlParameter[] Data = new SqlParameter[2];
+            Data[0] = new SqlParameter("@IdCarrera", idCarrera);
+            Data[0].DbType = DbType.Int32;
+            Data[1] = new SqlParameter("@FechaDisponible", dateTime);
+            Data[1].DbType = DbType.DateTime;
+
+            String Query = "select * from tbCitas where IdCoordinador = @IdCarrera and FechaDisponible > @FechaDisponible and Estado = 0 order by FechaDisponible asc;";
+
+            SqlCommand Command = new SqlCommand(Query, Connection);
+            Command.Parameters.AddRange(Data);
+            SqlDataReader DataReader = Command.ExecuteReader();
+
+            while (DataReader.Read())
+            {
+                csCita Cita = new csCita();
+                Cita.LoadEventFromDataReader(DataReader);
+                listCita.Add(Cita);
+            }
+
+            DataReader.Close();
+        }
+        catch (Exception ex)
+        {
+            LogError(ex.Message + ex.StackTrace);
         }
         finally
         {
@@ -224,7 +267,7 @@ public class csCitaHandler : ObjetoBase
     {
         String ConnectionString = ConfigurationManager.ConnectionStrings["dbProyectoCoordinacion"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
-        if (CheckDate(Cita.FechaDisponible))
+        if (Cita.FechaDisponible >= DateTime.Now && CheckDate(Cita.FechaDisponible))
         {
             try
             {
@@ -245,7 +288,7 @@ public class csCitaHandler : ObjetoBase
             }
             catch (Exception ex)
             {
-                LogError(ex.Message);
+                LogError(ex.Message + ex.StackTrace);
             }
             finally
             {

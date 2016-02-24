@@ -135,8 +135,8 @@
 						<h2 class="pfblock-title center">Citas</h2>
                         
                         <div class="row center-align centered center-block">
-         <asp:DropDownList runat="server" ID="DropDListMotivos" CssClass="materialboxed input-field orange white-text"></asp:DropDownList>
-     </div>
+                            <asp:DropDownList runat="server" ID="DropDListMotivos" DataSourceID="SqlDataDropDListMotivos" DataValueField="IdMotivo" DataTextField="Motivo" CssClass="materialboxed input-field orange white-text"></asp:DropDownList>
+                        </div>
                         <div class="scrolling-table-container row">
                              
                         <!-- GRIDVIEW START -->
