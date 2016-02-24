@@ -65,8 +65,8 @@
 					<a class="navbar-brand" href="#">Sistema de Apartado de Citas</a>
 				</div>
         
-            <div id="navbar" class="navbar-collapse collapse">
-                <form class="navbar-form navbar-right" role="form" runat="server">
+            <div id="navbar" class="navbar-collapse collapse navbar-right">
+                <form class="navbar-form" role="form" runat="server">
                     <div>
                             <div class="form-group">
                               <asp:TextBox id ="txtNumControl" runat ="server" placeholder="Numero de Control" CssClass="form-control"></asp:TextBox>

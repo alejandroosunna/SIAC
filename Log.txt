@@ -1,0 +1,45 @@
+﻿
+23/2/2016 10:53. Instrucción DELETE en conflicto con la restricción REFERENCE "FK_tbRelacionMotivosCitas_IdCita". El conflicto ha aparecido en la base de datos "dbProyectoCoordinacion", tabla "dbo.tbRelacionMotivosCitas", column 'IdCita'.
+Se terminó la instrucción.
+
+23/2/2016 10:53. 2
+
+23/2/2016 10:53. Instrucción DELETE en conflicto con la restricción REFERENCE "FK_tbRelacionMotivosCitas_IdCita". El conflicto ha aparecido en la base de datos "dbProyectoCoordinacion", tabla "dbo.tbRelacionMotivosCitas", column 'IdCita'.
+Se terminó la instrucción.
+
+23/2/2016 10:53. 2
+
+23/2/2016 10:53. Instrucción DELETE en conflicto con la restricción REFERENCE "FK_tbRelacionMotivosCitas_IdCita". El conflicto ha aparecido en la base de datos "dbProyectoCoordinacion", tabla "dbo.tbRelacionMotivosCitas", column 'IdCita'.
+Se terminó la instrucción.
+
+23/2/2016 10:53. 2
+
+23/2/2016 11:01. Instrucción DELETE en conflicto con la restricción REFERENCE "FK_tbRelacionMotivosCitas_IdCita". El conflicto ha aparecido en la base de datos "dbProyectoCoordinacion", tabla "dbo.tbRelacionMotivosCitas", column 'IdCita'.
+Se terminó la instrucción.
+
+23/2/2016 11:01. 2
+
+23/2/2016 11:01. Instrucción DELETE en conflicto con la restricción REFERENCE "FK_tbRelacionMotivosCitas_IdCita". El conflicto ha aparecido en la base de datos "dbProyectoCoordinacion", tabla "dbo.tbRelacionMotivosCitas", column 'IdCita'.
+Se terminó la instrucción.
+
+23/2/2016 11:01. 2
+
+23/2/2016 11:01. Instrucción DELETE en conflicto con la restricción REFERENCE "FK_tbRelacionMotivosCitas_IdCita". El conflicto ha aparecido en la base de datos "dbProyectoCoordinacion", tabla "dbo.tbRelacionMotivosCitas", column 'IdCita'.
+Se terminó la instrucción.
+
+23/2/2016 11:01. 2
+
+23/2/2016 11:09. Instrucción DELETE en conflicto con la restricción REFERENCE "FK_tbRelacionMotivosCitas_IdCita". El conflicto ha aparecido en la base de datos "dbProyectoCoordinacion", tabla "dbo.tbRelacionMotivosCitas", column 'IdCita'.
+Se terminó la instrucción.
+
+23/2/2016 11:09. 4
+
+23/2/2016 11:09. Instrucción DELETE en conflicto con la restricción REFERENCE "FK_tbRelacionMotivosCitas_IdCita". El conflicto ha aparecido en la base de datos "dbProyectoCoordinacion", tabla "dbo.tbRelacionMotivosCitas", column 'IdCita'.
+Se terminó la instrucción.
+
+23/2/2016 11:09. 4
+
+23/2/2016 11:09. Instrucción DELETE en conflicto con la restricción REFERENCE "FK_tbRelacionMotivosCitas_IdCita". El conflicto ha aparecido en la base de datos "dbProyectoCoordinacion", tabla "dbo.tbRelacionMotivosCitas", column 'IdCita'.
+Se terminó la instrucción.
+
+23/2/2016 11:09. 4
