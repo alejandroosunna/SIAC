@@ -119,8 +119,6 @@
           <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--12-col">
 
               <form id="form1" runat="server">
-
-                    
                         <div class="panel-heading section scrollspy">
                           Listado de citas pendientes
                         </div>
@@ -134,7 +132,8 @@
                                         <asp:BoundField DataField="FechaDisponible" HeaderText="FechaDisponible" SortExpression="FechaDisponible" />
                                         <asp:BoundField DataField="Estado" HeaderText="Estado" SortExpression="Estado" />
                                         <asp:BoundField DataField="Comentario" HeaderText="Comentario" SortExpression="Comentario" />
-                                        <asp:CommandField ShowSelectButton="true" ButtonType="Link" HeaderText="Eliminar" />
+                                       
+                                        <asp:CommandField ShowEditButton="True" />
                                     </Columns>
                                 </asp:GridView>
                                 <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:dbProyectoCoordinacion %>" SelectCommand="SELECT [IdCita], [IdUsuario], [FechaAgendada], [FechaDisponible], [Estado], [Comentario] FROM [tbCitas]">
@@ -142,6 +141,7 @@
                        
                         </div>
                         <asp:Button class="waves-effect waves-light btn orange"  ID="btnNuevaCita" runat="server" Text="Nueva Cita" OnClick="btnNuevaCita_Click"/> 
+                        <asp:Button class="waves-effect waves-light btn orange"  ID="btnElinarCitas" runat="server" Text="Eliminar" OnClick="btnElinarCitas_Click"/> 
 
           </form>
         </div>

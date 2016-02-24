@@ -224,35 +224,71 @@ public class csCitaHandler : ObjetoBase
     {
         String ConnectionString = ConfigurationManager.ConnectionStrings["dbProyectoCoordinacion"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
+        if (CheckDate(Cita.FechaDisponible))
+        {
+            try
+            {
+                Connection.Open();
 
+                SqlParameter[] Data = new SqlParameter[2];
+                Data[0] = new SqlParameter("@IdCoordinador", Cita.IdCoordinador);
+                Data[0].DbType = DbType.Int32;
+                Data[1] = new SqlParameter("@FechaDisponible", Cita.FechaDisponible);
+                Data[1].DbType = DbType.Date;
+
+                String Query = "insert into tbCitas (IdCoordinador, FechaDisponible) values (@IdCoordinador, @FechaDisponible);";
+
+                SqlCommand Command = new SqlCommand(Query, Connection);
+                Command.Parameters.AddRange(Data);
+                Command.ExecuteReader();
+
+            }
+            catch (Exception ex)
+            {
+                LogError(ex.Message);
+            }
+            finally
+            {
+                Connection.Close();
+                Connection = null;
+            }
+        }
+      
+    }
+    public bool CheckDate(DateTime fdisponible)
+    {
+        String ConnectionString = ConfigurationManager.ConnectionStrings["dbProyectoCoordinacion"].ConnectionString;
+        SqlConnection Connection = new SqlConnection(ConnectionString);
         try
         {
             Connection.Open();
 
-            SqlParameter[] Data = new SqlParameter[2];
-            Data[0] = new SqlParameter("@IdCoordinador", Cita.IdCoordinador);
-            Data[0].DbType = DbType.Int32;
-            Data[1] = new SqlParameter("@FechaDisponible", Cita.FechaDisponible);
-            Data[1].DbType = DbType.Date;
-
-            String Query = "insert into tbCitas (IdCoordinador, FechaDisponible) values (@IdCoordinador, @FechaDisponible);";
+            SqlParameter[] Data = new SqlParameter[1];
+            Data[0] = new SqlParameter("@FechaDisponible", fdisponible);
+            Data[0].DbType = DbType.Date;
+            String Query = "select * from tbcitas where tbcitas.fechadisponible = @FechaDisponible ";
 
             SqlCommand Command = new SqlCommand(Query, Connection);
             Command.Parameters.AddRange(Data);
-            Command.ExecuteReader();
+            int res = Convert.ToInt16(Command.ExecuteScalar());
+            if (res>0) 
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
             
         }
-        catch (Exception ex)
+        catch
         {
-            LogError(ex.Message);
+            return false;
         }
-        finally
-        {
-            Connection.Close();
-            Connection = null;
-        }
-    }
+      
 
+        
+    }
     public void UpdateCita(csCita Cita)
     {
         String ConnectionString = ConfigurationManager.ConnectionStrings["dbProyectoCoordinacion"].ConnectionString;
