@@ -108,7 +108,18 @@ public partial class IndexAlumno : System.Web.UI.Page
 
                     GridViewCitas.DataSource = dt;
                     GridViewCitas.DataBind();
-                }
+                    DataTable Dt = new DataTable();
+                    DataView Dv = default(DataView);
+                    Dv = (DataView)SqlDataDropDListMotivos.Select(DataSourceSelectArguments.Empty);
+                    Dt = Dv.ToTable();
+                    for (int i = 0; i < Dt.Rows.Count; i++)
+                    {
+                        DropDListMotivos.Items.Add("op" + i.ToString());
+                        DropDListMotivos.Items[i].Value = Dt.Rows[i]["IdMotivo"].ToString();
+                        DropDListMotivos.Items[i].Text = Dt.Rows[i]["Motivo"].ToString();
+                    }
+                }                
+
             }
             else
                 Response.Redirect("~\\IndexAdmin.aspx");

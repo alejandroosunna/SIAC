@@ -41,8 +41,6 @@
                     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="#home">Inicio</a></li>
-					    <li><a href="#Resumen">Principal</a></li>
-                        <li><a href="#Horarios">Horarios</a></li>
 					    <li><a href="#Citas">Citas</a></li>
 					    <li><a href="#Contacto">Contacto</a></li>
                         <li><asp:HyperLink ID="lbl_CerrarSesion_uno" runat="server" NavigateUrl="~/IndexAlumno.aspx?Logout=true">Cerrar sesion</asp:HyperLink></li>
@@ -50,8 +48,6 @@
              	
 				    <ul  class="side-nav" id="mobile-demo">
 					    <li><a href="#home">Inicio</a></li>
-					    <li><a href="#Resumen">Principal</a></li>
-                        <li><a href="#Horarios">Horarios</a></li>
 					    <li><a href="#Citas">Citas</a></li>
 					    <li><a href="#Contacto">Contacto</a></li>
                         <li><asp:HyperLink ID="lbl_CerrarSesion_dos" runat="server" NavigateUrl="~/IndexAlumno.aspx?Logout=true">Cerrar sesion</asp:HyperLink></li>
@@ -89,13 +85,13 @@
                     <div class="col m3 l3 hide-on-small-and-down"><a></a></div>
                 <div class="col s12 m6 l6">
                     <div class="card green">
-                    <div class="card-content white-text">
+                    <div class="card-content white-text center-align">
                         <asp:Label ID="lblNombre" runat="server" Text=""></asp:Label>
                         <br />
                         <asp:Label ID="lblNumControl" runat="server" Text=""></asp:Label>
                     </div>
-                    <div class="card-action">
-                        <a href="#">Configuración</a>
+                    <div class="card-action center-align">
+                        <a href="#" class="btn orange white-text center-align">Configuración</a>
                         
                     </div>
                     </div>
@@ -107,13 +103,14 @@
                     <div class="col m3 l3 hide-on-small-and-down"><a></a></div>
                     <div class="col s12 m6 l6">
                       <div class="card green">
-                        <div class="card-content white-text">
+                        <div class="card-content white-text center-align">
                             <span class="fa fa-calendar"></span>
                          <asp:Label ID="lblPDiaCita" runat="server" Text=""></asp:Label>
                                 <br />
                                 <asp:Label ID="lblPHoraCita" runat="server" Text=""></asp:Label>
                                 <br />
-                                <asp:Button ID="btnEliminarCita" runat="server" Text="Eliminar" OnClick="btnEliminarCita_Click"/>
+                                <asp:Button ID="btnEliminarCita" runat="server" Text="Eliminar" OnClick="btnEliminarCita_Click" CssClass="btn orange white-text center"/>
+                                
                         </div>
                         <div class="card-action">
                         </div>
@@ -131,15 +128,17 @@
 
 	<!-- Citas start -->
 
-	<section id="Citas" class="pfblock">
+	<section id="Citas" class="center-align">
             
             <div class="container">
-				<div class="col-sm-6 col-sm-offset-3 fa-align-center">
-					<div class="pfblock-header wow fadeInUp ajax-response pre-scrollable">
-
-					<div class="pfblock-header wow fadeInUp ajax-response">
+					<div class="center-align">
 						<h2 class="pfblock-title center">Citas</h2>
-                        <div class="scrolling-table-container">
+                        
+                        <div class="row center-align centered center-block">
+         <asp:DropDownList runat="server" ID="DropDListMotivos" CssClass="materialboxed input-field orange white-text"></asp:DropDownList>
+     </div>
+                        <div class="scrolling-table-container row">
+                             
                         <!-- GRIDVIEW START -->
                             <asp:GridView ID="GridViewCitas" runat="server" DataKeyNames="NumeroCita" AutoGenerateColumns="false" CssClass="striped responsive-table " BorderStyle="None" OnSelectedIndexChanged="GridViewCitas_SelectedIndexChanged">
                                 <Columns>
@@ -161,43 +160,39 @@
                             </asp:GridView>
                         <!-- GRIDVIEW END -->
 						</div>
-                        <asp:DropDownList ID="DropDListMotivos" runat ="server" CssClass="materialboxed" DataTextField="Motivo" DataValueField="IdMotivo" DataSourceID="SqlDataDropDListMotivos"/>
-                        <asp:SqlDataSource ID="SqlDataDropDListMotivos" runat="server" ConnectionString="<%$ ConnectionStrings:dbProyectoCoordinacion %>" SelectCommand="SELECT * FROM [tbMotivos] WHERE ([IdCarrera] = @IdCarrera)">
-                            <SelectParameters>
-                                <asp:SessionParameter DefaultValue="0" Name="IdCarrera" SessionField="IdCarrera" Type="Int32" />
-                            </SelectParameters>
-                        </asp:SqlDataSource>
+                       
                         <%--<asp:SqlDataSource id="SqlDataDropDListMotivos" 
                           ConnectionString='<%$ ConnectionStrings:dbProyectoCoordinacion %>'
                           SelectCommand="select IdMotivo, Motivo from tbMotivos"
                           runat="server"/>--%>
 					</div>
-  </div>
-			</div><!-- .row -->
 
             <%--<div class="row">
 
                
 
             </div><!-- .row -->--%>
-
+                
+                 
 		</div><!-- .row -->
 	</section>
-
+     
+         
+         
+    
 	<!-- Citas end -->
 
 
 	<!-- Contacto start -->
 
-	<section id="Contacto" class="pfblock">
+	<section id="Contacto" class="center-align">
 		<div class="container">
-			<div class="row">
+			<div class="row center-align">
 
-				<div class="col-sm-6 col-sm-offset-3">
+				<div class="center-align">
 
-					<div class="pfblock-header">
-						<h2 class="pfblock-title center">Quejas & Sugerencias</h2>
-						<div class="pfblock-line"></div>
+					<div class="center center-align">
+						<h2 class="center">Quejas & Sugerencias</h2>
 						
 					</div>
 
@@ -207,7 +202,7 @@
 
 			<div class="container">
 
-				<div class="col-sm-6 col-sm-offset-3">
+				<div class="col s6 m6 l6">
 
 					<%--<form id="contact-form" role="form">--%>
 						<div class="ajax-hidden">
@@ -227,7 +222,7 @@
                                 <asp:TextBox ID="txtMesg" placeholder = "Mensaje" CssClass="materialize-textarea" runat="server" Rows="10" TextMode="MultiLine" Width="288px"></asp:TextBox>
 								<%--<textarea class="form-control" id="c_message" name="c_message" rows="7" placeholder="Message"></textarea>--%>
 							</div>
-                            <asp:Button id="btnSend" type="submit" CssClass="btn btn-lg btn-block wow fadeIn" data-wow-delay=".3s" runat="server" Text="Enviar Mensaje" OnClick="btnSend_Click"></asp:Button>
+                            <asp:Button id="btnSend" type="submit" CssClass="btn orange white-text center-align" data-wow-delay=".3s" runat="server" Text="Enviar Mensaje" OnClick="btnSend_Click"></asp:Button>
 							<%--<button type="submit" class="btn btn-lg btn-block wow fadeInUp" data-wow-delay=".3s">Send Message</button>--%>
 						</div>
 						<div class="ajax-response"></div>
@@ -293,6 +288,13 @@
         });
  
    </script>
+    <div>
+             <asp:SqlDataSource ID="SqlDataDropDListMotivos" runat="server" ConnectionString="<%$ ConnectionStrings:dbProyectoCoordinacion %>" SelectCommand="SELECT * FROM [tbMotivos] WHERE ([IdCarrera] = @IdCarrera)">
+                            <SelectParameters>
+                                <asp:SessionParameter DefaultValue="0" Name="IdCarrera" SessionField="IdCarrera" Type="Int32" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
+         </div>
    
 </body>
 </html>
