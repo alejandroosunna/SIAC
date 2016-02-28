@@ -10,28 +10,7 @@ public partial class IndexAdmin : System.Web.UI.Page
     List<int> seleccionados = new List<int>();
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["IdUsuario"] != null && Session["IdRol"] != null)
-        {
-            if (Convert.ToInt32(Session["IdRol"]) == 1)
-            {
-                bool result = bool.TryParse(Request["IdLogin"], out result);
-                if (result)
-                {
-                    Session["IdUsuario"] = null;
-                    Session["IdRol"] = null;
-                    Response.Redirect("~\\Login.aspx");
-                }
-                else
-                {
-                    csUsuario Usuario = (new csUsuarioHandler()).GetUsuario(Convert.ToInt32(Session["IdUsuario"]));
-                    lblNombre.Text = "Coordinador: " + Usuario.Nombre + " " + Usuario.Apellidos + ".";
-                }
-            }
-            else
-                Response.Redirect("~\\IndexAlumno.aspx");
-        }
-        else
-            Response.Redirect("~\\Login.aspx");
+        
     }
     protected void btnSalir_Click(object sender, EventArgs e)
     {
