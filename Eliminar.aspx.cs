@@ -11,6 +11,7 @@ public partial class Eliminar : System.Web.UI.Page
     {
         if (Session["IdUsuario"] == null || Convert.ToInt32(Session["IdRol"]) == 2)
             Response.Redirect("~\\Login.aspx");
+
     }
     protected void GridView_Usuarios_RowCommand(object sender, GridViewCommandEventArgs e)
     {
