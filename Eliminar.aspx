@@ -4,10 +4,11 @@
                <asp:Content ID="Principal" ContentPlaceHolderID="CPHPrincipal" runat="server">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                          Eliminar
+                          Eliminar 
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
+
 
                                 <asp:GridView ID="GridView_Usuarios" runat="server" AutoGenerateColumns="False" DataKeyNames="IdUsuario" DataSourceID="SqlDataSource" OnRowCommand="GridView_Usuarios_RowCommand" OnSelectedIndexChanged="GridView_Usuarios_SelectedIndexChanged">
                                     <Columns>

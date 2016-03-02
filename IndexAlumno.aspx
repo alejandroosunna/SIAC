@@ -6,14 +6,12 @@
 	<section id="Resumen" class="pfblock pfblock-gray">
 	    <div class="container">
 			<div class="row">
-
 				<div class="col-sm-6 col-sm-offset-3">
                     
 					<div class="pfblock-header wow fadeInUp">
 						<h2 class="pfblock-title center">Usuario</h2>
 						<div class="pfblock-line"></div>
-						<div class="pfblock-subtitle">
-                            
+						<div class="pfblock-subtitle">                            
 						</div>
 					</div>
 
