@@ -7,10 +7,10 @@
                         </div>
                         <div class="panel-body" >
                             <div class="table-responsive" style="margin-left:5%">
+
                                 <asp:TextBox ID="txtNombre" runat="server" placeholder="Nombre"></asp:TextBox>
                                 <br />
                                 <br />
-
                                 <asp:TextBox ID="txtApellidoPaterno" runat="server" placeholder="Apellido Paterno"></asp:TextBox>
                                 <br />
                                 <br />

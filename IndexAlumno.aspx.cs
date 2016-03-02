@@ -17,7 +17,6 @@ public partial class IndexAlumno : System.Web.UI.Page
     {
         if (Session["IdUsuario"] != null && Session["IdRol"] != null)
         {
-
             if(Convert.ToInt32(Session["IdRol"]) == 2)
             {
                 result = bool.TryParse(Request["Logout"], out result);

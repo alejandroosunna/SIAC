@@ -4,8 +4,9 @@
 <asp:Content ID="CNTResumen" ContentPlaceHolderID="CPHPrincipal" runat="server">   
                         <div class="panel-heading section scrollspy">
                           Listado de citas pendientes
-                        </div> 
-                        <div class="panel-body scrolling-table-container">                           
+                        </div>
+                        <div class="panel-body scrolling-table-container">
+                           
                                 <asp:GridView ID="GridView_Citas" class="table striped responsive-table" runat="server" AutoGenerateColumns="False" DataKeyNames="IdCita" DataSourceID="SqlDataSource" OnRowCommand="GridView_Citas_RowCommand" OnSelectedIndexChanged="GridView_Citas_SelectedIndexChanged">
                                     <Columns>
                                         <asp:BoundField DataField="IdCita" HeaderText="IdCita" InsertVisible="False" ReadOnly="True" SortExpression="IdCita" />

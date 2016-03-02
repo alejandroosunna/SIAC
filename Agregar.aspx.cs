@@ -11,7 +11,6 @@ public partial class Agregar : System.Web.UI.Page
     {
         if (Session["IdUsuario"] == null || Convert.ToInt16(Session["IdRol"])==2) 
             Response.Redirect("~\\Login.aspx");
-
     }
     protected void txtNumControl_TextChanged(object sender, EventArgs e)
     {

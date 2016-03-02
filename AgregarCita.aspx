@@ -11,9 +11,8 @@
                                 <br />                                
                                  <div class="input-field col s6">
                                   <asp:TextBox ID="txtHora" runat="server" placeholder="Hora hh:mm" MaxLength="5" TextMode="Number"></asp:TextBox>
-                                </div>
+                                </div>                                    
                                 <br />
-
                                 <asp:Button ID="btnAgregarCita" class="waves-effect waves-light btn orange" runat="server" Text="Agregar Cita" OnClick="btnAgregarCita_Click" />
                                 <br />
                             </div>
