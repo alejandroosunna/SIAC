@@ -31,8 +31,8 @@ create table tbCitas(
 	IdCita int unique identity not null,
 	IdCoordinador int not null,
 	IdUsuario int,
-	FechaAgendada date default getdate(),
-	FechaDisponible date,
+	FechaAgendada datetime,
+	FechaDisponible datetime,
 	Estado int default 0, /*0 disponible, 1 ocupada, 2 expiro, 3 elimino*/
 	Comentario nvarchar(MAX) default '',
 	constraint PK_tbCitas_IdCita primary key (IdCita)
@@ -40,8 +40,11 @@ create table tbCitas(
 
 create table tbMotivos(
 	IdMotivo int unique identity not null,
+	IdCarrera int not null,
 	Motivo nvarchar(MAX),
-	constraint PK_tbMotivos_IdMotivo primary key(IdMotivo)
+	constraint PK_tbMotivos_IdMotivo primary key(IdMotivo),
+	constraint FK_tbMotivos_IdCarrera foreign key(IdCarrera)
+		references tbCarreras(IdCarrera) on update cascade
 );
 
 create table tbRelacionMotivosCitas(

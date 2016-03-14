@@ -9,8 +9,9 @@ public partial class Agregar : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["IdAdministrador"] == null)
+        if (Session["IdUsuario"] == null || Convert.ToInt16(Session["IdRol"])==2) 
             Response.Redirect("~\\Login.aspx");
+
     }
     protected void txtNumControl_TextChanged(object sender, EventArgs e)
     {
@@ -21,7 +22,7 @@ public partial class Agregar : System.Web.UI.Page
         try
         {
             csUsuario Usuario = new csUsuario();
-            Usuario.IdCarrera = Convert.ToInt32(Session["IdAdministrador"]);
+            Usuario.IdCarrera = Convert.ToInt32(Session["IdCarrera"]);
             Usuario.IdRol = 2;
             Usuario.Nombre = txtNombre.Text;
             Usuario.Apellidos = txtApellidoPaterno.Text +  txtApellidoMaterno.Text;

@@ -4,20 +4,20 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
         <title>SIAC</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content=""/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-        <link rel="stylesheet" href="Themes/css/bootstrap.css">
-        <link rel="stylesheet" href="Themes/css/main.css">
-        <link rel="stylesheet" href="Fonts/font-awesome-4.3.0/css/font-awesome">
+        <link rel="stylesheet" href="Themes/css/bootstrap.css"/>
+        <link rel="stylesheet" href="Themes/css/main.css"/>
+        <link rel="stylesheet" href="Fonts/font-awesome-4.3.0/css/font-awesome"/>
         
     	<link href="assets/css/font-awesome.min.css" rel="stylesheet" media="screen"/>
         <link href="assets/css/style.css" rel="stylesheet" media="screen"/> <!-- le meti esta hoja de estilos para que quedara mejor con las otras paginas-->
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-    </head>
+</head>
     <body>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -65,15 +65,15 @@
 					<a class="navbar-brand" href="#">Sistema de Apartado de Citas</a>
 				</div>
         
-            <div id="navbar" class="navbar-collapse collapse">
-                <form class="navbar-form navbar-right" role="form" runat="server">
+            <div id="navbar" class="navbar-collapse collapse navbar-right">
+                <form class="navbar-form" role="form" runat="server">
                     <div>
                             <div class="form-group">
                               <asp:TextBox id ="txtNumControl" runat ="server" placeholder="Numero de Control" CssClass="form-control"></asp:TextBox>
                            
                             </div>
                             <div class="form-group">
-                              <asp:TextBox id ="txtContraseña" runat ="server" placeholder="Password" type="password" CssClass="form-control"></asp:TextBox>
+                              <asp:TextBox id ="txtPassword" runat ="server" placeholder="Password" type="password" CssClass="form-control"></asp:TextBox>
                              
                             </div>
                               <asp:Button ID ="btnLogin" runat="server" Text="Sign In" CssClass="btn btn-success" OnClick="btnLogin_Click"></asp:Button> 

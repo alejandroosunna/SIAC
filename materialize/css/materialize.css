@@ -2455,7 +2455,8 @@ input[type="submit"] {
   -webkit-appearance: button;
   /* 2 */
   cursor: pointer;
-  /* 3 */
+    top: 0px;
+    left: 1px;
 }
 
 /**
