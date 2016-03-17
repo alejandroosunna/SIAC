@@ -45,13 +45,12 @@
             overflow-y: scroll;
             overflow-x: hidden;
         }
-  
+   
+    
     </style>
-
   </head>
 <body>
     <form id="form1" runat="server">
-         
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
      <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
@@ -86,15 +85,11 @@
            
           </div>
         </header>
-          <ul id="dropdown1" class="dropdown-content">
-          <a class="mdl-navigation__link" href="Agregar.aspx"><i class="mdl-color-text--black material-icons" role="presentation">inbox</i>Agregar</a>
-          <a class="mdl-navigation__link" href="Eliminar.aspx"><i class="mdl-color-text--black material-icons" role="presentation">delete</i>Eliminar</a>
-        </ul>
         <nav class="demo-navigation mdl-navigation mdl-color--white">
           <a class="mdl-navigation__link" href="IndexAdmin.aspx"><i class="mdl-color-text--black material-icons" role="presentation">home</i>Resumen</a>
-          <a class="mdl-navigation__link" href="Citas.aspx"><i class="mdl-color-text--black material-icons" role="presentation">library_books</i>Citas</a>
-          <a class="mdl-navigation__link" href="ChatAdmin.aspx"><i class="mdl-color-text--black material-icons" role="presentation">chat_bubble</i>Chat</a>
-          <a class="mdl-navigation__link dropdown-button" data-activates="dropdown1"><i class="mdl-color-text--black material-icons">perm_contact_calendar</i>Alumnos</a>
+          <a class="mdl-navigation__link" href="Agregar.aspx"><i class="mdl-color-text--black material-icons" role="presentation">inbox</i>Agregar</a>
+          <a class="mdl-navigation__link" href="Eliminar.aspx"><i class="mdl-color-text--black material-icons" role="presentation">delete</i>Eliminar</a>
+          
 
         </nav>
       </div>
