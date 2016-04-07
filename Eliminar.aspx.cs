@@ -11,6 +11,7 @@ public partial class Eliminar : System.Web.UI.Page
     {
         if (Session["IdUsuario"] == null || Convert.ToInt32(Session["IdRol"]) == 2)
             Response.Redirect("~\\Login.aspx");
+
     }
     protected void GridView_Usuarios_RowCommand(object sender, GridViewCommandEventArgs e)
     {
@@ -24,5 +25,21 @@ public partial class Eliminar : System.Web.UI.Page
     {
         Session["IdAdministrador"] = null;
         Response.Redirect("~\\Login.aspx");
+    }
+
+    protected void GridView_Usuarios_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        GridViewRow row = GridView_Usuarios.SelectedRow;
+
+        int id = Convert.ToInt32(GridView_Usuarios.DataKeys[row.RowIndex].Value);
+        if ((new csUsuarioHandler().DeleteUsuario(id)))
+        {
+            Response.Redirect("~\\Eliminar.aspx");
+        }
+        else
+        {
+
+        }
+        (new ObjetoBase()).LogError(id.ToString());
     }
 }

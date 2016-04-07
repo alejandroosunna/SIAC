@@ -135,7 +135,7 @@ public class csUsuarioHandler : ObjetoBase
         }
     }
 
-    public void DeleteUsuario(int IdUsuario)
+    public bool DeleteUsuario(int IdUsuario)
     {
         String ConnectionString = ConfigurationManager.ConnectionStrings["dbProyectoCoordinacion"].ConnectionString;
         SqlConnection Connection = new SqlConnection(ConnectionString);
@@ -152,12 +152,16 @@ public class csUsuarioHandler : ObjetoBase
         }
         catch (Exception ex)
         {
+          
             LogError(ex.Message);
+            return false;
         }
         finally
         {
             Connection.Close();
             Connection = null;
+           
         }
+        return true;
     }
 }

@@ -31,7 +31,7 @@ create table tbCitas(
 	IdCita int unique identity not null,
 	IdCoordinador int not null,
 	IdUsuario int,
-	FechaAgendada date default getdate(),
+	FechaAgendada datetime,
 	FechaDisponible datetime,
 	Estado int default 0, /*0 disponible, 1 ocupada, 2 expiro, 3 elimino*/
 	Comentario nvarchar(MAX) default '',

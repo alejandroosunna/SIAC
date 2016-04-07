@@ -63,7 +63,7 @@ public class ObjetoBase
         else if (_TipoDeObjeto == TipoDeObjeto.TipoDouble && DBNull.Value == Objeto)
             return 0.0;
         else if (_TipoDeObjeto == TipoDeObjeto.TipoDateTime && DBNull.Value == Objeto)
-            return null;
+            return DateTime.Now;
         else if (_TipoDeObjeto == TipoDeObjeto.TipoBoolean && DBNull.Value == Objeto)
             return false;
 

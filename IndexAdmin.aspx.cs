@@ -7,30 +7,11 @@ using System.Web.UI.WebControls;
 
 public partial class IndexAdmin : System.Web.UI.Page
 {
+    List<int> seleccionados = new List<int>();
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["IdUsuario"] != null && Session["IdRol"] != null)
-        {
-            if (Convert.ToInt32(Session["IdRol"]) == 1)
-            {
-                bool result = bool.TryParse(Request["IdLogin"], out result);
-                if (result)
-                {
-                    Session["IdUsuario"] = null;
-                    Session["IdRol"] = null;
-                    Response.Redirect("~\\Login.aspx");
-                }
-                else
-                {
-                    csUsuario Usuario = (new csUsuarioHandler()).GetUsuario(Convert.ToInt32(Session["IdUsuario"]));
-                    lblNombre.Text = "Coordinador: " + Usuario.Nombre + " " + Usuario.Apellidos + ".";
-                }
-            }
-            else
-                Response.Redirect("~\\IndexAlumno.aspx");
-        }
-        else
-            Response.Redirect("~\\Login.aspx");
+        
+
     }
     protected void btnSalir_Click(object sender, EventArgs e)
     {
@@ -55,18 +36,40 @@ public partial class IndexAdmin : System.Web.UI.Page
         GridViewRow row = GridView_Citas.SelectedRow;
 
         int id = Convert.ToInt32(GridView_Citas.DataKeys[row.RowIndex].Value);
-        if(!(new csCitaHandler()).DeleteCita(id)){
-            Response.Redirect("~\\IndexAdmin.aspx");
-        }
-        else
-        {
 
+        if (!buscarRepetido(id))
+        {
+            seleccionados.Add(id);
         }
-        (new ObjetoBase()).LogError(id.ToString());
+        
+        
     }
 
     protected void SqlDataSource_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
     {
 
+    }
+    private bool buscarRepetido(int id)
+    {
+     
+        for (int i = 0; i < seleccionados.Count; i++)
+        {
+            if (seleccionados[i] == id)
+            {
+                seleccionados.Remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    protected void btnElinarCitas_Click(object sender, EventArgs e)
+    {
+        foreach (var item in seleccionados)
+        {
+            (new csCitaHandler()).DeleteCita(item);
+        }
+
+        Response.Redirect("~\\IndexAdmin.aspx");
     }
 }
