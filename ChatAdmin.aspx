@@ -9,7 +9,7 @@
               
 
           
-               $(function () {
+               $(document).ready(function () {
                   getUser();
               });
 
@@ -70,7 +70,12 @@
                       message = message.replace(":o", "<img src=\"/images/cool.gif\" class=\"smileys\" />");
 
                       //display the message
-                      $('#chatlog').append('<div class="border"><span style="color:red">' + name + '</span>: ' + message + '</div>');
+                      if (name == $('#nickname').val()) {
+                          $('#chatlog').append('<div class="border left"><span style="color:green">' + name + '</span>: ' + message + '</div>');
+                      }else{
+                          $('#chatlog').append('<div class="border"><span style="color:red">' + name + '</span>: ' + message + '</div>');
+                      }
+                      
                   };
 
                   chat.client.disconnected = function (name) {
