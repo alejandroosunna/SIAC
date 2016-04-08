@@ -2,11 +2,10 @@
 <asp:Content ID="Content" ContentPlaceHolderID="CPHBody" runat="server">
 
     
-	
+
    
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-<%--      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>--%>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     
     <link rel="stylesheet" href="material.min.css"/>
     <link href="materialize/css/materialize.css" rel="stylesheet" media="screen"/>
       <!--Let browser know website is optimized for mobile-->
@@ -15,7 +14,7 @@
        
   
     
-</head>
+
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
@@ -40,33 +39,6 @@
 		<div id="status"></div>
 	</div>
 
-	<header class="header">
-        <div class="navbar-fixed orange darken-1">
-		<nav>
-				<div class="nav-wrapper orange darken-1">
-                    <a href="#!" class="brand-logo">Logo</a>
-                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                    <ul class="right hide-on-med-and-down">
-                        <li><a href="#home">Inicio</a></li>
-					    <li><a href="#Resumen">Principal</a></li>
-                        <li><a href="#Horarios">Horarios</a></li>
-					    <li><a href="#Citas">Citas</a></li>
-					    <li><a href="#Contacto">Contacto</a></li>
-                        <li><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/IndexAlumno.aspx?IdLogin=true">Cerrar sesion</asp:HyperLink></li>
-                    </ul>
-             	
-				    <ul  class="side-nav" id="mobile-demo">
-					    <li><a href="#home">Inicio</a></li>
-					    <li><a href="#Resumen">Principal</a></li>
-                        <li><a href="#Horarios">Horarios</a></li>
-					    <li><a href="#Citas">Citas</a></li>
-					    <li><a href="#Contacto">Contacto</a></li>
-                        <li><asp:HyperLink ID="lbl_CerrarSesion" runat="server" NavigateUrl="~/IndexAlumno.aspx?IdLogin=true">Cerrar sesion</asp:HyperLink></li>
-				    </ul>
-				</div>
-		</nav>
- </div>
-	</header>
 
 	<!-- Navigation end -->
 
