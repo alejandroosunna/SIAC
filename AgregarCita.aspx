@@ -1,7 +1,17 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/AdminMaster.master" AutoEventWireup="true" CodeFile="AgregarCita.aspx.cs" Inherits="AgregarCita" %>
 
               <asp:Content ID="Principal" ContentPlaceHolderID="CPHPrincipal" runat="server">
-    <div class="panel panel-default">
+
+                  <script type="text/javascript">
+                    $(document).ready(function () {
+                        $('.datepicker').pickadate({
+                            selectMonths: true, // Creates a dropdown to control month
+                            selectYears: 15 // Creates a dropdown of 15 years to control year
+                        });
+                    });
+                </script>
+
+                 <div class="panel panel-default">
                         <div class="row left-align">
                          <h4>Agregar Cita</h4><br />
                         </div>
@@ -19,7 +29,6 @@
                             </div>
                         </div>
                     </div>
-                  
                  <!-- /. ROW  -->
                 <div class="container" >               
                     <div class="panel panel-default center center-align">
@@ -42,7 +51,6 @@
                                 <asp:TextBox ID="txtHora0" runat="server" placeholder="Hora hh:mm" MaxLength="5" TextMode="Number"></asp:TextBox>
                                 
                                 <asp:Label ID="Label4" runat="server" Text="Hora Fin"></asp:Label>
-                                
                                 <asp:TextBox ID="txtHora1" runat="server" placeholder="Hora hh:mm" MaxLength="5" TextMode="Number"></asp:TextBox>
                                 <asp:Label ID="Label5" runat="server" Text="Intervalo"></asp:Label>
                                 <asp:TextBox ID="txtIntervalo" runat="server" placeholder="Hora hh:mm" MaxLength="2" TextMode="Number">15</asp:TextBox>

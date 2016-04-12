@@ -14,7 +14,7 @@ public partial class ChatAdmin : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         csUsuario usuario = (new csUsuarioHandler()).GetUsuario(Convert.ToInt32(Session["IdUsuario"]));
-        numControl.Text = usuario.IdUsuario.ToString();
+        //numControl.Text = usuario.IdUsuario.ToString();
         nombre = usuario.Nombre +"("+ usuario.IdUsuario + ")";
         numerocontrol = usuario.IdUsuario.ToString();
     }

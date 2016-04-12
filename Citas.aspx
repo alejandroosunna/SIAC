@@ -1,11 +1,13 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/AdminMaster.master" AutoEventWireup="true" CodeFile="Citas.aspx.cs" Inherits="Citas" %>
 <asp:Content ID="Principal" ContentPlaceHolderID="CPHPrincipal" runat="server">
-    <script type="text/javascript">
+   
+   <script type="text/javascript">
+
         function getDetails() {
             $.ajax({
                 type: "POST",
                 contentType: "application/json; charset=utf-8",
-                url:"Citas.aspx/GetData",
+                url: "Citas.aspx/GetData",
                 data: {},
                 datatype: "json",
                 success: function (data) {
@@ -27,7 +29,10 @@
             });
         }
         $(document).ready(function () {
-            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+            $('.datepicker').pickadate({
+                selectMonths: true, // Creates a dropdown to control month
+                selectYears: 15 // Creates a dropdown of 15 years to control year
+            });
             
         });
         $(document).on("click", ".editButton", function () {
@@ -36,7 +41,7 @@
 
             var id = $(this).attr("data-id");
             console.log(id);
-            $('#btnUpdate').attr("edit-id", id);
+            $('#btnUpdate').attr("itemid", id);
 
             $.ajax({
                 type: "Post",
@@ -45,15 +50,17 @@
                 data: '{cid: ' + id + '}',
                 dataType: 'json',
                 success: function (data) {
+                    console.log("Hasta aqui va bien");
                     var citaDetails = $.parseJSON(data.d);
-                    $.each(citaDetails, function (index, value) {
-                        $("#idCita1").val(value.IdCita);
-                        $("#idUsuario1").val(value.IdUsuario);
-                        $("#fechaAgendada1").val(value.FechaAgendada);
-                        $("#fechaDisponible1").val(value.FechaDiponible);
-                        $("#estado1").val(value.Estado);
-                        $("#comentario1").val(value.Comentario);
-                    });
+                    console.log(citaDetails);
+                    
+                        
+                        $("#idCita1").val(citaDetails.id);
+                        $("#idUsuario1").val(citaDetails.idUsuario);
+                        $("#fechaDisponible1").val(citaDetails.fechaDisponible);
+                        $("#estado1").val(citaDetails.estado);
+                        $("#comentario1").val(citaDetails.comentario);
+                   
                 },
                 error: function () {
                     alert("Ocurrio algún error en + " + id);
@@ -61,22 +68,22 @@
             });
             
         });
-        $('#btnUpdate').click(function () {
+        $(document).on("click", "#btnUpdate", function () {
            
-            var id = $(this).attr("edit-id");
+            var id = $(this).attr("itemid");
+           
             var cita = {};
-            cita.idCita = $("#idCita1").val();
+            cita.id = $("#idCita1").val();
             cita.idUsuario = $("#idUsuario1").val();
-            cita.fechaAgendada = $("#fechaAgendada1").val();
             cita.fechaDisponible = $("#fechaDisponible1").val();
             cita.estado = $("#estado1").val();
             cita.comentario = $("#comentario1").val();
-
+            console.log(cita);
             $.ajax({
                 type: "POST",
                 contentType: "application/json; charset=utf-8",
-                url: "Cita.aspx/UpdateCita",
-                data: '{objCita: ' + JSON.stringify(cita) + ', cid: ' + id + '}',
+                url: "Cita.aspx/UpdateData",
+                data: '{cita: ' + JSON.stringify(cita) + ', cid: ' + id + '}',
                 dataType: "json",
                 success: function (data) {
                     if (confirm("Seguro que desea modificar la cita? ") == true) {
@@ -103,10 +110,12 @@
                 success: function () {
                     if (confirm("Estas seguro que deseas eliminar la cita?") == true) {
                         alert("Cita Eliminada Exitosamente!");
+                        window.location.reload();
+                        
                     } else {
                         alert("Cancelaste la cita");
                     }
-                    getDetails();
+                   
                 },
                 error: function (data) {
                     alert("Ocurrio un error en la cita : " + id);
@@ -115,56 +124,41 @@
         });
 
     </script>
-
-        <div id="myModal" class="modal modal-fixed-footer"  >
+        <!-- Modal para editas Citas -->
+        <div id="myModal" class="modal"  >
             <div class="modal-content">
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input  value="idCita" id="idCita1" type="number" class="validate"/>
-                        <label for="idCita1">id Cita</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input  value="idUsuario" id="idUsuario1" type="number" class="validate"/>
-                        <label for="idUsuario1">id Usuario</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input  id="fechaAgendada1" type="date" class="datepicker"/>
-                        <label for="fechaAgendada1">Fecha Agendadna</label>
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input  id="fechaDisponible1" type="date" class="datepicker"/>
-                        <label for="fechaDisponible1">Fecha Disponible</label>
-                    </div>
+                <div class="input-field col s6">
+                  <input disabled  placeholder="Placeholder" id="idCita1" type="number" class="validate"/>
+                  <label for="idCita1">id Cita</label>
                 </div>
+                
+                <div class="input-field col s6">
+                  <input placeholder="numero de control" id="idUsuario1" type="number" class="validate"/>
+                  <label for="idUsuario1">Numero de control</label>
+                </div>      
 
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input id="estado1" type="number" class="validate"/>
-                        <label for="estado1">estado</label>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="input-field col s6">
+                <div class="input-field col s6">
+                  <label for="fechaDisponible1">fecha Disponible</label><br />
+                  <input id="fechaDisponible1" type="text" class="validate"/>
+                </div>  
+    
+                <div class="input-field col s6">
                         <input id="comentario1" type="text" class="materialize-textarea"/>
                         <label for="comentario1">comentario</label>
                     </div>
+                <div class="input-field col s6">
+                    <input id="estado1" type="number" class="validate" />
+                    <label for="estado1">Estado</label>
                 </div>
-                
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn" data-dismiss="modal">Close</button>
-                <button type="button" id="btnUpdate" class="btn" edit-id="" data-dismiss="modal"> Guardar </button>
+                <button type="button" id="btnUpdate" class="btn" itemid="" data-dismiss="modal"> Guardar </button>
             </div>
             
         </div>
+
+       <!-- Tabla que muestra las citas -->
         <table id="tableCitas" class="table-of-contents" role="grid" aria-describedby="tablaCitas">
             <thead>
                 <tr role="row">
@@ -196,9 +190,11 @@
                         <td><%=TableData.Rows[data]["Comentario"]%></td>
                         <td><input type="button" class="btn btn-flat editButton" data-id="<%=TableData.Rows[data]["idCita"]%>"
                             data-toggle="modal" data-target="#myModal" name="submitButton" id="btnEdit" value="Editar"/></td>
-                        <td><input type="button" class="btn btn-flat deleteButton" name="submitButton" id="btnDelete" value="Eliminar"/></td>
+                        <td><input type="button" class="btn btn-flat deleteButton" data-id="<%=TableData.Rows[data]["idCita"]%>" 
+                            name="submitButton" id="btnDelete" value="Eliminar"/></td>
                     </tr>
                 <%} %>
             </tbody>
         </table>
+   
 </asp:Content> 
