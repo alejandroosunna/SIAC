@@ -40,11 +40,8 @@ create table tbCitas(
 
 create table tbMotivos(
 	IdMotivo int unique identity not null,
-	IdCarrera int not null,
 	Motivo nvarchar(MAX),
-	constraint PK_tbMotivos_IdMotivo primary key(IdMotivo),
-	constraint FK_tbMotivos_IdCarrera foreign key(IdCarrera)
-		references tbCarreras(IdCarrera) on update cascade
+	constraint PK_tbMotivos_IdMotivo primary key(IdMotivo)
 );
 
 create table tbRelacionMotivosCitas(

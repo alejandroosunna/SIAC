@@ -80,6 +80,7 @@ public partial class IndexAlumno : System.Web.UI.Page
                         GridViewCitas.Visible = false;
                         DropDListMotivos.Visible = false;
                     }
+<<<<<<< HEAD
                 }
                 else
                 {
@@ -96,6 +97,38 @@ public partial class IndexAlumno : System.Web.UI.Page
                     dt.Columns.Add("NumeroCita");
                     dt.Columns.Add("Hora");
                     dt.Columns.Add("Dia");
+=======
+                    else
+                    {
+                        lblPDiaCita.Text = "No hay cita pendiente.";
+                        GridViewCitas.Visible = true;
+                        //txtComentario.Visible = false;
+                        //btnEnviar.Visible = false;
+
+                        List<csCita> listCita = (new csCitaHandler()).GetListCitas(Usuario.IdCarrera);
+
+                        dt = new DataTable();
+                        dt.Columns.Add("Apartar");
+                        dt.Columns.Add("NumeroCita");
+                        dt.Columns.Add("Hora");
+                        dt.Columns.Add("Dia");
+
+                        for (int y = 0; y < listCita.Count; y++)
+                        {
+                            DataRow dr = dt.NewRow();
+                            dr["Apartar"] = listCita[y].IdCita.ToString();
+                            dr["NumeroCita"] = listCita[y].IdCita.ToString();
+                            dr["Hora"] = listCita[y].FechaDisponible.ToString("t");
+                            dr["Dia"] = listCita[y].FechaDisponible.ToString("dd / MM / yyyy");
+                            //(new ObjetoBase()).LogError(listCita[y].FechaDisponible.ToString("t"));
+
+                            dt.Rows.Add(dr);
+                        }
+
+                        GridViewCitas.DataSource = dt;
+                        GridViewCitas.DataBind();
+                    }
+>>>>>>> parent of 796b644... Backup
 
                     for (int y = 0; y < listCita.Count; y++)
                     {

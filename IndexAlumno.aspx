@@ -24,10 +24,17 @@
            
             $('.button-collapse').sideNav({
                 menuWidth: 300, // Default is 240
+<<<<<<< HEAD
                 edge: 'right', // Choose the horizontal origin
                 closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
             }
  );
+=======
+                edge: 'left', // Choose the horizontal origin
+                closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+            });
+            
+>>>>>>> parent of 796b644... Backup
         });
  
    </script>
@@ -117,10 +124,15 @@
                                 <br />
                                 <asp:Label ID="lblPHoraCita" runat="server" Text=""></asp:Label>
                                 <br />
+<<<<<<< HEAD
                                 <asp:Button ID="btnEliminarCita" runat="server" Text="Eliminar" OnClick="btnEliminarCita_Click" CssClass="btn orange white-text center"/>
                                 
+=======
+                                <asp:Button ID="btnEliminarCita" runat="server" Text="Eliminar" Visible="false" OnClick="btnEliminarCita_Click"/>
+>>>>>>> parent of 796b644... Backup
                         </div>
                         <div class="card-action">
+                         
                         </div>
                       </div>
                     </div>
@@ -144,11 +156,20 @@
                         <div class="scrolling-table-container row">
 
 					<div class="pfblock-header wow fadeInUp ajax-response">
+<<<<<<< HEAD
 						<h2 class="pfblock-title">Citas</h2>
 
                         <asp:GridView ID="GridViewCitas" runat="server" DataKeyNames="NumeroCita" AutoGenerateColumns="false" CssClass="table media-list fa-border table-bordered table-responsive table-condensed caption ajax-response wow bounce" BorderStyle="None" OnSelectedIndexChanged="GridViewCitas_SelectedIndexChanged">
                             <Columns>
                                 <%--<asp:TemplateField HeaderText="Seleccionar"> 
+=======
+						<h2 class="pfblock-title center">Citas</h2>
+                        <div class="scrolling-table-container">
+                        <!-- GRIDVIEW START -->
+                        <asp:GridView ID="GridViewCitas" runat="server"  DataKeyNames="NumeroCita" AutoGenerateColumns="false" CssClass="striped responsive-table " BorderStyle="None" OnSelectedIndexChanged="GridViewCitas_SelectedIndexChanged">
+                            <Columns>
+                               <%-- <asp:TemplateField HeaderText="Seleccionar"> 
+>>>>>>> parent of 796b644... Backup
                                     <ItemTemplate>
                                         <asp:Button ID="btnSeleccionar" Text="Seleccionar!!" runat="server"
                                             CommandName="SelectRow" CssClass="btn-link navbar-btn"
@@ -164,6 +185,7 @@
                                     SortExpression="Dia" />
                             </Columns>
                         </asp:GridView>
+<<<<<<< HEAD
 						   <%--<asp:GridView ID="GridViewCitas"  runat="server" AutoGenerateColumns="False" DataKeyNames="NumeroCita" DataSourceID="SqlDataSource_Citas" OnRowCommand="GridView_Citas_RowCommand" CssClass="table media-list fa-border table-bordered table-responsive table-condensed caption ajax-response wow bounce" BorderStyle="None" >
                             <Columns>
                                 <asp:BoundField DataField="NumeroCita" HeaderText="NumeroCita" InsertVisible="False" ReadOnly="True" SortExpression="NumeroCita"  HeaderStyle-CssClass="text-center" />
@@ -186,6 +208,10 @@
                     </SelectParameters>
                 </asp:SqlDataSource>--%>
 						
+=======
+                        <!-- GRIDVIEW END -->
+						</div>
+>>>>>>> parent of 796b644... Backup
 					</div>
                            
                         <%--<asp:SqlDataSource id="SqlDataDropDListMotivos" 
@@ -310,5 +336,11 @@
                             </SelectParameters>
                         </asp:SqlDataSource>
 	</div>
+<<<<<<< HEAD
     
 </asp:Content>
+=======
+    </form>  
+</body>
+</html>
+>>>>>>> parent of 796b644... Backup
