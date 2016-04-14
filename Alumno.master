@@ -46,7 +46,7 @@
                         <li><a href="#home">Inicio</a></li>
 					    <li><a href="#Citas">Citas</a></li>
 					    <li><a href="#Contacto">Contacto</a></li>
-                        <li><a href="ChatUser.aspx">Chat</a></li>
+                        <li><a href="Chat.aspx">Chat</a></li>
                         <li><asp:HyperLink ID="lbl_CerrarSesion_uno" runat="server" NavigateUrl="~/IndexAlumno.aspx?Logout=true">Cerrar sesion</asp:HyperLink></li>
                     </ul>
              	
@@ -54,7 +54,7 @@
 					    <li><a href="#home">Inicio</a></li>
 					    <li><a href="#Citas">Citas</a></li>
 					    <li><a href="#Contacto">Contacto</a></li>
-                        <li><a href="ChatUser.aspx">Chat</a></li>
+                        <li><a href="Chat.aspx">Chat</a></li>
                         <li><asp:HyperLink ID="lbl_CerrarSesion_dos" runat="server" NavigateUrl="~/IndexAlumno.aspx?Logout=true">Cerrar sesion</asp:HyperLink></li>
 				    </ul>
 				</div>
