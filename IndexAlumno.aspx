@@ -25,15 +25,21 @@
             $('.button-collapse').sideNav({
                 menuWidth: 300, // Default is 240
 <<<<<<< HEAD
+<<<<<<< HEAD
                 edge: 'right', // Choose the horizontal origin
                 closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
             }
  );
 =======
+=======
+>>>>>>> parent of 796b644... Backup
                 edge: 'left', // Choose the horizontal origin
                 closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
             });
             
+<<<<<<< HEAD
+>>>>>>> parent of 796b644... Backup
+=======
 >>>>>>> parent of 796b644... Backup
         });
  
@@ -125,8 +131,12 @@
                                 <asp:Label ID="lblPHoraCita" runat="server" Text=""></asp:Label>
                                 <br />
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 <asp:Button ID="btnEliminarCita" runat="server" Text="Eliminar" OnClick="btnEliminarCita_Click" CssClass="btn orange white-text center"/>
                                 
+=======
+                                <asp:Button ID="btnEliminarCita" runat="server" Text="Eliminar" Visible="false" OnClick="btnEliminarCita_Click"/>
+>>>>>>> parent of 796b644... Backup
 =======
                                 <asp:Button ID="btnEliminarCita" runat="server" Text="Eliminar" Visible="false" OnClick="btnEliminarCita_Click"/>
 >>>>>>> parent of 796b644... Backup
@@ -169,6 +179,9 @@
                         <asp:GridView ID="GridViewCitas" runat="server"  DataKeyNames="NumeroCita" AutoGenerateColumns="false" CssClass="striped responsive-table " BorderStyle="None" OnSelectedIndexChanged="GridViewCitas_SelectedIndexChanged">
                             <Columns>
                                <%-- <asp:TemplateField HeaderText="Seleccionar"> 
+<<<<<<< HEAD
+>>>>>>> parent of 796b644... Backup
+=======
 >>>>>>> parent of 796b644... Backup
                                     <ItemTemplate>
                                         <asp:Button ID="btnSeleccionar" Text="Seleccionar!!" runat="server"
@@ -185,6 +198,7 @@
                                     SortExpression="Dia" />
                             </Columns>
                         </asp:GridView>
+<<<<<<< HEAD
 <<<<<<< HEAD
 						   <%--<asp:GridView ID="GridViewCitas"  runat="server" AutoGenerateColumns="False" DataKeyNames="NumeroCita" DataSourceID="SqlDataSource_Citas" OnRowCommand="GridView_Citas_RowCommand" CssClass="table media-list fa-border table-bordered table-responsive table-condensed caption ajax-response wow bounce" BorderStyle="None" >
                             <Columns>
@@ -208,6 +222,10 @@
                     </SelectParameters>
                 </asp:SqlDataSource>--%>
 						
+=======
+                        <!-- GRIDVIEW END -->
+						</div>
+>>>>>>> parent of 796b644... Backup
 =======
                         <!-- GRIDVIEW END -->
 						</div>
@@ -337,9 +355,12 @@
                         </asp:SqlDataSource>
 	</div>
 <<<<<<< HEAD
+<<<<<<< HEAD
     
 </asp:Content>
 =======
+=======
+>>>>>>> parent of 796b644... Backup
     </form>  
 </body>
 </html>
