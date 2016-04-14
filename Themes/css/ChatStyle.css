@@ -136,7 +136,7 @@
     margin: 10px;
     background-color: #fb8c00 !important;
     padding: 4px;
-    border: solid 1px red;
+    border: solid 1px white;
 }
 
 
@@ -152,7 +152,7 @@
         cursor: move;
         background-color: #fb8c00 !important;
         border-bottom: #5f9482 solid 1px;
-        color: #1e4638;
+        color: white;
     }
 
     .draggable .selText

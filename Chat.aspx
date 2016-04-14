@@ -10,9 +10,6 @@
     <link rel="stylesheet" href="themes/Css/JQueryUI/themes/base/jquery.ui.all.css" />
     <link type="text/css"1 rel="stylesheet" href="material.css" />
 
-
-
-
     <!--Script references. -->
     <!--Reference the jQuery library. -->
     <script src="Scripts/jquery-2.2.0.min.js"></script>
@@ -22,8 +19,6 @@
     <script src="Scripts/jquery.ui.mouse.js"></script>
     <script src="Scripts/jquery.ui.draggable.js"></script>
     <script src="Scripts/jquery.ui.resizable.js"></script>
-
-
 
     <!--Reference the SignalR library. -->
     <script src="Scripts/jquery.signalR-1.0.1.js"></script>
@@ -350,7 +345,7 @@
             </div>
             <div class="messageBar">
                 <input class="textbox" type="text" id="txtMessage" />
-                <input id="btnSendMsg" type="button" value="Send" class="submitButton" />
+                <input id="btnSendMsg" type="button" value="Enviar" class="submitButton" />
             </div>
         </div>
 

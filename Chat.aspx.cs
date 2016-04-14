@@ -21,7 +21,7 @@ public partial class Chat : System.Web.UI.Page
         nombre = usuario.Nombre + " " + usuario.Apellidos + " (" + usuario.IdUsuario + ")";
         if (usuario.IdRol == 1)
         {
-            nombre += "[Coordinador]";
+            nombre = "[Coordinador]" + usuario.Nombre +" " +usuario.Apellidos;
         }
         
     }
