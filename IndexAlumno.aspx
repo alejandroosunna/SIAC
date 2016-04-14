@@ -24,34 +24,14 @@
            
             $('.button-collapse').sideNav({
                 menuWidth: 300, // Default is 240
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                 edge: 'right', // Choose the horizontal origin
                 closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-            }
- );
-=======
-=======
->>>>>>> parent of 796b644... Backup
-=======
->>>>>>> parent of 796b644... Backup
                 edge: 'left', // Choose the horizontal origin
                 closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
             });
-            
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 796b644... Backup
-=======
->>>>>>> parent of 796b644... Backup
-=======
->>>>>>> parent of 796b644... Backup
-        });
  
    </script>
-  
-   
+ 
    
 	<!-- Preloader -->
 
@@ -136,20 +116,9 @@
                                 <br />
                                 <asp:Label ID="lblPHoraCita" runat="server" Text=""></asp:Label>
                                 <br />
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
                                 <asp:Button ID="btnEliminarCita" runat="server" Text="Eliminar" OnClick="btnEliminarCita_Click" CssClass="btn orange white-text center"/>
-                                
-=======
-                                <asp:Button ID="btnEliminarCita" runat="server" Text="Eliminar" Visible="false" OnClick="btnEliminarCita_Click"/>
->>>>>>> parent of 796b644... Backup
-=======
-                                <asp:Button ID="btnEliminarCita" runat="server" Text="Eliminar" Visible="false" OnClick="btnEliminarCita_Click"/>
->>>>>>> parent of 796b644... Backup
-=======
-                                <asp:Button ID="btnEliminarCita" runat="server" Text="Eliminar" Visible="false" OnClick="btnEliminarCita_Click"/>
->>>>>>> parent of 796b644... Backup
+                               
                         </div>
                         <div class="card-action">
                          
@@ -176,26 +145,17 @@
                         <div class="scrolling-table-container row">
 
 					<div class="pfblock-header wow fadeInUp ajax-response">
-<<<<<<< HEAD
 						<h2 class="pfblock-title">Citas</h2>
 
                         <asp:GridView ID="GridViewCitas" runat="server" DataKeyNames="NumeroCita" AutoGenerateColumns="false" CssClass="table media-list fa-border table-bordered table-responsive table-condensed caption ajax-response wow bounce" BorderStyle="None" OnSelectedIndexChanged="GridViewCitas_SelectedIndexChanged">
                             <Columns>
-                                <%--<asp:TemplateField HeaderText="Seleccionar"> 
-=======
+                                <%--<asp:TemplateField HeaderText="Seleccionar">
 						<h2 class="pfblock-title center">Citas</h2>
                         <div class="scrolling-table-container">
                         <!-- GRIDVIEW START -->
                         <asp:GridView ID="GridViewCitas" runat="server"  DataKeyNames="NumeroCita" AutoGenerateColumns="false" CssClass="striped responsive-table " BorderStyle="None" OnSelectedIndexChanged="GridViewCitas_SelectedIndexChanged">
                             <Columns>
                                <%-- <asp:TemplateField HeaderText="Seleccionar"> 
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 796b644... Backup
-=======
->>>>>>> parent of 796b644... Backup
-=======
->>>>>>> parent of 796b644... Backup
                                     <ItemTemplate>
                                         <asp:Button ID="btnSeleccionar" Text="Seleccionar!!" runat="server"
                                             CommandName="SelectRow" CssClass="btn-link navbar-btn"
@@ -211,9 +171,6 @@
                                     SortExpression="Dia" />
                             </Columns>
                         </asp:GridView>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 						   <%--<asp:GridView ID="GridViewCitas"  runat="server" AutoGenerateColumns="False" DataKeyNames="NumeroCita" DataSourceID="SqlDataSource_Citas" OnRowCommand="GridView_Citas_RowCommand" CssClass="table media-list fa-border table-bordered table-responsive table-condensed caption ajax-response wow bounce" BorderStyle="None" >
                             <Columns>
                                 <asp:BoundField DataField="NumeroCita" HeaderText="NumeroCita" InsertVisible="False" ReadOnly="True" SortExpression="NumeroCita"  HeaderStyle-CssClass="text-center" />
@@ -236,18 +193,6 @@
                     </SelectParameters>
                 </asp:SqlDataSource>--%>
 						
-=======
-                        <!-- GRIDVIEW END -->
-						</div>
->>>>>>> parent of 796b644... Backup
-=======
-                        <!-- GRIDVIEW END -->
-						</div>
->>>>>>> parent of 796b644... Backup
-=======
-                        <!-- GRIDVIEW END -->
-						</div>
->>>>>>> parent of 796b644... Backup
 					</div>
                            
                         <%--<asp:SqlDataSource id="SqlDataDropDListMotivos" 
@@ -372,17 +317,8 @@
                             </SelectParameters>
                         </asp:SqlDataSource>
 	</div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     
 </asp:Content>
-=======
-=======
->>>>>>> parent of 796b644... Backup
-=======
->>>>>>> parent of 796b644... Backup
     </form>  
 </body>
 </html>
->>>>>>> parent of 796b644... Backup
