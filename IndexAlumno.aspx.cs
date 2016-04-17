@@ -12,6 +12,7 @@ public partial class IndexAlumno : System.Web.UI.Page
     public DataTable dt;
     public int estadoCita;
     public bool result;
+   
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -55,8 +56,8 @@ public partial class IndexAlumno : System.Web.UI.Page
                 csCitaHandler CitaHandler = new csCitaHandler();
                 csUsuario Usuario = (new csUsuarioHandler()).GetUsuario(Convert.ToInt32(Session["IdUsuario"]));
 
-                lblNombre.Text = "Alumno: " + Usuario.Nombre + " " + Usuario.Apellidos + ".";
-                lblNumControl.Text = "Numero de Control: " + Usuario.IdUsuario + ".";
+                //lblnombre.Text = "Alumno: " + Usuario.Nombre + " " + Usuario.Apellidos + ".";
+                //lblNumControl.Text = "Numero de Control: " + Usuario.IdUsuario + ".";
 
                 estadoCita = 1; //Agendada
                 csCita Cita = CitaHandler.GetCita(Convert.ToInt32(Session["IdUsuario"]), estadoCita);
@@ -73,20 +74,20 @@ public partial class IndexAlumno : System.Web.UI.Page
                     }
                     else
                     {
-                        lblPDiaCita.Text = "Fecha: " + Cita.FechaDisponible.ToString("dd / MM / yyyy");
-                        lblPHoraCita.Text = "Hora: " + Cita.FechaDisponible.ToString("t");
-                        btnEliminarCita.Visible = true;
-                        GridViewCitas.Visible = false;
-                        DropDListMotivos.Visible = false;
+                        //lblPDiaCita.Text = "Fecha: " + Cita.FechaDisponible.ToString("dd / MM / yyyy");
+                        //lblPHoraCita.Text = "Hora: " + Cita.FechaDisponible.ToString("t");
+                        //btnEliminarCita.Visible = true;
+                        //GridViewCitas.Visible = false;
+                        //DropDListMotivos.Visible = false;
                     }
                 }
                 else
                 {
-                    lblPDiaCita.Text = "Ningun pendiente.";
-                    lblPHoraCita.Text = "";
-                    btnEliminarCita.Visible = false;
-                    GridViewCitas.Visible = true;
-                    DropDListMotivos.Visible = true;
+                    //lblPDiaCita.Text = "Ningun pendiente.";
+                    //lblPHoraCita.Text = "";
+                    //btnEliminarCita.Visible = false;
+                    //GridViewCitas.Visible = true;
+                    //DropDListMotivos.Visible = true;
 
                     List<csCita> listCita = CitaHandler.GetListCitas(Usuario.IdCarrera, DateTime.Now);
 
@@ -107,8 +108,8 @@ public partial class IndexAlumno : System.Web.UI.Page
                         dt.Rows.Add(dr);
                     }
 
-                    GridViewCitas.DataSource = dt;
-                    GridViewCitas.DataBind();
+                    //GridViewCitas.DataSource = dt;
+                    //GridViewCitas.DataBind();
 
                     //DataTable Dt = new DataTable();
                     //DataView Dv = default(DataView);
@@ -152,32 +153,32 @@ public partial class IndexAlumno : System.Web.UI.Page
 
     public void enviarCorrreo()
     {
-        string name = txtName.Text;
-        string email = txtEmail.Text;
-        string msg = txtMesg.Text;
+        //string name = txtName.Text;
+        //string email = txtEmail.Text;
+        //string msg = txtMesg.Text;
 
-        if (new Emailhtml().enviarcorreo(name, email, msg))
-            Response.Write(@"<script language = 'javascript'>alert('Correo enviado') </script>");
-        else
-            Response.Write(@"<script language = 'javascript'>alert('Correo no enviado') </script>");
+        //if (new Emailhtml().enviarcorreo(name, email, msg))
+        //    Response.Write(@"<script language = 'javascript'>alert('Correo enviado') </script>");
+        //else
+        //    Response.Write(@"<script language = 'javascript'>alert('Correo no enviado') </script>");
     }
 
     protected void GridViewCitas_SelectedIndexChanged(object sender, EventArgs e)
     {
         csCita Cita = new csCita();
-        Cita.IdCita = Convert.ToInt32(GridViewCitas.DataKeys[GridViewCitas.SelectedRow.RowIndex].Value);
+        //Cita.IdCita = Convert.ToInt32(GridViewCitas.DataKeys[GridViewCitas.SelectedRow.RowIndex].Value);
         Cita.IdUsuario = Convert.ToInt32(Session["IdUsuario"]);
         Cita.FechaAgendada = DateTime.Now;
         Cita.Estado = 1;
 
-        int idMotivo = Convert.ToInt32(DropDListMotivos.SelectedItem.Value);
-        int checkCita = (new csCitaHandler()).CheckCitaAndAddCitaMotivo(Cita, idMotivo);
+        //int idMotivo = Convert.ToInt32(DropDListMotivos.SelectedItem.Value);
+        //int checkCita = (new csCitaHandler()).CheckCitaAndAddCitaMotivo(Cita, idMotivo);
 
-        if (checkCita == 1)
-            Response.Redirect("IndexAlumno.aspx?Cita=ex");
-        else if (checkCita == 0)
-            Response.Redirect("IndexAlumno.aspx?Cita=err");
-        else if (checkCita == 2)
-            Response.Redirect("IndexAlumno.aspx?Cita=pen");
+        //if (checkCita == 1)
+        //    Response.Redirect("IndexAlumno.aspx?Cita=ex");
+        //else if (checkCita == 0)
+        //    Response.Redirect("IndexAlumno.aspx?Cita=err");
+        //else if (checkCita == 2)
+        //    Response.Redirect("IndexAlumno.aspx?Cita=pen");
     }
 }
